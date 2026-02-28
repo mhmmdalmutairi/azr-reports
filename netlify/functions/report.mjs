@@ -8,7 +8,7 @@ export default async (req, context) => {
   const store = getStore("reports");
 
   if (req.method === "POST") {
-    const token = Netlify.env.get("UPLOAD_TOKEN");
+  const token = process.env.UPLOAD_TOKEN;
     const authHeader = req.headers.get("Authorization");
     if (authHeader !== `Bearer ${token}`) return new Response("Unauthorized", { status: 401 });
     const html = await req.text();
