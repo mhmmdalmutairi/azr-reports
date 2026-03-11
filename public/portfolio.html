@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="مشاريع AZR Innovation Studio — زاد، مقام، الفن في الطريق، ناجز، مسك، جراج">
+  <meta name="description" content="مشاريع AZR Innovation Studio — حملات إبداعية، استشارات استراتيجية، تطوير أعمال">
   <meta property="og:title" content="مشاريعنا — AZR Innovation Studio">
   <meta property="og:description" content="منظومة تشغيل نمو متكاملة — نبدأ بالاكتشاف، ونصل لتحقيق نمو مستدام وأثر ملموس">
   <meta property="og:image" content="https://azr-reports.pages.dev/assets/og-thumbnail.png">
@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/portfolio.css">
 </head>
 <body>
 
@@ -36,204 +37,600 @@
 </nav>
 
 <!-- Page Hero -->
-<section class="section" style="padding-top: 160px; padding-bottom: 60px; text-align: center;">
+<section class="section portfolio-hero">
   <div class="glow-orb glow-orb-1"></div>
-  <div class="container" style="position: relative; z-index: 1;">
+  <div class="container" style="position: relative; z-index: 1; text-align: center;">
     <span class="section-badge anim-hidden">PORTFOLIO</span>
-    <h1 class="anim-hidden" style="margin-top: 16px;">نحوّل الأفكار إلى <span class="highlight">واقع ملموس</span></h1>
-    <p class="section-desc anim-hidden" style="margin-top: 16px;">نصنع تجارب تترك أثراً مستداماً</p>
+    <h1 class="anim-hidden" style="margin-top: 16px;">+33 مشروع <span class="highlight">مع كبرى الجهات</span></h1>
+    <p class="section-desc anim-hidden" style="margin-top: 16px;">من الحملات الإبداعية إلى الاستراتيجيات الوطنية — نصنع أثراً يدوم</p>
   </div>
 </section>
 
-<!-- Project: زاد -->
-<section class="section" id="zad">
+<!-- Filter Tabs -->
+<section class="section" style="padding-top: 0; padding-bottom: 0;">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
-      <div class="card anim-hidden" style="background: linear-gradient(135deg, rgba(20,143,119,0.15), rgba(26,188,156,0.05)); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;">
-        <div style="font-size: 80px; margin-bottom: 16px;">&#x1F4B0;</div>
-        <div style="font-size: 14px; color: var(--azr-teal-light); letter-spacing: 2px;">GROWTH SYSTEM</div>
-      </div>
-      <div>
-        <span class="section-badge anim-hidden">تمكين رقمي / استدامة مالية</span>
-        <h2 class="anim-hidden" style="margin-top: 16px;">منظومة زاد</h2>
-        <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; line-height: 2;">
-          زاد هي القوة الدافعة وراء الاستدامة المالية لمنظمات القطاع غير الربحي بالمملكة. من الجمعية الصغيرة اللي تشتغل في قرية طرفية إلى المنظمات الكبرى اللي فيها مئات الموظفين — زاد شريك الاستدامة المالية اللي يفهم كل خطوة في رحلة المنظمة.
-        </p>
-        <ul class="service-features anim-hidden" style="margin-top: 20px;">
-          <li>تمكين القطاع غير الربحي رقمياً</li>
-          <li>تعزيز الاستدامة المالية للمنظمات</li>
-          <li>تجربة مستخدم عصرية وسهلة</li>
-          <li>مبادرات نوعية تخدم القطاع والمستفيدين</li>
-        </ul>
+    <div class="filter-tabs anim-hidden" id="filterTabs">
+      <button class="filter-tab active" data-filter="all">الكل</button>
+      <button class="filter-tab" data-filter="campaigns">حملات إبداعية</button>
+      <button class="filter-tab" data-filter="strategy">استشارات استراتيجية</button>
+      <button class="filter-tab" data-filter="social">أثر اجتماعي</button>
+      <button class="filter-tab" data-filter="tourism">سياحة وضيافة</button>
+      <button class="filter-tab" data-filter="growth">تطوير أعمال</button>
+      <button class="filter-tab" data-filter="events">فعاليات كبرى</button>
+    </div>
+  </div>
+</section>
+
+<!-- Clients Banner -->
+<section class="section" style="padding-top: 32px; padding-bottom: 32px;">
+  <div class="container">
+    <div class="clients-scroll anim-hidden">
+      <div class="clients-track">
+        <span class="client-name">stc</span>
+        <span class="client-dot"></span>
+        <span class="client-name">المراعي</span>
+        <span class="client-dot"></span>
+        <span class="client-name">مسك</span>
+        <span class="client-dot"></span>
+        <span class="client-name">وزارة العدل</span>
+        <span class="client-dot"></span>
+        <span class="client-name">هيئة الترفيه</span>
+        <span class="client-dot"></span>
+        <span class="client-name">Aroya Cruise</span>
+        <span class="client-dot"></span>
+        <span class="client-name">الغرفة التجارية</span>
+        <span class="client-dot"></span>
+        <span class="client-name">بنك التنمية</span>
+        <span class="client-dot"></span>
+        <span class="client-name">RCD Media</span>
+        <span class="client-dot"></span>
+        <span class="client-name">ريف العطور</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Project: MAQAM -->
-<section class="section" id="maqam" style="background: rgba(0,0,0,0.2);">
+<!-- === CASE STUDIES === -->
+<div id="projectsGrid">
+
+<!-- Case Study: stc Founding Day -->
+<section class="case-study section" data-category="campaigns">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
-      <div>
-        <span class="section-badge anim-hidden">الضيافة والابتكار المعماري</span>
-        <h2 class="anim-hidden" style="margin-top: 16px;">MAQAM</h2>
-        <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; line-height: 2;">
-          مفهوم فندقي مبتكر يعيد تعريف تجربة الإقامة من خلال وحدات معيارية (Modular Units) ذكية ومستدامة. يجمع مَقام بين سرعة التنفيذ، كفاءة التشغيل، والتصميم العصري لتوفير حلول ضيافة مرنة.
-        </p>
-        <div class="grid-4 anim-hidden" style="margin-top: 24px; gap: 12px;">
-          <div style="text-align: center; padding: 16px; background: var(--glass-bg); border-radius: var(--radius-md);">
-            <div style="font-size: 24px;">&#x1F3D7;</div>
-            <div style="font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0.6);">تصميم معياري</div>
-          </div>
-          <div style="text-align: center; padding: 16px; background: var(--glass-bg); border-radius: var(--radius-md);">
-            <div style="font-size: 24px;">&#x26A1;</div>
-            <div style="font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0.6);">تقليص 60%</div>
-          </div>
-          <div style="text-align: center; padding: 16px; background: var(--glass-bg); border-radius: var(--radius-md);">
-            <div style="font-size: 24px;">&#x1F33F;</div>
-            <div style="font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0.6);">استدامة بيئية</div>
-          </div>
-          <div style="text-align: center; padding: 16px; background: var(--glass-bg); border-radius: var(--radius-md);">
-            <div style="font-size: 24px;">&#x2B50;</div>
-            <div style="font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0.6);">تجربة فاخرة</div>
-          </div>
+    <div class="case-grid">
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #4F2D7F, #7B5EA7);">
+          <div class="case-emoji">🐫</div>
+          <div class="case-visual-label">FOUNDING DAY CAMPAIGN</div>
         </div>
       </div>
-      <div class="card anim-hidden" style="background: linear-gradient(135deg, rgba(27,79,114,0.15), rgba(46,134,193,0.05)); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;">
-        <div style="font-size: 80px; margin-bottom: 16px;">&#x1F3E8;</div>
-        <div style="font-size: 14px; color: var(--azr-blue-light); letter-spacing: 2px;">MODULAR HOTEL</div>
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">stc</span>
+          <span class="case-tag">حملة إبداعية</span>
+        </div>
+        <h2 class="anim-hidden">وسمنا الأصالة، مستقبلنا التقنية</h2>
+        <p class="anim-hidden">حملة يوم التأسيس السعودي لـ stc — إبل موسومة بشعار stc تجوب المواقع السعودية الأيقونية من يو ووك الرياض إلى كورنيش جدة وشاطئ نصف القمر ومقر stc الرئيسي.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">+10M</div>
+            <div class="metric-label">مشاهدة مستهدفة</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">+1M</div>
+            <div class="metric-label">تفاعل</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">#1</div>
+            <div class="metric-label">ترند</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>استراتيجية إبداعية</span>
+          <span>إنتاج محتوى</span>
+          <span>تفعيل ميداني</span>
+          <span>إدارة حملة رقمية</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Project: الفن في الطريق -->
-<section class="section" id="art">
+<!-- Case Study: stc Ftoor Ramadan -->
+<section class="case-study section" data-category="campaigns" style="background: rgba(0,0,0,0.15);">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
-      <div class="card anim-hidden" style="background: linear-gradient(135deg, rgba(142,68,173,0.15), rgba(187,143,206,0.05)); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;">
-        <div style="font-size: 80px; margin-bottom: 16px;">&#x1F3B5;</div>
-        <div style="font-size: 14px; color: #BB8FCE; letter-spacing: 2px;">MUSIC TRANSFORMS THE CITY</div>
+    <div class="case-grid case-grid-reverse">
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">stc</span>
+          <span class="case-tag">فعالية رمضانية</span>
+        </div>
+        <h2 class="anim-hidden">فطور stc — غينيس لأطول سفرة</h2>
+        <p class="anim-hidden">تحدي غينيس لأطول طاولة إفطار في العالم داخل مجمع stc بالرياض. ثلاثة سيناريوهات: 3,500 متر أو 4,000 متر أو 5,050 متر، تستضيف حتى 19,000 ضيف.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">5,050</div>
+            <div class="metric-label">متر طول السفرة</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">19K</div>
+            <div class="metric-label">ضيف</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">غينيس</div>
+            <div class="metric-label">رقم قياسي</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>تخطيط فعاليات</span>
+          <span>إدارة لوجستية</span>
+          <span>تنسيق غينيس</span>
+        </div>
       </div>
-      <div>
-        <span class="section-badge anim-hidden">مبادرة ثقافية / تفعيل حضري</span>
-        <h2 class="anim-hidden" style="margin-top: 16px;">الفن في الطريق</h2>
-        <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; line-height: 2;">
-          مبادرة نوعية تهدف إلى إعادة اكتشاف الفراغات العمرانية في المدينة من خلال الموسيقى. نحوّل الأماكن العامة والساحات المنسية إلى مسارح حية تعزز التفاعل الاجتماعي وتخلق تجربة إنسانية فريدة.
-        </p>
-        <ul class="service-features anim-hidden" style="margin-top: 20px;">
-          <li>إحياء الأماكن العامة</li>
-          <li>دعم المواهب الموسيقية المحلية</li>
-          <li>تعزيز الروابط الاجتماعية</li>
-          <li>رفع جودة الحياة ودعم الاقتصاد الإبداعي</li>
-        </ul>
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #1B6B4A, #2ECC71);">
+          <div class="case-emoji">🍽️</div>
+          <div class="case-visual-label">GUINNESS WORLD RECORD</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Project: ناجز -->
-<section class="section" id="najez" style="background: rgba(0,0,0,0.2);">
+<!-- Case Study: Flying Mesaharaty -->
+<section class="case-study section" data-category="campaigns">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
-      <div>
-        <span class="section-badge anim-hidden">تمكين التحول الرقمي</span>
-        <h2 class="anim-hidden" style="margin-top: 16px;">مركز ناجز للخدمات العدلية</h2>
-        <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; line-height: 2;">
-          قيادة أول مشروع تحولي ومبادرات استراتيجية لتحسين تجربة المستفيد وتطوير الهياكل التنظيمية للمشاريع الكبرى ضمن منظومة "علم".
-        </p>
-        <ul class="service-features anim-hidden" style="margin-top: 20px;">
-          <li>ابتكار خدمات عدلية ذات قيمة مضافة</li>
-          <li>الهيكلة التنظيمية للمشاريع الحرجة</li>
-          <li>قيادة تجربة العميل (CX) — مشروع "طريق مكة"</li>
-          <li>إدارة المبادرات الكبرى — مؤتمرات عالمية مثل LEAP</li>
-        </ul>
+    <div class="case-grid">
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #1A1A2E, #16213E);">
+          <div class="case-emoji">🕌</div>
+          <div class="case-visual-label">THE FLYING MESAHARATY</div>
+        </div>
       </div>
-      <div class="card anim-hidden" style="background: linear-gradient(135deg, rgba(212,160,23,0.15), rgba(244,208,63,0.05)); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;">
-        <div style="font-size: 80px; margin-bottom: 16px;">&#x2696;</div>
-        <div style="font-size: 14px; color: var(--azr-gold); letter-spacing: 2px;">DIGITAL JUSTICE</div>
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">stc</span>
+          <span class="case-tag">ابتكار رمضاني</span>
+        </div>
+        <h2 class="anim-hidden">المسحراتي الطائر</h2>
+        <p class="anim-hidden">أول مسحراتي بطائرة درون في العالم — درون تحمل فانوساً تراثياً وسماعات تبث نداء السحور فوق أحياء جدة التاريخية خلال العشر الأواخر من رمضان. مزيج فريد من التراث والتقنية.</p>
+        <div class="case-deliverables anim-hidden">
+          <span>ابتكار مفهوم</span>
+          <span>تقنية درونز</span>
+          <span>إنتاج محتوى</span>
+          <span>تفعيل ميداني</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Project: مسك -->
-<section class="section" id="misk">
+<!-- Case Study: Zad -->
+<section class="case-study section" data-category="social" style="background: rgba(0,0,0,0.15);">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
-      <div class="card anim-hidden" style="background: linear-gradient(135deg, rgba(46,134,193,0.15), rgba(93,173,226,0.05)); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;">
-        <div style="font-size: 80px; margin-bottom: 16px;">&#x1F31F;</div>
-        <div style="font-size: 14px; color: var(--azr-blue-light); letter-spacing: 2px;">YOUTH EMPOWERMENT</div>
+    <div class="case-grid case-grid-reverse">
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">منظومة زاد</span>
+          <span class="case-tag">تمكين رقمي</span>
+        </div>
+        <h2 class="anim-hidden">منظومة زاد — الاستدامة المالية للقطاع غير الربحي</h2>
+        <p class="anim-hidden">القوة الدافعة وراء الاستدامة المالية لمنظمات القطاع غير الربحي بالمملكة. من الجمعية الصغيرة في القرية الطرفية إلى المنظمات الكبرى — زاد شريك الاستدامة المالية.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">5B</div>
+            <div class="metric-label">ريال حجم التداول</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">+10M</div>
+            <div class="metric-label">مشترك</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">+12K</div>
+            <div class="metric-label">شريك</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">200M</div>
+            <div class="metric-label">ريال هدف 5 سنوات</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>تأسيس مؤسسة</span>
+          <span>نموذج عمل</span>
+          <span>تمكين رقمي</span>
+          <span>استدامة مالية</span>
+        </div>
       </div>
-      <div>
-        <span class="section-badge anim-hidden">تمكين الشباب وابتكار حلول</span>
-        <h2 class="anim-hidden" style="margin-top: 16px;">مؤسسة مسك</h2>
-        <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; line-height: 2;">
-          تصميم وإدارة حلول مبتكرة لمواجهة التحديات المجتمعية والريادية، مع تقديم استشارات متخصصة لقطاعات متنوعة لتعزيز الأثر المستدام.
-        </p>
-        <ul class="service-features anim-hidden" style="margin-top: 20px;">
-          <li>دليل القيم الوطنية — أنشطة لغرس القيم في الشباب</li>
-          <li>المشاركة في إعداد استراتيجية المؤسسة</li>
-          <li>الحملات الوطنية للقيم</li>
-        </ul>
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #148F77, #1ABC9C);">
+          <div class="case-emoji">💰</div>
+          <div class="case-visual-label">GROWTH SYSTEM</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Project: Garage -->
-<section class="section" id="garage" style="background: rgba(0,0,0,0.2);">
+<!-- Case Study: FIFA 2034 -->
+<section class="case-study section" data-category="events">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
-      <div>
-        <span class="section-badge anim-hidden">مساحة ملهمة وبيئة إبداعية</span>
-        <h2 class="anim-hidden" style="margin-top: 16px;">Garage</h2>
-        <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; line-height: 2;">
-          تأسيس مساحة ملهمة وبيئة إبداعية تشجع على ابتكار مشاريع ريادية، وتحفز تفاعل الأفراد مع اهتماماتهم، وتدفعهم للخروج من منطقة الراحة.
-        </p>
-        <ul class="service-features anim-hidden" style="margin-top: 20px;">
-          <li>تحسين عروض المشاريع التقديمية</li>
-          <li>جمع المعلومات الأساسية للفحص النافي للجهالة</li>
-          <li>إنشاء "غرفة بيانات" لإعداد ملفات المستثمرين</li>
-        </ul>
+    <div class="case-grid">
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #1B4F72, #2980B9);">
+          <div class="case-emoji">⚽</div>
+          <div class="case-visual-label">FIFA WORLD CUP 2034</div>
+        </div>
       </div>
-      <div class="card anim-hidden" style="background: linear-gradient(135deg, rgba(231,76,60,0.1), rgba(241,148,138,0.05)); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;">
-        <div style="font-size: 80px; margin-bottom: 16px;">&#x1F527;</div>
-        <div style="font-size: 14px; color: #E74C3C; letter-spacing: 2px;">STARTUP LAUNCHPAD</div>
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">كأس العالم 2034</span>
+          <span class="case-tag">استراتيجية وطنية</span>
+        </div>
+        <h2 class="anim-hidden">رؤية استراتيجية لكأس العالم 2034</h2>
+        <p class="anim-hidden">6 مبادرات استراتيجية: منصة التوأم الرقمي للعمليات، ضيافة فاخرة لـ 48 وفداً، وجهات ترفيهية للمشجعين، سوق المحتوى الرقمي العالمي، فرص أعمال للمنشآت الصغيرة والمتوسطة، وميثاق أخلاقي عالمي.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">+200M</div>
+            <div class="metric-label">ريال (منصة)</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">+500M</div>
+            <div class="metric-label">ريال (ضيافة)</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">6</div>
+            <div class="metric-label">مبادرات</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>تخطيط استراتيجي</span>
+          <span>نموذج إيرادات</span>
+          <span>توأم رقمي</span>
+          <span>ضيافة فاخرة</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Project: أولاد الرياض -->
-<section class="section" id="riyadh-kids">
+<!-- Case Study: Gamra -->
+<section class="case-study section" data-category="tourism" style="background: rgba(0,0,0,0.15);">
   <div class="container">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;">
-      <div class="card anim-hidden" style="background: linear-gradient(135deg, rgba(20,143,119,0.15), rgba(26,188,156,0.05)); min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;">
-        <div style="font-size: 80px; margin-bottom: 16px;">&#x1F91D;</div>
-        <div style="font-size: 14px; color: var(--azr-teal-light); letter-spacing: 2px;">COMMUNITY IMPACT</div>
+    <div class="case-grid case-grid-reverse">
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">منتجع قمرة / أسفار</span>
+          <span class="case-tag">سياحة وتنمية مجتمعية</span>
+        </div>
+        <h2 class="anim-hidden">نموذج الجبرة — التنمية من خلال السياحة</h2>
+        <p class="anim-hidden">نموذج تنمية شامل يحوّل عمليات المنتجع إلى تنمية مجتمعية حقيقية لمنطقة الباحة. يشمل 16 مبادرة، 10 أبعاد تحليلية، وإطار Mantis للأثر (الحفاظ، المجتمع، تجربة الضيف، المناصرة).</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">16</div>
+            <div class="metric-label">مبادرة</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">10</div>
+            <div class="metric-label">أبعاد تحليلية</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">4</div>
+            <div class="metric-label">محاور أثر</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>نموذج تنمية</span>
+          <span>دراسة أثر</span>
+          <span>خطة تشغيلية</span>
+          <span>حاسبة مستثمرين</span>
+        </div>
       </div>
-      <div>
-        <span class="section-badge anim-hidden">إدارة مشاريع استراتيجية</span>
-        <h2 class="anim-hidden" style="margin-top: 16px;">أولاد الرياض</h2>
-        <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; line-height: 2;">
-          تأسيس مؤسسة غير ربحية مختصة بتحقيق الشراكات الفاعلة وتقديم الخدمات النوعية في العمل التطوعي بهوية متميزة وفريق عمل مؤهل.
-        </p>
-        <ul class="service-features anim-hidden" style="margin-top: 20px;">
-          <li>إدارة المشاريع والتخطيط الاستراتيجي</li>
-          <li>تطوير الأعمال وبناء الشراكات</li>
-          <li>الكفاءة التشغيلية وتحقيق الأهداف</li>
-        </ul>
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #1E8449, #27AE60);">
+          <div class="case-emoji">🏔️</div>
+          <div class="case-visual-label">AL-JABRA MODEL</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Case Study: Tamkeen 360 -->
+<section class="case-study section" data-category="social">
+  <div class="container">
+    <div class="case-grid">
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #D4A017, #F4D03F);">
+          <div class="case-emoji">🤝</div>
+          <div class="case-visual-label">TAMKEEN 360</div>
+        </div>
+      </div>
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">بنك التنمية الاجتماعية</span>
+          <span class="case-tag">تمكين اجتماعي</span>
+        </div>
+        <h2 class="anim-hidden">تمكين 360 — تمكين شامل للأسر المنتجة</h2>
+        <p class="anim-hidden">مبادرة بالشراكة مع جمعية الادخار لتمكين الأسر المنتجة تمكيناً شاملاً 360 درجة. تستهدف 165,000 أسرة مع تقليص نسبة التعثر من 32% إلى 12%.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">165K</div>
+            <div class="metric-label">أسرة مستهدفة</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">+20B</div>
+            <div class="metric-label">ريال قروض</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">32→12%</div>
+            <div class="metric-label">تقليص التعثر</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>تصميم مبادرة</span>
+          <span>نموذج تمكين</span>
+          <span>شراكات استراتيجية</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study: Riyadh Chamber -->
+<section class="case-study section" data-category="strategy" style="background: rgba(0,0,0,0.15);">
+  <div class="container">
+    <div class="case-grid case-grid-reverse">
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">الغرفة التجارية بالرياض</span>
+          <span class="case-tag">استشارات استراتيجية</span>
+        </div>
+        <h2 class="anim-hidden">التوجه الاستراتيجي لقطاع المسؤولية الاجتماعية والأوقاف</h2>
+        <p class="anim-hidden">مشروع مدته 30 يوماً لتطوير وثيقة استراتيجية لمدة 3 سنوات، تشمل 6-8 مبادرات تأسيسية، ونموذج حوكمة متكامل لقطاعي المسؤولية الاجتماعية والأوقاف.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">3</div>
+            <div class="metric-label">سنوات استراتيجية</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">8</div>
+            <div class="metric-label">مبادرات تأسيسية</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">30</div>
+            <div class="metric-label">يوم تنفيذ</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>تخطيط استراتيجي</span>
+          <span>حوكمة</span>
+          <span>CSR</span>
+          <span>أوقاف</span>
+        </div>
+      </div>
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #1C2D4F, #2E4A7A);">
+          <div class="case-emoji">🏛️</div>
+          <div class="case-visual-label">STRATEGIC CONSULTING</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study: Aroya Cruise -->
+<section class="case-study section" data-category="growth">
+  <div class="container">
+    <div class="case-grid">
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #0E4D92, #1E90FF);">
+          <div class="case-emoji">🚢</div>
+          <div class="case-visual-label">AROYA CRUISE</div>
+        </div>
+      </div>
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">Aroya Cruise</span>
+          <span class="case-tag">تطوير إيرادات</span>
+        </div>
+        <h2 class="anim-hidden">أفكار إبداعية لزيادة إيرادات أرويا كروز</h2>
+        <p class="anim-hidden">حلول إبداعية لأول خط رحلات بحرية عربي. سفينة بحمولة 150,695 طن و 1,678 كابينة. معياريات مبنية على Royal Caribbean و CocoCay و Celebrity Cruises.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">150K</div>
+            <div class="metric-label">طن حمولة</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">1,678</div>
+            <div class="metric-label">كابينة</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>تطوير إيرادات</span>
+          <span>تحليل مقارن</span>
+          <span>ابتكار تجارب</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study: GEA Strategy -->
+<section class="case-study section" data-category="events" style="background: rgba(0,0,0,0.15);">
+  <div class="container">
+    <div class="case-grid case-grid-reverse">
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">هيئة الترفيه</span>
+          <span class="case-tag">استراتيجية ضيوف</span>
+        </div>
+        <h2 class="anim-hidden">تحويل ضيوف المشاهير إلى سفراء للسعودية</h2>
+        <p class="anim-hidden">استراتيجية لتحويل زيارات الشخصيات والمشاهير VIP إلى موسم الرياض وفعاليات هيئة الترفيه إلى شراكات طويلة المدى تروّج للسعودية عالمياً.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">128M</div>
+            <div class="metric-label">مسافر (2024)</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">150M</div>
+            <div class="metric-label">هدف 2031</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>استراتيجية ضيوف</span>
+          <span>علاقات مشاهير</span>
+          <span>تسويق وجهات</span>
+        </div>
+      </div>
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #8E44AD, #BB8FCE);">
+          <div class="case-emoji">🌟</div>
+          <div class="case-visual-label">CELEBRITY AMBASSADORS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study: Jazeera Paints / Social Impact -->
+<section class="case-study section" data-category="social">
+  <div class="container">
+    <div class="case-grid">
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #C0392B, #E74C3C);">
+          <div class="case-emoji">🎨</div>
+          <div class="case-visual-label">ESG & SOCIAL IMPACT</div>
+        </div>
+      </div>
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">دهانات الجزيرة / عائلة الرميح</span>
+          <span class="case-tag">أثر اجتماعي مستدام</span>
+        </div>
+        <h2 class="anim-hidden">التأثير الاجتماعي المستدام — التصور والمفاهيم</h2>
+        <p class="anim-hidden">تحوّل شامل في المسؤولية الاجتماعية لمجموعة دهانات الجزيرة وعائلة الرميح. يشمل تأسيس صندوق عائلي ومؤسسة خيرية، مع تطبيق أطر ESG و SROI و GRI الدولية.</p>
+        <div class="case-deliverables anim-hidden">
+          <span>استراتيجية ESG</span>
+          <span>صندوق عائلي</span>
+          <span>مؤسسة خيرية</span>
+          <span>قياس SROI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Study: RCD Media -->
+<section class="case-study section" data-category="growth" style="background: rgba(0,0,0,0.15);">
+  <div class="container">
+    <div class="case-grid case-grid-reverse">
+      <div class="case-content">
+        <div class="case-meta anim-hidden">
+          <span class="case-client">RCD Media Group</span>
+          <span class="case-tag">دخول سوق</span>
+        </div>
+        <h2 class="anim-hidden">شراكة استراتيجية لدخول السوق السعودي</h2>
+        <p class="anim-hidden">شراكة حصرية مع RCD Media Group (الأردن/قطر) — أكثر من 475 مشروع و 2,800 دقيقة رسوم متحركة — للدخول في السوق السعودي عبر AZR كشريك حصري. الهدف: مليون دولار+ إيرادات سنوية في السنة الأولى.</p>
+        <div class="case-metrics stagger-container anim-hidden">
+          <div class="metric stagger-item">
+            <div class="metric-value">475+</div>
+            <div class="metric-label">مشروع</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">$1M+</div>
+            <div class="metric-label">هدف سنوي</div>
+          </div>
+          <div class="metric stagger-item">
+            <div class="metric-value">2,800</div>
+            <div class="metric-label">دقيقة أنيميشن</div>
+          </div>
+        </div>
+        <div class="case-deliverables anim-hidden">
+          <span>تطوير أعمال</span>
+          <span>دخول سوق</span>
+          <span>شراكة حصرية</span>
+        </div>
+      </div>
+      <div class="case-visual anim-hidden">
+        <div class="case-card-visual" style="background: linear-gradient(135deg, #E07C24, #D4A017);">
+          <div class="case-emoji">🎬</div>
+          <div class="case-visual-label">MEDIA PARTNERSHIP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- More Projects Grid -->
+<section class="section" data-category="all">
+  <div class="container">
+    <h2 class="anim-hidden" style="text-align: center; margin-bottom: 48px;">المزيد من <span class="highlight">مشاريعنا</span></h2>
+    <div class="mini-projects-grid stagger-container">
+      <div class="mini-project stagger-item anim-hidden" data-category="campaigns">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #4F2D7F, #7B5EA7);">🎥</div>
+        <h4>رحلة الرسالة</h4>
+        <p>إعلان سينمائي ليوم التأسيس — تطور الرسالة من الجمل عام 1727 إلى ملايين الرسائل الرقمية</p>
+        <span class="mini-client">stc</span>
+      </div>
+      <div class="mini-project stagger-item anim-hidden" data-category="campaigns">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #E74C3C, #C0392B);">❤️</div>
+        <h4>عيد stc</h4>
+        <p>مبادرة إنسانية للمقيمين الذين يقضون العيد بعيداً عن عائلاتهم — هدايا وأكواد إنترنت وعيدية رقمية</p>
+        <span class="mini-client">stc</span>
+      </div>
+      <div class="mini-project stagger-item anim-hidden" data-category="tourism">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #1E8449, #27AE60);">🏨</div>
+        <h4>مَقام — فندق معياري</h4>
+        <p>وحدات فندقية ذكية ومستدامة تقلّص مدة البناء 60% مع تصميم عصري وتجربة فاخرة</p>
+        <span class="mini-client">MAQAM</span>
+      </div>
+      <div class="mini-project stagger-item anim-hidden" data-category="social">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #2E86C1, #5DADE2);">🌟</div>
+        <h4>مؤسسة مسك</h4>
+        <p>تصميم دليل القيم الوطنية وحملات وطنية لغرس القيم في الشباب السعودي</p>
+        <span class="mini-client">مسك</span>
+      </div>
+      <div class="mini-project stagger-item anim-hidden" data-category="growth">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #8B4513, #D2691E);">🌸</div>
+        <h4>خطة تحوّل ريف</h4>
+        <p>7 محاور تحوّل + استوديو ابتكار لإعادة بناء هوية العلامة واستراتيجية التسعير</p>
+        <span class="mini-client">ريف العطور</span>
+      </div>
+      <div class="mini-project stagger-item anim-hidden" data-category="events">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #1C2D4F, #2E4A7A);">🎵</div>
+        <h4>الموسيقى تحوّل المدينة</h4>
+        <p>إحياء الفراغات العمرانية من خلال الفن والموسيقى لتعزيز جودة الحياة الحضرية</p>
+        <span class="mini-client">مبادرة مجتمعية</span>
+      </div>
+      <div class="mini-project stagger-item anim-hidden" data-category="strategy">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #D4A017, #F4D03F);">⚖️</div>
+        <h4>ناجز — خدمات عدلية</h4>
+        <p>قيادة أول مشروع تحولي لمنظومة علم — ابتكار خدمات عدلية وإدارة مؤتمرات عالمية مثل LEAP</p>
+        <span class="mini-client">منظومة علم</span>
+      </div>
+      <div class="mini-project stagger-item anim-hidden" data-category="social">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #148F77, #1ABC9C);">🤲</div>
+        <h4>أولاد الرياض</h4>
+        <p>تأسيس مؤسسة غير ربحية لتحقيق الشراكات الفاعلة وتقديم خدمات تطوعية نوعية</p>
+        <span class="mini-client">مؤسسة غير ربحية</span>
+      </div>
+      <div class="mini-project stagger-item anim-hidden" data-category="strategy">
+        <div class="mini-icon" style="background: linear-gradient(135deg, #0E4D92, #1E90FF);">🌍</div>
+        <h4>وكالة التأثير السعودي</h4>
+        <p>مقترح لبناء وكالة وطنية للتأثير الاستراتيجي والتنمية الدولية بثلاثة أذرع تشغيلية</p>
+        <span class="mini-client">مبادرة وطنية</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /projectsGrid -->
 
 <!-- CTA -->
-<section class="section" style="text-align: center; background: rgba(0,0,0,0.2);">
-  <div class="container">
-    <h2 class="anim-hidden">"التركيز على بناء أسس مؤسسية قوية تضمن استدامة النمو"</h2>
-    <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; color: rgba(255,255,255,0.6);">عندك فكرة مشروع؟ خلنا نحولها لواقع</p>
+<section class="section" style="text-align: center;">
+  <div class="glow-orb glow-orb-3" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <h2 class="anim-hidden">عندك فكرة مشروع؟</h2>
+    <p class="anim-hidden" style="margin-top: 16px; font-size: 18px; color: rgba(255,255,255,0.6);">خلنا نحولها لواقع يترك أثر</p>
     <div style="margin-top: 32px;" class="anim-hidden">
       <a href="contact.html" class="btn btn-gold btn-lg">ابدأ مشروعك معنا</a>
     </div>
@@ -246,9 +643,9 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo footer-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio"></a>
-        <p>منظومة تشغيل نمو تهدف إلى رفع نمو الشركات والمؤسسات</p>
+        <p>منظومة تشغيل نمو تهدف إلى رفع نمو الشركات والمؤسسات عبر الابتكار والشراكة الاستراتيجية</p>
       </div>
-      <div class="footer-col"><h4>خدماتنا</h4><ul><li><a href="services.html">بناء المشاريع</a></li><li><a href="services.html">تصميم الخدمات</a></li><li><a href="services.html">استشارات النمو</a></li></ul></div>
+      <div class="footer-col"><h4>خدماتنا</h4><ul><li><a href="services.html#build">بناء المشاريع</a></li><li><a href="services.html#design">تصميم الخدمات</a></li><li><a href="services.html#growth">استشارات النمو</a></li></ul></div>
       <div class="footer-col"><h4>الشركة</h4><ul><li><a href="about.html">من نحن</a></li><li><a href="portfolio.html">مشاريعنا</a></li><li><a href="contact.html">تواصل معنا</a></li></ul></div>
       <div class="footer-col"><h4>تواصل</h4><ul><li><a href="mailto:HALA@Aazr.info">HALA@Aazr.info</a></li><li><a href="tel:+966541170272">+966 54 117 0272</a></li><li><a href="tel:+966550066918">+966 55 006 6918</a></li><li>الرياض، المملكة العربية السعودية</li></ul></div>
     </div>
@@ -263,33 +660,28 @@
 
 <script src="js/animations.js"></script>
 <script src="js/app.js"></script>
+<script>
+// Portfolio filter functionality
+const filterTabs = document.querySelectorAll('.filter-tab');
+const caseStudies = document.querySelectorAll('.case-study, .mini-project');
 
-<style>
-  @media (max-width: 768px) {
-    #zad > .container > div, #maqam > .container > div, #art > .container > div,
-    #najez > .container > div, #misk > .container > div, #garage > .container > div,
-    #riyadh-kids > .container > div {
-      grid-template-columns: 1fr !important;
-      gap: 24px !important;
-    }
-    /* On mobile: text first, image second */
-    #zad > .container > div > .card { order: 2; }
-    #art > .container > div > .card { order: 2; }
-    #misk > .container > div > .card { order: 2; }
-    #riyadh-kids > .container > div > .card { order: 2; }
-    /* Reduce image card height on mobile */
-    .card[style*="min-height: 380px"] {
-      min-height: 200px !important;
-    }
-    .card[style*="min-height: 380px"] div[style*="font-size: 80px"] {
-      font-size: 48px !important;
-    }
-    /* Hero padding */
-    section[style*="padding-top: 160px"] {
-      padding-top: 100px !important;
-      padding-bottom: 32px !important;
-    }
-  }
-</style>
+filterTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    filterTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+
+    document.querySelectorAll('[data-category]').forEach(item => {
+      if (filter === 'all' || item.dataset.category === filter) {
+        item.style.display = '';
+        item.style.opacity = '1';
+      } else {
+        item.style.opacity = '0';
+        setTimeout(() => { item.style.display = 'none'; }, 300);
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
