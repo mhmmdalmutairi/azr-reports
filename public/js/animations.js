@@ -1,4 +1,5 @@
 /* === AZR Innovation Studio — Animations Engine v3 (Apple-grade) === */
+console.log('[AZR] Animations Engine v3 loaded');
 
 // Intersection Observer for scroll animations — all animation types
 const animObserver = new IntersectionObserver((entries) => {
@@ -10,7 +11,9 @@ const animObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 
-document.querySelectorAll('.anim-hidden, .anim-slide-right, .anim-slide-left, .anim-scale, .section-reveal').forEach(el => {
+const animElements = document.querySelectorAll('.anim-hidden, .anim-slide-right, .anim-slide-left, .anim-scale, .section-reveal');
+console.log('[AZR] Found', animElements.length, 'elements to animate');
+animElements.forEach(el => {
   animObserver.observe(el);
 });
 
