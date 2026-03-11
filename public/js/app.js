@@ -1,14 +1,7 @@
 /* === AZR Innovation Studio — Main App === */
 
-// Navbar scroll effect
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-});
+// Navbar scroll effect — handled by animations.js
+// (kept here as reference only)
 
 // Mobile menu toggle
 const navToggle = document.getElementById('navToggle');
