@@ -1,28 +1,37 @@
 /* === AZR Innovation Studio — Design System Variables === */
-/* Colors extracted from company profile PDF */
+/* Colors from official AZR brand identity */
 
 :root {
   /* Primary Brand Colors */
-  --azr-navy: #0A1628;
-  --azr-blue: #1B4F72;
-  --azr-teal: #148F77;
+  --azr-navy: #1C2D4F;
+  --azr-navy-dark: #0F1B33;
+  --azr-blue: #1C2D4F;
+  --azr-orange: #E07C24;
   --azr-gold: #D4A017;
+  --azr-yellow: #F4D03F;
+  --azr-purple: #2C1B3D;
+  --azr-purple-light: #4A2D6B;
   --azr-white: #FFFFFF;
 
+  /* Aliases for backward compatibility */
+  --azr-teal: #E07C24;
+  --azr-teal-light: #E89A4F;
+
   /* Extended Palette */
-  --azr-blue-light: #2E86C1;
-  --azr-teal-light: #1ABC9C;
+  --azr-blue-light: #2E4A7A;
+  --azr-orange-light: #F0A050;
   --azr-gold-light: #F4D03F;
-  --azr-navy-light: #1C2D4A;
+  --azr-navy-light: #243758;
   --azr-gray: #AEB6BF;
   --azr-gray-light: #F0F3F5;
   --azr-gray-dark: #5D6D7E;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--azr-blue), var(--azr-teal));
-  --gradient-gold: linear-gradient(135deg, var(--azr-gold), var(--azr-gold-light));
-  --gradient-hero: linear-gradient(160deg, var(--azr-navy) 0%, var(--azr-blue) 50%, var(--azr-teal) 100%);
-  --gradient-dark: linear-gradient(180deg, var(--azr-navy) 0%, #060E1A 100%);
+  --gradient-primary: linear-gradient(135deg, var(--azr-orange), var(--azr-gold));
+  --gradient-gold: linear-gradient(135deg, var(--azr-gold), var(--azr-yellow));
+  --gradient-hero: linear-gradient(160deg, var(--azr-navy) 0%, var(--azr-navy-dark) 100%);
+  --gradient-dark: linear-gradient(180deg, var(--azr-navy) 0%, #0F1B33 100%);
+  --gradient-purple: linear-gradient(180deg, var(--azr-purple) 0%, #1A0F28 100%);
 
   /* Glass Effect */
   --glass-bg: rgba(255, 255, 255, 0.06);
@@ -30,11 +39,11 @@
   --glass-bg-light: rgba(255, 255, 255, 0.9);
   --glass-border-light: rgba(0, 0, 0, 0.08);
 
-  /* 4D Phase Colors */
-  --phase-discover: #2E86C1;
-  --phase-design: #8E44AD;
-  --phase-deliver: #148F77;
-  --phase-develop: #D4A017;
+  /* 4D Phase Colors — gold circles on purple bg */
+  --phase-discover: var(--azr-gold);
+  --phase-design: var(--azr-gold);
+  --phase-deliver: var(--azr-gold);
+  --phase-develop: var(--azr-gold);
 
   /* Typography */
   --font-primary: 'Tajawal', 'Segoe UI', sans-serif;
@@ -65,9 +74,10 @@
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
   --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.2);
-  --shadow-glow-blue: 0 8px 32px rgba(27, 79, 114, 0.3);
-  --shadow-glow-teal: 0 8px 32px rgba(20, 143, 119, 0.3);
+  --shadow-glow-blue: 0 8px 32px rgba(28, 45, 79, 0.3);
+  --shadow-glow-teal: 0 8px 32px rgba(224, 124, 36, 0.3);
   --shadow-glow-gold: 0 8px 32px rgba(212, 160, 23, 0.3);
+  --shadow-glow-orange: 0 8px 32px rgba(224, 124, 36, 0.3);
 
   /* Transitions */
   --transition-fast: 0.2s ease;
