@@ -472,10 +472,173 @@
   .timeline-4d { flex-wrap: wrap; }
   .timeline-4d::before { display: none; }
   .phase-step { flex: 0 0 calc(50% - var(--space-md)); }
+
+  /* Override inline 2-column grids on tablets */
+  [style*="grid-template-columns: 1fr 1fr"] {
+    gap: 32px !important;
+  }
 }
 
 @media (max-width: 768px) {
   .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
   .stat-number { font-size: 36px; }
   .phase-step { flex: 0 0 100%; }
+
+  /* ====== CRITICAL: Override ALL inline 2-column grids to 1 column ====== */
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns: repeat(2"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Fix inline flex layouts for hero buttons */
+  [style*="display: flex"][style*="gap: 16px"] {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Buttons — full width on mobile */
+  .btn-lg {
+    padding: 16px 32px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Cards — reduce padding on mobile */
+  .card {
+    padding: var(--space-lg);
+  }
+
+  .card[style*="padding: 40px"] {
+    padding: 24px !important;
+  }
+
+  .card[style*="padding: 32px"] {
+    padding: 20px !important;
+  }
+
+  /* Illustration cards — reduce min-height on mobile */
+  .card[style*="min-height: 400px"],
+  .card[style*="min-height: 380px"] {
+    min-height: 250px !important;
+  }
+
+  /* Large emoji icons — smaller on mobile */
+  .card [style*="font-size: 120px"] {
+    font-size: 72px !important;
+  }
+
+  .card [style*="font-size: 80px"] {
+    font-size: 56px !important;
+  }
+
+  /* Service features — better spacing on mobile */
+  .service-features li {
+    padding: 8px 0;
+    font-size: 15px;
+  }
+
+  /* Contact form — stack form fields */
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 16px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  .form-group label {
+    font-size: 15px;
+  }
+
+  /* Team cards */
+  .team-avatar-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team-card .team-bio {
+    font-size: 14px;
+  }
+
+  /* Partner logos — adjust for mobile */
+  .partners-grid {
+    gap: var(--space-md);
+  }
+
+  .partner-logo-img {
+    min-width: 120px;
+    min-height: 60px;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .partner-logo-img img {
+    max-width: 100px;
+    max-height: 45px;
+  }
+
+  /* Expert network names */
+  .partner-logo {
+    font-size: 13px;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* Phase numbers — smaller on mobile */
+  .phase-number {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+
+  /* Stat cards — better grid on mobile */
+  .stat-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .stat-number {
+    font-size: 32px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+  }
+}
+
+/* === Extra small mobile === */
+@media (max-width: 480px) {
+  .grid-3, .grid-4, .grid-5 {
+    gap: var(--space-md);
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .btn-lg {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+
+  .card {
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+  }
+
+  .service-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .value-card {
+    padding: var(--space-md);
+  }
+
+  .value-icon {
+    font-size: 32px;
+  }
+
+  .team-avatar-img {
+    width: 80px;
+    height: 80px;
+  }
 }
