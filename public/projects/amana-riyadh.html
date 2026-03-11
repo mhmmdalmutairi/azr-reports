@@ -27,7 +27,7 @@
   --azr-orange: #E07C24;
   --azr-gold: #D4A017;
 }
-html { scroll-behavior: smooth; scroll-snap-type: y mandatory; overflow-y: scroll; }
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; overflow-y: scroll; -webkit-overflow-scrolling: touch; }
 body {
   font-family: 'Tajawal', sans-serif;
   background: var(--dark);
@@ -145,8 +145,9 @@ body {
 
 /* ============ SLIDES COMMON ============ */
 .slide {
-  min-height: var(--slide-h); width: 100%;
-  scroll-snap-align: start; position: relative;
+  min-height: var(--slide-h); height: var(--slide-h); width: 100%;
+  scroll-snap-align: start; scroll-snap-stop: always;
+  position: relative;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden; padding: 60px 5%;
 }
@@ -391,9 +392,11 @@ body {
   100% { background-position: -200% center; }
 }
 .cover-scroll-hint {
-  position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 40px; left: 0; right: 0;
+  text-align: center;
   color: var(--green-pale); font-size: 0.85rem; opacity: 0.6;
   animation: float 2s ease-in-out infinite;
+  cursor: pointer; z-index: 2;
 }
 .cover-scroll-hint .arrow { display: block; text-align: center; font-size: 1.4rem; margin-top: 4px; }
 
@@ -680,23 +683,54 @@ body {
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
-  .slide { padding: 40px 6%; }
-  .case-card, .intervention-card { padding: 28px; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .case-highlights { grid-template-columns: repeat(2, 1fr); }
-  #nav-dots { left: 10px; gap: 8px; }
-  .nav-dot { width: 8px; height: 8px; }
+  html { scroll-snap-type: y mandatory; }
+  .slide { padding: 30px 5%; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; overflow-y: auto; }
+  .case-card, .intervention-card { padding: 20px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .case-highlights { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  #nav-dots { left: 8px; gap: 6px; }
+  .nav-dot { width: 7px; height: 7px; border-width: 1.5px; }
   .nav-dot .tooltip { display: none; }
-  .challenge-visual { flex-direction: column; }
-  .impact-grid { grid-template-columns: 1fr; }
+  .challenge-visual { flex-direction: column; gap: 16px; }
+  .impact-grid { grid-template-columns: 1fr; gap: 16px; }
   .roadmap::before { right: 18px; }
-  .roadmap-phase { padding: 0 60px 40px 0; }
-  .roadmap-dot { right: 6px; width: 24px; height: 24px; }
-  .season-grid { grid-template-columns: repeat(2, 1fr); }
-  #slide-counter { bottom: 16px; left: 16px; font-size: 0.75rem; padding: 4px 10px; }
-  #slide-counter .current { font-size: 0.85rem; }
-  #azr-header-logo { top: 14px; right: 14px; }
-  #azr-header-logo img { width: 60px; }
+  .roadmap-phase { padding: 0 50px 30px 0; }
+  .roadmap-dot { right: 6px; width: 22px; height: 22px; }
+  .season-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  #slide-counter { bottom: 12px; left: 12px; font-size: 0.7rem; padding: 3px 8px; }
+  #slide-counter .current { font-size: 0.8rem; }
+  #azr-header-logo { top: 10px; right: 10px; }
+  #azr-header-logo img { width: 50px; }
+  .slide-title { font-size: clamp(1.4rem, 5vw, 2rem); }
+  .slide-body { font-size: 0.95rem; line-height: 1.7; }
+  .case-title { font-size: clamp(1.3rem, 4vw, 1.8rem); }
+  .case-body { font-size: 0.9rem; line-height: 1.7; }
+  .intervention-title { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+  .intervention-body { font-size: 0.9rem; line-height: 1.7; }
+  .section-big-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .stat-number { font-size: 2.2rem; }
+  .stat-label { font-size: 0.8rem; }
+  .stat-card { padding: 20px 16px; border-radius: 14px; }
+  .case-highlight-num { font-size: 1.3rem; }
+  .case-highlight-label { font-size: 0.7rem; }
+  .impact-number { font-size: 2.2rem; }
+  .impact-desc { font-size: 0.85rem; }
+  .impact-card { padding: 24px 16px; }
+  .season-card { padding: 20px; border-radius: 14px; }
+  .season-icon { font-size: 2rem; }
+  .season-name { font-size: 1rem; }
+  .season-desc { font-size: 0.8rem; }
+  .insight-item { gap: 12px; padding: 16px 0; }
+  .insight-num { width: 36px; height: 36px; font-size: 1rem; border-radius: 10px; }
+  .insight-text { font-size: 0.9rem; }
+  .tag { font-size: 0.7rem; padding: 4px 12px; }
+  .closing-title { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+  .case-image-placeholder { aspect-ratio: 16/10; border-radius: 12px; }
+  .case-image-placeholder .img-icon { font-size: 2rem; }
+  .case-image-placeholder .img-label { font-size: 0.85rem; }
+  .cover-scroll-hint { bottom: 20px; font-size: 0.75rem; }
+  .blob { display: none; }
+  #particles-canvas { display: none; }
   .cover-logo-img { width: 90px; }
   .cover-title { font-size: clamp(1.6rem, 5vw, 2.4rem); }
   .cta-btn { padding: 14px 36px; font-size: 1rem; }
@@ -790,7 +824,7 @@ body {
     <div class="anim anim-up stagger-4 cover-by">شركة أزر للاستشارات الابتكارية</div>
     <a href="#slide-2" class="anim anim-up stagger-5 cta-btn" onclick="event.preventDefault(); document.getElementById('slide-2').scrollIntoView({behavior:'smooth'});">ابدأ العرض</a>
   </div>
-  <div class="cover-scroll-hint">
+  <div class="cover-scroll-hint" onclick="document.getElementById('slide-2').scrollIntoView({behavior:'smooth'});">
     <span>مرر للأسفل</span>
     <span class="arrow">&#8595;</span>
   </div>
@@ -1492,6 +1526,25 @@ body {
     var next = Math.max(0, Math.min(totalSlides - 1, current + direction));
     slides[next].scrollIntoView({ behavior: 'smooth' });
   }
+
+  // ---- TOUCH SWIPE NAVIGATION ----
+  var touchStartY = 0, touchStartTime = 0, isNavigating = false;
+  document.addEventListener('touchstart', function(e) {
+    touchStartY = e.touches[0].clientY;
+    touchStartTime = Date.now();
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    if (isNavigating) return;
+    var dy = touchStartY - e.changedTouches[0].clientY;
+    var elapsed = Date.now() - touchStartTime;
+    if (Math.abs(dy) > 50 && elapsed < 400) {
+      isNavigating = true;
+      if (dy > 0) navigateSlide(1);
+      else navigateSlide(-1);
+      setTimeout(function() { isNavigating = false; }, 800);
+    }
+  }, { passive: true });
 
   // ---- PARALLAX on case cards ----
   document.querySelectorAll('.case-card').forEach(function(card) {
