@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none">
+  <defs>
+    <linearGradient id="leapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00D4AA"/>
+      <stop offset="100%" style="stop-color:#0891B2"/>
+    </linearGradient>
+  </defs>
+  <!-- Rocket / Innovation Icon -->
+  <g transform="translate(20, 10)">
+    <!-- Arrow pointing up -->
+    <polygon points="25,5 40,30 32,30 32,55 18,55 18,30 10,30" fill="url(#leapGrad)" opacity="0.85"/>
+    <!-- Spark lines -->
+    <line x1="10" y1="50" x2="5" y2="58" stroke="url(#leapGrad)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <line x1="25" y1="55" x2="25" y2="63" stroke="url(#leapGrad)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    <line x1="40" y1="50" x2="45" y2="58" stroke="url(#leapGrad)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  </g>
+  <!-- Text -->
+  <text x="75" y="42" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="url(#leapGrad)" letter-spacing="4" text-anchor="start">LEAP</text>
+  <text x="75" y="58" font-family="Arial, sans-serif" font-size="9" fill="#0891B2" text-anchor="start">Tech Conference</text>
+</svg>

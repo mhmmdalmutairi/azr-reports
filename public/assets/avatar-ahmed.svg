@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B4F72"/>
+      <stop offset="100%" style="stop-color:#148F77"/>
+    </linearGradient>
+    <linearGradient id="shirtGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A1628"/>
+      <stop offset="100%" style="stop-color:#1B4F72"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <circle cx="100" cy="100" r="100" fill="url(#bgGrad1)"/>
+  <!-- Shoulders/Suit -->
+  <ellipse cx="100" cy="210" rx="80" ry="60" fill="url(#shirtGrad1)"/>
+  <!-- Neck -->
+  <rect x="85" y="130" width="30" height="25" rx="5" fill="#D4A76A" opacity="0.9"/>
+  <!-- Head -->
+  <ellipse cx="100" cy="95" rx="40" ry="45" fill="#D4A76A" opacity="0.9"/>
+  <!-- Hair -->
+  <ellipse cx="100" cy="60" rx="38" ry="20" fill="#1A1A2E"/>
+  <rect x="62" y="55" width="10" height="25" rx="5" fill="#1A1A2E"/>
+  <rect x="128" y="55" width="10" height="25" rx="5" fill="#1A1A2E"/>
+  <!-- Eyes -->
+  <ellipse cx="85" cy="92" rx="5" ry="4" fill="#1A1A2E"/>
+  <ellipse cx="115" cy="92" rx="5" ry="4" fill="#1A1A2E"/>
+  <!-- Eyebrows -->
+  <path d="M77,84 Q85,80 93,84" stroke="#1A1A2E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M107,84 Q115,80 123,84" stroke="#1A1A2E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Nose -->
+  <path d="M100,95 L97,108 Q100,110 103,108 Z" fill="#C09A5C" opacity="0.6"/>
+  <!-- Smile -->
+  <path d="M88,115 Q100,125 112,115" stroke="#B8896B" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Beard shadow -->
+  <path d="M70,105 Q75,140 100,145 Q125,140 130,105" fill="#1A1A2E" opacity="0.3"/>
+  <!-- Suit collar -->
+  <polygon points="85,155 100,175 75,175" fill="white" opacity="0.9"/>
+  <polygon points="115,155 100,175 125,175" fill="white" opacity="0.9"/>
+  <!-- Tie -->
+  <polygon points="97,165 103,165 101,190 99,190" fill="#D4A017"/>
+</svg>
