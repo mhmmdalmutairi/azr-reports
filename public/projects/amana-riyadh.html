@@ -155,8 +155,8 @@ body {
   display: flex; align-items: center; justify-content: center;
   overflow-y: auto; padding: 60px 5%;
   opacity: 0; pointer-events: none;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transform: translateY(20px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateY(14px);
 }
 .slide.on {
   opacity: 1; pointer-events: all;
@@ -173,16 +173,83 @@ body {
 .slide-light .slide-next span { color: rgba(0,0,0,0.3); }
 .slide-case .slide-next span { color: rgba(0,0,0,0.3); }
 
-/* ============ SLIDE REFS ============ */
-.slide-refs {
-  position: absolute; bottom: 55px; left: 5%; right: 5%;
-  font-size: 0.85rem; color: rgba(0,0,0,0.5); line-height: 2.2;
-  background: rgba(255,255,255,0.6); backdrop-filter: blur(8px);
-  padding: 8px 16px; border-radius: 10px;
+/* ============ SLIDE REFS — TOGGLE PANEL ============ */
+.refs-toggle {
+  position: absolute; bottom: 56px; left: 5%;
+  z-index: 15; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 16px; border-radius: 20px;
+  background: rgba(255,255,255,0.7); backdrop-filter: blur(10px);
   border: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.78rem; font-weight: 700; color: rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  user-select: none;
 }
-.slide-dark .slide-refs { color: rgba(255,255,255,0.6); background: rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.08); }
-.slide-section .slide-refs { color: rgba(255,255,255,0.6); background: rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.08); }
+.refs-toggle:hover { background: rgba(255,255,255,0.9); color: var(--azr-orange); }
+.refs-toggle .refs-icon { font-size: 0.9rem; }
+.slide-dark .refs-toggle { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+.slide-dark .refs-toggle:hover { background: rgba(255,255,255,0.18); color: var(--azr-orange); }
+.slide-section .refs-toggle { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+
+.slide-refs {
+  position: absolute; bottom: 88px; left: 5%; right: 5%;
+  z-index: 14;
+  font-size: 0.82rem; color: rgba(0,0,0,0.6); line-height: 1.6;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+  padding: 0; border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  max-height: 0; overflow: hidden;
+  opacity: 0; pointer-events: none;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
+}
+.slide-refs.open {
+  max-height: 300px; opacity: 1; pointer-events: all;
+  padding: 14px 18px;
+}
+.slide-refs a.ref-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px; margin: 3px 0;
+  border-radius: 8px; text-decoration: none;
+  color: rgba(0,0,0,0.6); font-size: 0.8rem;
+  transition: background 0.2s ease;
+}
+.slide-refs a.ref-row:hover { background: rgba(224,124,36,0.08); }
+.slide-refs .ref-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 22px; height: 22px; padding: 2px 6px;
+  background: var(--azr-orange); color: white;
+  border-radius: 6px; font-size: 0.7rem; font-weight: 800;
+  flex-shrink: 0;
+}
+.slide-refs .ref-text { flex: 1; }
+
+.slide-dark .slide-refs { background: rgba(0,0,0,0.85); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.slide-dark .slide-refs a.ref-row { color: rgba(255,255,255,0.7); }
+.slide-dark .slide-refs a.ref-row:hover { background: rgba(255,255,255,0.08); }
+.slide-section .slide-refs { background: rgba(0,0,0,0.85); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.slide-section .slide-refs a.ref-row { color: rgba(255,255,255,0.7); }
+.slide-section .slide-refs a.ref-row:hover { background: rgba(255,255,255,0.08); }
+
+/* ============ DOWNLOAD BUTTON ============ */
+#download-btn {
+  position: fixed; bottom: 28px; right: 28px;
+  z-index: 9998; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: 25px;
+  background: rgba(28,45,79,0.9); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8); font-size: 0.82rem; font-weight: 600;
+  font-family: 'Tajawal', sans-serif;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+#download-btn:hover {
+  background: var(--azr-orange); color: white;
+  box-shadow: 0 4px 20px rgba(224,124,36,0.4);
+}
+#download-btn .dl-icon { font-size: 1rem; }
 
 /* ============ PARTICLE CANVAS ============ */
 #particles-canvas {
@@ -763,10 +830,15 @@ body {
   .cover-logo-img { max-width: 200px !important; width: 200px !important; }
   .cover-title { font-size: clamp(1.6rem, 5vw, 2.4rem); }
   .cta-btn { padding: 14px 36px; font-size: 1rem; }
-  .ref-link { font-size: 0.65rem; }
+  .ref-link { font-size: 0.65rem; min-width: 18px; min-height: 18px; padding: 2px 5px; }
   .cover-client-logo, .cover-client-logo-fallback { width: 60px; height: 60px; }
-  .slide-refs { font-size: 0.6rem; bottom: 40px; }
-  .slide-next { bottom: 16px; }
+  .refs-toggle { bottom: 46px; font-size: 0.7rem; padding: 5px 12px; }
+  .slide-refs { bottom: 74px; font-size: 0.72rem; }
+  .slide-refs a.ref-row { padding: 6px 8px; gap: 8px; }
+  .slide-refs .ref-num { min-width: 18px; height: 18px; font-size: 0.6rem; }
+  .slide-next { bottom: 14px; }
+  #download-btn { bottom: 16px; right: 16px; padding: 8px 14px; font-size: 0.72rem; }
+  #slide-counter { bottom: 16px; left: 16px; font-size: 0.72rem; padding: 4px 10px; }
 }
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr; }
@@ -776,32 +848,67 @@ body {
 }
 
 /* ============ PRINT ============ */
+@page {
+  size: landscape;
+  margin: 0;
+}
 @media print {
-  html, body { overflow: visible; height: auto; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  html, body { overflow: visible; height: auto; margin: 0; padding: 0; background: white; }
   .slides-wrap { height: auto; overflow: visible; }
   .slide {
     position: relative !important; opacity: 1 !important; pointer-events: all !important;
     transform: none !important;
-    min-height: auto; page-break-after: always;
-    page-break-inside: avoid; padding: 40px;
+    width: 100vw; height: 100vh;
+    min-height: 100vh; max-height: 100vh;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    page-break-after: always; page-break-inside: avoid;
+    padding: 5vh 6vw;
     box-shadow: none !important;
+    margin: 0;
   }
-  #nav-dots, #progress-bar, #loader, .slide-next, #slide-counter, #azr-header-logo, #particles-canvas { display: none !important; }
+  .slide:last-child { page-break-after: auto; }
+  .slide-content { max-width: 90vw; }
+  #nav-dots, #progress-bar, #loader, .slide-next, #slide-counter, #azr-header-logo, #particles-canvas, #download-btn, .refs-toggle { display: none !important; }
+  .slide-refs {
+    max-height: none !important; opacity: 1 !important;
+    padding: 8px 14px !important; position: absolute !important;
+    bottom: 2vh !important; left: 4vw !important; right: 4vw !important;
+    font-size: 0.65rem !important; background: rgba(255,255,255,0.85) !important;
+    border-radius: 8px !important; pointer-events: none !important;
+  }
+  .slide-dark .slide-refs, .slide-section .slide-refs {
+    background: rgba(0,0,0,0.5) !important; color: rgba(255,255,255,0.8) !important;
+  }
+  .slide-refs a.ref-row { padding: 3px 6px !important; font-size: 0.6rem !important; }
+  .slide-refs .ref-num { min-width: 16px !important; height: 16px !important; font-size: 0.55rem !important; }
   .blob { display: none !important; }
   .cover-decoration { display: none !important; }
   .anim { opacity: 1 !important; transform: none !important; transition: none !important; }
   .stat-card, .impact-card, .case-card, .intervention-card {
     box-shadow: none !important; border: 1px solid #ddd;
   }
-  body { background: white; }
-  .slide-dark { background: var(--green-deep) !important; }
-  .slide-section { background: var(--green-deep) !important; }
+  .slide-dark, .slide-section {
+    background: var(--green-deep) !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+  .slide-light, .slide-case {
+    background: var(--cream) !important;
+  }
   .cover-title, .section-big-title, .closing-title {
     -webkit-text-fill-color: initial !important;
   }
   .cover-title { color: var(--white) !important; }
   .section-big-title { color: var(--gold) !important; }
   .closing-title { color: var(--gold) !important; }
+  .stats-grid { gap: 12px !important; }
+  .stat-number { font-size: 2rem !important; }
+  .slide-title { font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important; }
+  .slide-body { font-size: 0.95rem !important; }
+  .case-highlights { gap: 10px !important; }
+  .season-grid { gap: 10px !important; }
+  .ref-link { print-color-adjust: exact !important; }
   .stat-number, .impact-number {
     -webkit-text-fill-color: initial !important;
   }
@@ -836,6 +943,11 @@ body {
 
 <!-- ========== NAV DOTS ========== -->
 <nav id="nav-dots"></nav>
+
+<!-- ========== DOWNLOAD BUTTON ========== -->
+<a id="download-btn" onclick="window.print(); return false;" title="تحميل كـ PDF">
+  <span class="dl-icon">⬇</span> تحميل PDF
+</a>
 
 <!-- ========== SLIDES WRAP ========== -->
 <div class="slides-wrap" id="slidesWrap">
@@ -892,11 +1004,12 @@ body {
       </div>
     </div>
   </div>
+  <div class="refs-toggle" onclick="toggleRefs(this)"><span class="refs-icon">📎</span> مصادر</div>
   <div class="slide-refs">
-    <a href="https://www.saudigreeninitiative.org/" target="_blank" class="ref-link">1</a> مبادرة السعودية الخضراء &nbsp;
-    <a href="https://www.rcrc.gov.sa/en/projects/green-riyadh" target="_blank" class="ref-link">2</a> الهيئة الملكية — الرياض الخضراء &nbsp;
-    <a href="https://www.rcrc.gov.sa/en/projects" target="_blank" class="ref-link">3</a> تقارير الهيئة الملكية &nbsp;
-    <a href="https://www.rcrc.gov.sa/en/projects/neighborhood-parks" target="_blank" class="ref-link">4</a> خطط حدائق الأحياء
+    <a class="ref-row" href="https://www.saudigreeninitiative.org/" target="_blank" rel="noopener"><span class="ref-num">1</span><span class="ref-text">مبادرة السعودية الخضراء</span></a>
+    <a class="ref-row" href="https://www.rcrc.gov.sa/en/projects/green-riyadh" target="_blank" rel="noopener"><span class="ref-num">2</span><span class="ref-text">الهيئة الملكية — الرياض الخضراء</span></a>
+    <a class="ref-row" href="https://www.rcrc.gov.sa/en/projects" target="_blank" rel="noopener"><span class="ref-num">3</span><span class="ref-text">تقارير الهيئة الملكية</span></a>
+    <a class="ref-row" href="https://www.rcrc.gov.sa/en/projects/neighborhood-parks" target="_blank" rel="noopener"><span class="ref-num">4</span><span class="ref-text">خطط حدائق الأحياء</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(2)"><span>التحدي</span><span class="arr">&#8595;</span></div>
 </section>
@@ -975,10 +1088,11 @@ body {
       </div>
     </div>
   </div>
+  <div class="refs-toggle" onclick="toggleRefs(this)"><span class="refs-icon">📎</span> مصادر</div>
   <div class="slide-refs">
-    <a href="https://www.centralparknyc.org/activities" target="_blank" class="ref-link">5</a> Central Park — Activities &nbsp;
-    <a href="https://www.centralparknyc.org/about/annual-report" target="_blank" class="ref-link">6</a> Central Park — Annual Report &nbsp;
-    <a href="https://www.centralparknyc.org/about" target="_blank" class="ref-link">7</a> Central Park — About
+    <a class="ref-row" href="https://www.centralparknyc.org/activities" target="_blank" rel="noopener"><span class="ref-num">5</span><span class="ref-text">Central Park — Activities</span></a>
+    <a class="ref-row" href="https://www.centralparknyc.org/about/annual-report" target="_blank" rel="noopener"><span class="ref-num">6</span><span class="ref-text">Central Park — Annual Report</span></a>
+    <a class="ref-row" href="https://www.centralparknyc.org/about" target="_blank" rel="noopener"><span class="ref-num">7</span><span class="ref-text">Central Park — About</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(5)"><span>سوبركيلن</span><span class="arr">&#8595;</span></div>
 </section>
@@ -1020,10 +1134,11 @@ body {
       </div>
     </div>
   </div>
+  <div class="refs-toggle" onclick="toggleRefs(this)"><span class="refs-icon">📎</span> مصادر</div>
   <div class="slide-refs">
-    <a href="https://big.dk/#projects-sup" target="_blank" class="ref-link">8</a> BIG Architects — Superkilen &nbsp;
-    <a href="https://big.dk/#projects-sup" target="_blank" class="ref-link">9</a> BIG — Urban Elements &nbsp;
-    <a href="https://big.dk/#projects-sup" target="_blank" class="ref-link">10</a> BIG — Represented Countries
+    <a class="ref-row" href="https://big.dk/#projects-sup" target="_blank" rel="noopener"><span class="ref-num">8</span><span class="ref-text">BIG Architects — Superkilen</span></a>
+    <a class="ref-row" href="https://big.dk/#projects-sup" target="_blank" rel="noopener"><span class="ref-num">9</span><span class="ref-text">BIG — Urban Elements</span></a>
+    <a class="ref-row" href="https://big.dk/#projects-sup" target="_blank" rel="noopener"><span class="ref-num">10</span><span class="ref-text">BIG — Represented Countries</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(6)"><span>حدائق الخليج</span><span class="arr">&#8595;</span></div>
 </section>
@@ -1065,9 +1180,10 @@ body {
       </div>
     </div>
   </div>
+  <div class="refs-toggle" onclick="toggleRefs(this)"><span class="refs-icon">📎</span> مصادر</div>
   <div class="slide-refs">
-    <a href="https://www.gardensbythebay.com.sg/en/the-gardens/about-us.html" target="_blank" class="ref-link">11</a> Gardens by the Bay — About Us &nbsp;
-    <a href="https://www.gardensbythebay.com.sg/en/things-to-do/attractions/supertree-grove.html" target="_blank" class="ref-link">12</a> Supertree Grove
+    <a class="ref-row" href="https://www.gardensbythebay.com.sg/en/the-gardens/about-us.html" target="_blank" rel="noopener"><span class="ref-num">11</span><span class="ref-text">Gardens by the Bay — About Us</span></a>
+    <a class="ref-row" href="https://www.gardensbythebay.com.sg/en/things-to-do/attractions/supertree-grove.html" target="_blank" rel="noopener"><span class="ref-num">12</span><span class="ref-text">Supertree Grove</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(7)"><span>سيولو 7017</span><span class="arr">&#8595;</span></div>
 </section>
@@ -1109,9 +1225,10 @@ body {
       </div>
     </div>
   </div>
+  <div class="refs-toggle" onclick="toggleRefs(this)"><span class="refs-icon">📎</span> مصادر</div>
   <div class="slide-refs">
-    <a href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" class="ref-link">13</a> Seoul Metropolitan Government — Seoullo 7017 &nbsp;
-    <a href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" class="ref-link">14</a> Seoul Metropolitan Government — Trail Length
+    <a class="ref-row" href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" rel="noopener"><span class="ref-num">13</span><span class="ref-text">Seoul Metropolitan Government — Seoullo 7017</span></a>
+    <a class="ref-row" href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" rel="noopener"><span class="ref-num">14</span><span class="ref-text">Seoul Metropolitan Government — Trail Length</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(8)"><span>رؤى مستنتجة</span><span class="arr">&#8595;</span></div>
 </section>
@@ -1485,9 +1602,20 @@ body {
 
   var navDots = document.querySelectorAll('.nav-dot');
 
+  // ---- TOGGLE REFS ----
+  window.toggleRefs = function(btn) {
+    var refsPanel = btn.nextElementSibling;
+    if (!refsPanel) return;
+    refsPanel.classList.toggle('open');
+  };
+  function closeAllRefs() {
+    document.querySelectorAll('.slide-refs.open').forEach(function(r) { r.classList.remove('open'); });
+  }
+
   // ---- GO TO SLIDE ----
   window.goSlide = function(n) {
     if (n < 0 || n >= totalSlides) return;
+    closeAllRefs();
     // Remove .on from all slides
     slides.forEach(function(s) {
       s.classList.remove('on');
@@ -1630,18 +1758,17 @@ body {
   document.addEventListener('wheel', function(e) {
     e.preventDefault();
     if (wheelLocked) return;
-    // Accumulate delta to handle trackpad micro-scrolls
     wheelAccum += e.deltaY;
     clearTimeout(wheelTimer);
     wheelTimer = setTimeout(function() {
-      if (Math.abs(wheelAccum) > 30) {
+      if (Math.abs(wheelAccum) > 25) {
         wheelLocked = true;
         if (wheelAccum > 0) goSlide(curSlide + 1);
         else goSlide(curSlide - 1);
-        setTimeout(function() { wheelLocked = false; }, 1200);
+        setTimeout(function() { wheelLocked = false; }, 600);
       }
       wheelAccum = 0;
-    }, 80);
+    }, 50);
   }, { passive: false });
 
   // ---- PARALLAX on case cards ----
