@@ -1,41 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <defs>
-    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#148F77"/>
-      <stop offset="100%" style="stop-color:#D4A017"/>
-    </linearGradient>
-    <linearGradient id="shirtGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0A1628"/>
-      <stop offset="100%" style="stop-color:#148F77"/>
+    <linearGradient id="bgM" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A4A4A"/>
+      <stop offset="100%" style="stop-color:#6B6B6B"/>
     </linearGradient>
   </defs>
-  <!-- Background -->
-  <circle cx="100" cy="100" r="100" fill="url(#bgGrad2)"/>
-  <!-- Shoulders/Suit -->
-  <ellipse cx="100" cy="210" rx="80" ry="60" fill="url(#shirtGrad2)"/>
+  <!-- Gray background like the actual photo -->
+  <circle cx="100" cy="100" r="100" fill="url(#bgM)"/>
+  <!-- Thobe (white) -->
+  <ellipse cx="100" cy="215" rx="75" ry="65" fill="#F5F5F0"/>
   <!-- Neck -->
-  <rect x="85" y="130" width="30" height="25" rx="5" fill="#C8A882" opacity="0.9"/>
+  <rect x="85" y="128" width="30" height="22" rx="5" fill="#C8A882"/>
   <!-- Head -->
-  <ellipse cx="100" cy="95" rx="40" ry="45" fill="#C8A882" opacity="0.9"/>
-  <!-- Hair -->
-  <ellipse cx="100" cy="58" rx="38" ry="22" fill="#2C1810"/>
-  <rect x="62" y="55" width="10" height="28" rx="5" fill="#2C1810"/>
-  <rect x="128" y="55" width="10" height="28" rx="5" fill="#2C1810"/>
-  <!-- Eyes -->
-  <ellipse cx="85" cy="92" rx="5" ry="4" fill="#2C1810"/>
-  <ellipse cx="115" cy="92" rx="5" ry="4" fill="#2C1810"/>
-  <!-- Eyebrows -->
-  <path d="M77,84 Q85,79 93,83" stroke="#2C1810" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M107,83 Q115,79 123,84" stroke="#2C1810" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <!-- Nose -->
-  <path d="M100,95 L97,108 Q100,110 103,108 Z" fill="#B8956E" opacity="0.6"/>
+  <ellipse cx="100" cy="92" rx="38" ry="42" fill="#C8A882"/>
+  <!-- Red Shemagh -->
+  <ellipse cx="100" cy="58" rx="42" ry="22" fill="#C62828"/>
+  <rect x="58" y="55" width="84" height="10" rx="3" fill="#C62828"/>
+  <!-- White pattern on shemagh -->
+  <line x1="65" y1="50" x2="65" y2="65" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="75" y1="48" x2="75" y2="65" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="85" y1="47" x2="85" y2="65" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="95" y1="46" x2="95" y2="65" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="105" y1="46" x2="105" y2="65" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="115" y1="47" x2="115" y2="65" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="125" y1="48" x2="125" y2="65" stroke="white" stroke-width="1" opacity="0.4"/>
+  <line x1="135" y1="50" x2="135" y2="65" stroke="white" stroke-width="1" opacity="0.4"/>
+  <!-- Agal (black ring) -->
+  <ellipse cx="100" cy="52" rx="32" ry="6" fill="none" stroke="#1A1A1A" stroke-width="4"/>
+  <!-- Shemagh draping sides -->
+  <path d="M58,65 L50,110 Q55,115 60,110 L62,70" fill="#C62828" opacity="0.9"/>
+  <path d="M142,65 L150,110 Q145,115 140,110 L138,70" fill="#C62828" opacity="0.9"/>
+  <!-- Glasses (round) -->
+  <circle cx="85" cy="90" r="10" fill="none" stroke="#333" stroke-width="2"/>
+  <circle cx="115" cy="90" r="10" fill="none" stroke="#333" stroke-width="2"/>
+  <line x1="95" y1="90" x2="105" y2="90" stroke="#333" stroke-width="2"/>
+  <!-- Eyes behind glasses -->
+  <ellipse cx="85" cy="91" rx="3.5" ry="3" fill="#1A1A2E"/>
+  <ellipse cx="115" cy="91" rx="3.5" ry="3" fill="#1A1A2E"/>
   <!-- Smile -->
-  <path d="M88,115 Q100,123 112,115" stroke="#A8866B" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <!-- Light beard -->
-  <path d="M72,108 Q78,138 100,142 Q122,138 128,108" fill="#2C1810" opacity="0.2"/>
-  <!-- Suit collar / Thobe style -->
-  <path d="M80,155 L100,148 L120,155 L120,175 L80,175 Z" fill="white" opacity="0.95"/>
-  <!-- Collar button -->
-  <circle cx="100" cy="158" r="2" fill="#D4A017"/>
-  <circle cx="100" cy="168" r="2" fill="#D4A017"/>
+  <path d="M85,110 Q100,122 115,110" stroke="#A8866B" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Beard -->
+  <path d="M72,105 Q78,138 100,142 Q122,138 128,105" fill="#2C1810" opacity="0.6"/>
+  <!-- Mustache -->
+  <path d="M85,105 Q92,100 100,105 Q108,100 115,105" fill="#2C1810" opacity="0.7"/>
 </svg>

@@ -99,13 +99,14 @@
   margin: 0 auto var(--space-lg);
 }
 
-.service-card:nth-child(1) .service-icon { background: linear-gradient(135deg, var(--phase-discover), #5DADE2); }
-.service-card:nth-child(2) .service-icon { background: linear-gradient(135deg, var(--phase-design), #BB8FCE); }
-.service-card:nth-child(3) .service-icon { background: linear-gradient(135deg, var(--phase-deliver), var(--azr-teal-light)); }
+.service-card:nth-child(1) .service-icon { background: rgba(224, 124, 36, 0.15); }
+.service-card:nth-child(2) .service-icon { background: rgba(224, 124, 36, 0.15); }
+.service-card:nth-child(3) .service-icon { background: rgba(224, 124, 36, 0.15); }
 
 .service-card h3 {
   margin-bottom: var(--space-md);
   font-size: 22px;
+  color: var(--azr-orange);
 }
 
 .service-card p {
@@ -306,23 +307,27 @@
 }
 
 .phase-number {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: var(--font-weight-black);
   margin: 0 auto var(--space-md);
   position: relative;
   z-index: 1;
+  background: var(--azr-white);
+  color: var(--azr-navy);
+  border: 3px solid var(--azr-gold);
+  box-shadow: 0 4px 20px rgba(212, 160, 23, 0.2);
 }
 
-.phase-step:nth-child(1) .phase-number { background: linear-gradient(135deg, var(--phase-discover), #5DADE2); }
-.phase-step:nth-child(2) .phase-number { background: linear-gradient(135deg, var(--phase-design), #BB8FCE); }
-.phase-step:nth-child(3) .phase-number { background: linear-gradient(135deg, var(--phase-deliver), var(--azr-teal-light)); }
-.phase-step:nth-child(4) .phase-number { background: linear-gradient(135deg, var(--phase-develop), var(--azr-gold-light)); }
+.phase-step:nth-child(1) .phase-number,
+.phase-step:nth-child(2) .phase-number,
+.phase-step:nth-child(3) .phase-number,
+.phase-step:nth-child(4) .phase-number { background: var(--azr-white); }
 
 .phase-step h4 {
   font-size: 18px;

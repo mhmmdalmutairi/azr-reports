@@ -1,41 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <defs>
-    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1B4F72"/>
-      <stop offset="100%" style="stop-color:#148F77"/>
-    </linearGradient>
-    <linearGradient id="shirtGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0A1628"/>
-      <stop offset="100%" style="stop-color:#1B4F72"/>
+    <linearGradient id="bgA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5A5A5A"/>
+      <stop offset="100%" style="stop-color:#7A7A7A"/>
     </linearGradient>
   </defs>
-  <!-- Background -->
-  <circle cx="100" cy="100" r="100" fill="url(#bgGrad1)"/>
-  <!-- Shoulders/Suit -->
-  <ellipse cx="100" cy="210" rx="80" ry="60" fill="url(#shirtGrad1)"/>
+  <!-- Gray background like the actual photo -->
+  <circle cx="100" cy="100" r="100" fill="url(#bgA)"/>
+  <!-- Bisht (dark cloak) -->
+  <ellipse cx="100" cy="215" rx="75" ry="65" fill="#1A1A2E"/>
+  <!-- Thobe white collar visible -->
+  <rect x="88" y="148" width="24" height="20" rx="3" fill="#F5F5F0"/>
   <!-- Neck -->
-  <rect x="85" y="130" width="30" height="25" rx="5" fill="#D4A76A" opacity="0.9"/>
+  <rect x="85" y="128" width="30" height="22" rx="5" fill="#C8A882"/>
   <!-- Head -->
-  <ellipse cx="100" cy="95" rx="40" ry="45" fill="#D4A76A" opacity="0.9"/>
-  <!-- Hair -->
-  <ellipse cx="100" cy="60" rx="38" ry="20" fill="#1A1A2E"/>
-  <rect x="62" y="55" width="10" height="25" rx="5" fill="#1A1A2E"/>
-  <rect x="128" y="55" width="10" height="25" rx="5" fill="#1A1A2E"/>
-  <!-- Eyes -->
-  <ellipse cx="85" cy="92" rx="5" ry="4" fill="#1A1A2E"/>
-  <ellipse cx="115" cy="92" rx="5" ry="4" fill="#1A1A2E"/>
-  <!-- Eyebrows -->
-  <path d="M77,84 Q85,80 93,84" stroke="#1A1A2E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <path d="M107,84 Q115,80 123,84" stroke="#1A1A2E" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <!-- Nose -->
-  <path d="M100,95 L97,108 Q100,110 103,108 Z" fill="#C09A5C" opacity="0.6"/>
-  <!-- Smile -->
-  <path d="M88,115 Q100,125 112,115" stroke="#B8896B" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <!-- Beard shadow -->
-  <path d="M70,105 Q75,140 100,145 Q125,140 130,105" fill="#1A1A2E" opacity="0.3"/>
-  <!-- Suit collar -->
-  <polygon points="85,155 100,175 75,175" fill="white" opacity="0.9"/>
-  <polygon points="115,155 100,175 125,175" fill="white" opacity="0.9"/>
-  <!-- Tie -->
-  <polygon points="97,165 103,165 101,190 99,190" fill="#D4A017"/>
+  <ellipse cx="100" cy="92" rx="38" ry="42" fill="#C8A882"/>
+  <!-- White Shemagh -->
+  <ellipse cx="100" cy="58" rx="42" ry="22" fill="#F0EDE8"/>
+  <rect x="58" y="55" width="84" height="10" rx="3" fill="#F0EDE8"/>
+  <!-- Agal (black ring) -->
+  <ellipse cx="100" cy="52" rx="32" ry="6" fill="none" stroke="#1A1A1A" stroke-width="4"/>
+  <!-- Shemagh draping sides (white) -->
+  <path d="M58,65 L52,115 Q57,120 62,115 L62,70" fill="#F0EDE8" opacity="0.9"/>
+  <path d="M142,65 L148,115 Q143,120 138,115 L138,70" fill="#F0EDE8" opacity="0.9"/>
+  <!-- Glasses (rectangular/modern) -->
+  <rect x="74" y="83" width="20" height="14" rx="3" fill="none" stroke="#333" stroke-width="2.5"/>
+  <rect x="106" y="83" width="20" height="14" rx="3" fill="none" stroke="#333" stroke-width="2.5"/>
+  <line x1="94" y1="90" x2="106" y2="90" stroke="#333" stroke-width="2"/>
+  <!-- Eyes behind glasses -->
+  <ellipse cx="84" cy="91" rx="3.5" ry="3" fill="#1A1A2E"/>
+  <ellipse cx="116" cy="91" rx="3.5" ry="3" fill="#1A1A2E"/>
+  <!-- Beard (fuller) -->
+  <path d="M70,105 Q76,142 100,148 Q124,142 130,105" fill="#1A1A2E" opacity="0.7"/>
+  <!-- Mustache -->
+  <path d="M84,106 Q92,101 100,106 Q108,101 116,106" fill="#1A1A2E" opacity="0.8"/>
+  <!-- Smile (subtle) -->
+  <path d="M88,112 Q100,118 112,112" stroke="#A8866B" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <!-- Arms crossed hint -->
+  <path d="M55,180 Q70,170 85,175 Q100,165 115,175 Q130,170 145,180" fill="#1A1A2E" opacity="0.5"/>
 </svg>

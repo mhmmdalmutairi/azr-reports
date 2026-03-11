@@ -68,9 +68,24 @@ p {
   position: relative;
 }
 
+/* Gold divider between sections — matching AZR brand */
+.section + .section::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-gold);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .section-header {
-  text-align: center;
+  text-align: right;
   margin-bottom: var(--space-2xl);
+  border-right: 4px solid var(--azr-gold);
+  padding-right: var(--space-lg);
 }
 
 .section-badge {
