@@ -17,6 +17,7 @@ const navLinks = document.getElementById('navLinks');
 if (navToggle) {
   navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
     // Animate hamburger
     const spans = navToggle.querySelectorAll('span');
     navToggle.classList.toggle('active');
@@ -36,6 +37,7 @@ if (navToggle) {
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => {
     navLinks.classList.remove('open');
+    document.body.classList.remove('menu-open');
     if (navToggle) {
       navToggle.classList.remove('active');
       navToggle.querySelectorAll('span').forEach(s => {
