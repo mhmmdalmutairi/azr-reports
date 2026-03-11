@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخطة التشغيلية — AZR Creative Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--navy:#1C2D4F;--navy-dark:#0F1B33;--orange:#E07C24;--gold:#D4A017;
+--yellow:#F4D03F;--purple:#2C1B3D;--purple-light:#4A2D6B;
+--white:#fff;--gray:#AEB6BF;--gray-dark:#5D6D7E;
+--glass:rgba(255,255,255,0.06);--glass-border:rgba(255,255,255,0.12);
+--font:'Tajawal',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--navy-dark);color:var(--white);line-height:1.8;overflow-x:hidden}
+a{color:var(--orange);text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+.topnav{position:fixed;top:0;width:100%;z-index:100;background:rgba(15,27,51,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--glass-border);padding:16px 0}
+.topnav .container{display:flex;justify-content:space-between;align-items:center}
+.topnav-logo{font-size:22px;font-weight:900;background:linear-gradient(135deg,var(--orange),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.topnav-links{display:flex;gap:8px;flex-wrap:wrap}
+.topnav-links a{color:var(--gray);font-size:13px;padding:6px 14px;border-radius:100px;transition:.3s}
+.topnav-links a:hover,.topnav-links a.active{color:var(--white);background:var(--glass)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden;background:linear-gradient(160deg,var(--navy),var(--navy-dark))}
+.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(224,124,36,0.12),transparent 70%);top:-200px;left:-200px}
+.hero::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,0.08),transparent 70%);bottom:-200px;right:-100px}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-badge{display:inline-block;padding:8px 20px;background:var(--glass);border:1px solid var(--glass-border);border-radius:100px;font-size:14px;color:var(--gold);margin-bottom:24px}
+.hero h1{font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.3;margin-bottom:24px}
+.hero h1 span{background:linear-gradient(135deg,var(--orange),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:20px;color:var(--gray);max-width:600px;margin-bottom:40px}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:36px;font-weight:900;color:var(--orange)}
+.hero-stat .label{font-size:13px;color:var(--gray);margin-top:4px}
+
+/* SECTIONS */
+.section{padding:100px 0;position:relative}
+.section-dark{background:var(--navy-dark)}
+.section-navy{background:var(--navy)}
+.section-purple{background:linear-gradient(180deg,var(--purple),#1A0F28)}
+.section-title{font-size:clamp(24px,3.5vw,40px);font-weight:900;margin-bottom:16px;line-height:1.4}
+.section-title span{background:linear-gradient(135deg,var(--orange),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-sub{font-size:18px;color:var(--gray);max-width:700px;margin-bottom:48px}
+.section-badge-sm{display:inline-block;padding:6px 16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:100px;font-size:13px;color:var(--gold);margin-bottom:16px}
+.gold-line{width:80px;height:3px;background:linear-gradient(90deg,var(--orange),var(--gold));border-radius:10px;margin:24px 0}
+
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:32px;transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(224,124,36,0.3);box-shadow:0 16px 48px rgba(0,0,0,0.3)}
+.card-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
+.card-icon.orange{background:rgba(224,124,36,0.15);color:var(--orange)}
+.card-icon.gold{background:rgba(212,160,23,0.15);color:var(--gold)}
+.card-icon.purple{background:rgba(74,45,107,0.3);color:#9B72CF}
+.card-icon.green{background:rgba(39,174,96,0.15);color:#27AE60}
+.card-icon.blue{background:rgba(52,152,219,0.15);color:#3498DB}
+.card h3{font-size:20px;font-weight:700;margin-bottom:12px}
+.card p,.card li{font-size:15px;color:var(--gray);line-height:1.8}
+.card ul{padding-right:20px}
+.card ul li{margin-bottom:8px}
+.card-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:12px;font-weight:700;margin-bottom:16px}
+.card-tag.manual{background:rgba(231,76,60,0.15);color:#E74C3C}
+.card-tag.semi{background:rgba(241,196,15,0.15);color:#F1C40F}
+.card-tag.auto{background:rgba(39,174,96,0.15);color:#27AE60}
+
+/* FLOW */
+.flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;margin:40px 0}
+.flow-step{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:20px 24px;text-align:center;min-width:160px;position:relative}
+.flow-step .num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--gold));color:var(--navy-dark);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.flow-step h4{font-size:15px;font-weight:700;margin-bottom:4px}
+.flow-step p{font-size:12px;color:var(--gray)}
+.flow-arrow{font-size:24px;color:var(--gold);padding:0 8px}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;margin:32px 0;border-radius:16px;border:1px solid var(--glass-border)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead{background:rgba(224,124,36,0.1)}
+th{padding:14px 16px;text-align:right;font-weight:700;color:var(--orange);white-space:nowrap}
+td{padding:12px 16px;border-top:1px solid var(--glass-border);color:var(--gray)}
+tr:hover td{background:var(--glass)}
+
+/* COMPARISON */
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.compare-card{border-radius:20px;padding:32px;border:2px solid var(--glass-border);position:relative;overflow:hidden}
+.compare-card.free{border-color:rgba(39,174,96,0.4);background:linear-gradient(180deg,rgba(39,174,96,0.06),transparent)}
+.compare-card.mid{border-color:rgba(241,196,15,0.4);background:linear-gradient(180deg,rgba(241,196,15,0.06),transparent)}
+.compare-card.pro{border-color:rgba(231,76,60,0.4);background:linear-gradient(180deg,rgba(231,76,60,0.06),transparent)}
+.compare-card .badge{display:inline-block;padding:6px 16px;border-radius:100px;font-size:13px;font-weight:700;margin-bottom:16px}
+.compare-card.free .badge{background:rgba(39,174,96,0.15);color:#27AE60}
+.compare-card.mid .badge{background:rgba(241,196,15,0.15);color:#F1C40F}
+.compare-card.pro .badge{background:rgba(231,76,60,0.15);color:#E74C3C}
+.compare-card h3{font-size:22px;font-weight:900;margin-bottom:8px}
+.compare-card .price{font-size:28px;font-weight:900;margin-bottom:4px}
+.compare-card.free .price{color:#27AE60}
+.compare-card.mid .price{color:#F1C40F}
+.compare-card.pro .price{color:#E74C3C}
+.compare-card .price-note{font-size:13px;color:var(--gray);margin-bottom:20px}
+.compare-card ul{list-style:none;padding:0}
+.compare-card ul li{padding:8px 0;border-bottom:1px solid var(--glass-border);font-size:14px;color:var(--gray)}
+.compare-card ul li:last-child{border:0}
+.compare-card ul li span{float:left;font-weight:700;color:var(--white)}
+.rec-badge{position:absolute;top:16px;left:16px;background:linear-gradient(135deg,var(--orange),var(--gold));color:var(--navy-dark);font-size:11px;font-weight:900;padding:4px 12px;border-radius:100px}
+
+/* JOURNEY */
+.journey{position:relative;padding-right:40px}
+.journey::before{content:'';position:absolute;right:15px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--orange),var(--gold),var(--orange))}
+.journey-step{position:relative;margin-bottom:32px;padding-right:40px}
+.journey-step::before{content:'';position:absolute;right:-33px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--orange);border:3px solid var(--navy-dark);z-index:1}
+.journey-step.auto::before{background:#27AE60}
+.journey-step.review::before{background:#F1C40F}
+.journey-step .step-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.journey-step .step-tag{padding:3px 10px;border-radius:100px;font-size:11px;font-weight:700}
+.journey-step .step-tag.t-manual{background:rgba(231,76,60,0.15);color:#E74C3C}
+.journey-step .step-tag.t-semi{background:rgba(241,196,15,0.15);color:#F1C40F}
+.journey-step .step-tag.t-auto{background:rgba(39,174,96,0.15);color:#27AE60}
+.journey-step h4{font-size:17px;font-weight:700}
+.journey-step p{font-size:14px;color:var(--gray)}
+.journey-step .time{font-size:13px;color:var(--orange);font-weight:700;margin-top:4px}
+
+/* ROLES */
+.roles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.role-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:28px;text-align:center}
+.role-avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 16px;border:3px solid var(--glass-border)}
+.role-card h3{font-size:18px;font-weight:700;margin-bottom:8px}
+.role-card .role-title{font-size:13px;color:var(--orange);margin-bottom:12px}
+.role-card ul{list-style:none;padding:0;text-align:right}
+.role-card ul li{font-size:14px;color:var(--gray);padding:6px 0;border-bottom:1px solid var(--glass-border)}
+.role-card ul li:last-child{border:0}
+
+/* PRICING TABLE */
+.pricing-formula{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:32px;text-align:center;margin:32px 0}
+.pricing-formula .formula{font-size:clamp(16px,2.5vw,24px);font-weight:900;color:var(--gold);direction:ltr;unicode-bidi:bidi-override}
+
+/* TIMELINE */
+.timeline-h{display:flex;gap:0;overflow-x:auto;padding:20px 0}
+.tl-item{flex:0 0 180px;text-align:center;position:relative;padding-top:40px}
+.tl-item::before{content:'';position:absolute;top:16px;right:0;left:0;height:3px;background:var(--glass-border)}
+.tl-item::after{content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:var(--orange);border:3px solid var(--navy-dark);z-index:1}
+.tl-item:first-child::before{right:50%}
+.tl-item:last-child::before{left:50%}
+.tl-item h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.tl-item p{font-size:12px;color:var(--gray)}
+
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.kpi{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:24px;text-align:center}
+.kpi .val{font-size:32px;font-weight:900;background:linear-gradient(135deg,var(--orange),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.kpi .lbl{font-size:13px;color:var(--gray);margin-top:4px}
+
+/* FOOTER */
+.footer{padding:40px 0;border-top:1px solid var(--glass-border);text-align:center;color:var(--gray-dark);font-size:14px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.compare-grid{grid-template-columns:1fr}
+.hero-stats{gap:24px}
+.flow{flex-direction:column;align-items:stretch}
+.flow-arrow{transform:rotate(90deg);text-align:center}
+.topnav-links{display:none}
+}
+
+/* ANIM */
+.fade-up{opacity:0;transform:translateY(30px);transition:.6s ease}
+.fade-up.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+<div class="container">
+<div class="topnav-logo">AZR Workflow</div>
+<div class="topnav-links">
+<a href="#hero" class="active">البداية</a>
+<a href="#workflow">المراحل</a>
+<a href="#journey">الرحلة</a>
+<a href="#roles">الأدوار</a>
+<a href="#compare">المقارنة</a>
+<a href="#pricing-sec">التسعير</a>
+<a href="#roadmap">خارطة الطريق</a>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<div class="container">
+<div class="hero-content">
+<div class="hero-badge">الخطة التشغيلية والاستراتيجية — مارس 2026</div>
+<h1>نظام أزر<br>للعمليات <span>الإبداعية</span></h1>
+<p>الدليل الشامل لفريق أزر — من استلام المشروع حتى التسليم النهائي. كل مرحلة، كل دور، كل أداة، كل رقم — في مكان واحد.</p>
+<div class="hero-stats">
+<div class="hero-stat"><div class="num">5</div><div class="label">مراحل عمل</div></div>
+<div class="hero-stat"><div class="num">5</div><div class="label">أدوات AI</div></div>
+<div class="hero-stat"><div class="num">3</div><div class="label">خيارات تنفيذ</div></div>
+<div class="hero-stat"><div class="num">8</div><div class="label">أقسام العرض</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: OVERVIEW -->
+<section class="section section-navy" id="overview">
+<div class="container">
+<div class="section-badge-sm">نظرة عامة</div>
+<h2 class="section-title">وش بنسوي <span>بالضبط؟</span></h2>
+<p class="section-sub">نظام عمل متكامل يحوّل أي طلب عميل إلى عرض إبداعي احترافي — عبر 5 مراحل واضحة، بأدوات AI ذكية، ومنهجية ثابتة تضمن الجودة كل مرة.</p>
+
+<div class="cards-grid">
+<div class="card fade-up">
+<div class="card-icon orange">&#128269;</div>
+<h3>بحث وتحليل عميق</h3>
+<p>4 طبقات بحث: أرقام السوق، سلوك الجمهور، المنافسين، نماذج عالمية. كل رقم يجاوب: "وش يعني لمشروعنا؟"</p>
+</div>
+<div class="card fade-up">
+<div class="card-icon gold">&#128161;</div>
+<h3>مفاهيم إبداعية</h3>
+<p>بصيرة جوهرية → نموذج فكري → 3 سيناريوهات (جريء/ذكي/آمن) → تطبيقات عملية لكل سيناريو</p>
+</div>
+<div class="card fade-up">
+<div class="card-icon purple">&#128176;</div>
+<h3>تسعير ديناميكي</h3>
+<p>معادلة موحدة تحسب التكلفة + هامش الربح حسب نوع العمل ونوع العميل ومستوى الإلحاح</p>
+</div>
+<div class="card fade-up">
+<div class="card-icon green">&#128196;</div>
+<h3>عروض مبهرة</h3>
+<p>عرض من 8 أقسام يتكيف حسب نوع العميل (حكومي/شركة/خاص/خيري/مستثمر) — بصري أولاً</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: WORKFLOW PHASES -->
+<section class="section section-dark" id="workflow">
+<div class="container">
+<div class="section-badge-sm">المراحل الخمس</div>
+<h2 class="section-title">رحلة المشروع من <span>الصفر للتسليم</span></h2>
+<p class="section-sub">كل مشروع يمر بنفس المراحل الخمس — بترتيب يختلف حسب المسار (طلب عميل أو فكرة أزر).</p>
+
+<!-- Flow diagram -->
+<div class="flow">
+<div class="flow-step">
+<div class="num">0</div>
+<h4>العرض الفني</h4>
+<p>/proposal</p>
+</div>
+<div class="flow-arrow">&#8592;</div>
+<div class="flow-step">
+<div class="num">1</div>
+<h4>الاستكشاف</h4>
+<p>/research</p>
+</div>
+<div class="flow-arrow">&#8592;</div>
+<div class="flow-step">
+<div class="num">2</div>
+<h4>المفهوم</h4>
+<p>/concept</p>
+</div>
+<div class="flow-arrow">&#8592;</div>
+<div class="flow-step">
+<div class="num">3</div>
+<h4>التخطيط</h4>
+<p>/pricing</p>
+</div>
+<div class="flow-arrow">&#8592;</div>
+<div class="flow-step">
+<div class="num">4</div>
+<h4>القياس</h4>
+<p>/review</p>
+</div>
+</div>
+
+<div style="background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:24px;margin:32px 0;display:flex;gap:24px;flex-wrap:wrap">
+<div style="flex:1;min-width:250px">
+<h4 style="color:var(--orange);margin-bottom:8px">&#9654; مسار A: طلب عميل</h4>
+<p style="font-size:14px;color:var(--gray)">المرحلة 0 (العرض المبدئي) ← ثم 1 ← 2 ← 3 ← 4</p>
+</div>
+<div style="flex:1;min-width:250px">
+<h4 style="color:var(--gold);margin-bottom:8px">&#9654; مسار B: فكرة أزر</h4>
+<p style="font-size:14px;color:var(--gray)">المرحلة 1 ← 2 ← ثم 0 (العرض) ← 3 ← 4</p>
+</div>
+</div>
+
+<!-- Phase details -->
+<div class="cards-grid" style="margin-top:40px">
+
+<!-- Phase 0 -->
+<div class="card fade-up" style="grid-column:1/-1">
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+<div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--navy-dark);font-size:20px">0</div>
+<div>
+<h3>العرض الفني والمالي — /proposal</h3>
+<p style="color:var(--gray);font-size:13px">أول ما يشوفه العميل — لازم يبهره</p>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+<div>
+<h4 style="color:var(--orange);font-size:15px;margin-bottom:12px">&#128229; المدخلات المطلوبة:</h4>
+<ul>
+<li>اسم العميل والمنظمة</li>
+<li>نوع الطلب (حملة/هوية/فعالية/استراتيجية)</li>
+<li>نطاق العمل المتوقع</li>
+<li>الميزانية التقديرية (إن وجدت)</li>
+<li>الجدول الزمني المطلوب</li>
+<li>الهوية البصرية للعميل (ألوان + شعار)</li>
+</ul>
+</div>
+<div>
+<h4 style="color:var(--gold);font-size:15px;margin-bottom:12px">&#128230; المخرجات — 8 أقسام:</h4>
+<ul>
+<li><strong style="color:var(--white)">1.</strong> فهمنا لطلبكم (إعادة صياغة ذكية)</li>
+<li><strong style="color:var(--white)">2.</strong> لماذا أزر؟ (3 نقاط + أعمال سابقة)</li>
+<li><strong style="color:var(--white)">3.</strong> البصائر (3-5 نتائج بحثية رئيسية)</li>
+<li><strong style="color:var(--white)">4.</strong> المقترح الإبداعي (النموذج + السيناريوهات)</li>
+<li><strong style="color:var(--white)">5.</strong> لماذا سينجح؟ (4-5 مبررات منطقية)</li>
+<li><strong style="color:var(--white)">6.</strong> خطة التنفيذ (جدول + فريق + مخاطر)</li>
+<li><strong style="color:var(--white)">7.</strong> الاستثمار (الميزانية التفصيلية)</li>
+<li><strong style="color:var(--white)">8.</strong> الخطوات القادمة</li>
+</ul>
+</div>
+</div>
+<div style="margin-top:20px">
+<h4 style="color:var(--orange);font-size:15px;margin-bottom:12px">&#127919; أسلوب الإقناع حسب نوع العميل:</h4>
+<div class="table-wrap">
+<table>
+<thead><tr><th>نوع العميل</th><th>الأسلوب</th><th>أمثلة</th></tr></thead>
+<tbody>
+<tr><td style="color:var(--white);font-weight:700">حكومي / سيادي</td><td>لغة رسمية + ربط برؤية 2030 + أثر وطني + بيانات + إلحاح</td><td>وزارة العدل، المالية</td></tr>
+<tr><td style="color:var(--white);font-weight:700">شركة كبرى</td><td>ROI واضح + إبهار بصري + نماذج عالمية + سيناريوهات</td><td>STC، المراعي</td></tr>
+<tr><td style="color:var(--white);font-weight:700">قطاع خاص</td><td>تشخيص مباشر (ألم ← حل) + أرقام ملموسة</td><td>مطاعم، ريف</td></tr>
+<tr><td style="color:var(--white);font-weight:700">مؤسسة خيرية</td><td>تأطير شرعي + أثر اجتماعي + منهجية واضحة</td><td>تمكين، إكرام</td></tr>
+<tr><td style="color:var(--white);font-weight:700">مستثمر / ريادي</td><td>حلم بصري + جدوى مالية + ROI</td><td>مشاريع جديدة</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- Phase 1 -->
+<div class="card fade-up">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--navy-dark);font-size:16px">1</div>
+<h3>الاستكشاف والبحث</h3>
+</div>
+<p style="color:var(--gold);font-size:13px;margin-bottom:16px">Skill: /research — مو مجرد جمع بيانات، تحليل واستنتاج وربط</p>
+
+<h4 style="font-size:14px;color:var(--orange);margin-bottom:8px">4 طبقات بحث:</h4>
+<ul>
+<li><strong style="color:var(--white)">الأرقام الكبرى:</strong> حجم السوق + نمو + توجهات + رؤية 2030<br><em style="color:var(--gold)">"الفرصة هي ___ لأن ___"</em></li>
+<li><strong style="color:var(--white)">السلوك والثقافة:</strong> أنماط + دوافع نفسية + احتياجات + ثقافة<br><em style="color:var(--gold)">"البصيرة الإنسانية هي: ___"</em></li>
+<li><strong style="color:var(--white)">المنافسة المحلية:</strong> 5-10 منافسين + قوة/ضعف + فجوات<br><em style="color:var(--gold)">"المساحة البيضاء هي: ___"</em></li>
+<li><strong style="color:var(--white)">النماذج العالمية:</strong> 3-5 ناجحة + 1 فاشلة + دروس<br><em style="color:var(--gold)">"الدرس الرئيسي: ___"</em></li>
+</ul>
+
+<div class="gold-line"></div>
+<h4 style="font-size:14px;color:var(--orange);margin-bottom:8px">المخرجات:</h4>
+<ul>
+<li>5 بصائر رئيسية (جملة واحدة قوية)</li>
+<li>خريطة فرص 2×2 (سهولة × أثر)</li>
+<li>توصية استراتيجية مع تبرير</li>
+<li>3-5 أسئلة مفتوحة للعميل</li>
+</ul>
+</div>
+
+<!-- Phase 2 -->
+<div class="card fade-up">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--navy-dark);font-size:16px">2</div>
+<h3>المفهوم الإبداعي</h3>
+</div>
+<p style="color:var(--gold);font-size:13px;margin-bottom:16px">Skill: /concept — من بصيرة إنسانية إلى نظام تفكير متكامل</p>
+
+<h4 style="font-size:14px;color:var(--orange);margin-bottom:8px">4 خطوات:</h4>
+<ul>
+<li><strong style="color:var(--white)">البصيرة الجوهرية:</strong> "[الجمهور] يشعر بـ [عاطفة] لأن [سبب عميق]، لكن [الحاجز] يمنعهم من [ما يريدونه]"</li>
+<li><strong style="color:var(--white)">النموذج الجوهري:</strong> اسم + غاية + جوهر + منطق + مبادئ تصميمية</li>
+<li><strong style="color:var(--white)">3 سيناريوهات:</strong>
+<br>&#128308; جريء: أعلى طموح + أعلى تكلفة + أعلى أثر
+<br>&#128992; ذكي (مُوصى): توازن مثالي + أفضل قيمة
+<br>&#128994; آمن: أكثر عملية + أقل تكلفة</li>
+<li><strong style="color:var(--white)">شلال التطبيقات:</strong> تجارب ميدانية + محتوى رقمي + منتجات/خدمات<br>لكل تطبيق: ماذا؟ لماذا؟ لمن؟ كيف؟ كيف نقيس؟</li>
+</ul>
+</div>
+
+<!-- Phase 3 -->
+<div class="card fade-up">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--navy-dark);font-size:16px">3</div>
+<h3>التخطيط والتنفيذ</h3>
+</div>
+<p style="color:var(--gold);font-size:13px;margin-bottom:16px">Skill: /pricing — جدول زمني + تسعير ديناميكي + مخاطر</p>
+<ul>
+<li><strong style="color:var(--white)">جدول زمني:</strong> Gantt بصري — تحضير ← إنتاج ← تركيب ← تنفيذ ← تقييم</li>
+<li><strong style="color:var(--white)">التسعير:</strong> معادلة موحدة (التفاصيل في قسم التسعير أدناه)</li>
+<li><strong style="color:var(--white)">إدارة مخاطر:</strong>
+<br>&#128308; عالي: خطة بديلة + تواصل فوري مع العميل
+<br>&#128992; متوسط: فريق احتياطي + ميزانية طوارئ
+<br>&#128994; منخفض: ضمن سير العمل الطبيعي</li>
+</ul>
+</div>
+
+<!-- Phase 4 -->
+<div class="card fade-up">
+<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+<div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--gold));display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--navy-dark);font-size:16px">4</div>
+<h3>القياس والتطوير</h3>
+</div>
+<p style="color:var(--gold);font-size:13px;margin-bottom:16px">Skill: /review — قياس الأثر + تحسين + خطة المرحلة الثانية</p>
+
+<h4 style="font-size:14px;color:var(--orange);margin-bottom:8px">مؤشرات الأداء حسب النوع:</h4>
+<ul>
+<li><strong style="color:var(--white)">حملة تسويقية:</strong> وصول، تفاعل، ترند ← تحويلات، مبيعات، ROI</li>
+<li><strong style="color:var(--white)">فعالية/تنشيط:</strong> حضور، رضا، تغطية إعلامية ← محتوى مستخدمين</li>
+<li><strong style="color:var(--white)">هوية/براندنج:</strong> وعي بالعلامة، تموضع ← أفضلية، ولاء</li>
+<li><strong style="color:var(--white)">تحول مؤسسي:</strong> تبني داخلي، رضا موظفين ← سمعة خارجية</li>
+</ul>
+<div class="gold-line"></div>
+<p style="font-size:14px;color:var(--gray)"><strong style="color:var(--white)">التوسع:</strong> تقرير أثر (0-3 شهور) ← خطة المرحلة الثانية (3-12 شهر) ← رؤية التطور (1-3 سنوات)</p>
+</div>
+
+</div><!-- end cards-grid -->
+</div>
+</section>
+
+<!-- SECTION: USER JOURNEY -->
+<section class="section section-purple" id="journey">
+<div class="container">
+<div class="section-badge-sm">رحلة المستخدم</div>
+<h2 class="section-title">رحلتك مع كل <span>خيار</span></h2>
+<p class="section-sub">من لحظة وصول طلب العميل — حتى إرسال العرض النهائي. شوف الفرق بعينك.</p>
+
+<!-- Option 1: Free -->
+<div style="margin-bottom:64px">
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+<div style="width:48px;height:48px;border-radius:50%;background:rgba(39,174,96,0.15);display:flex;align-items:center;justify-content:center;font-size:24px">&#128994;</div>
+<div>
+<h3 style="font-size:22px">الخيار المجاني — يدوي بالكامل</h3>
+<p style="color:var(--gray);font-size:14px">0 ريال شهرياً &nbsp;|&nbsp; 5-7 أيام لكل مشروع &nbsp;|&nbsp; أتمتة 10%</p>
+</div>
+</div>
+
+<div class="journey">
+<div class="journey-step">
+<div class="step-header"><span class="step-tag t-manual">يدوي</span><h4>تسجيل بيانات العميل</h4></div>
+<p>تفتح Google Sheet وتسجل: اسم العميل، القطاع، نوع الطلب، الميزانية. تنسخ من القالب الجاهز.</p>
+<div class="time">&#9202; 15 دقيقة</div>
+</div>
+<div class="journey-step">
+<div class="step-header"><span class="step-tag t-semi">Claude</span><h4>البحث العميق — /research</h4></div>
+<p>تفتح Claude Code وتكتب /research. Claude يبحث عبر الويب ويحلل 4 طبقات. أنت تراجع وتعدّل وتضيف. تحفظ الملف يدوياً باسم: التاريخ_العميل_بحث-سوقي_v1.md</p>
+<div class="time">&#9202; 3-5 ساعات (بحث + مراجعة + تحسين)</div>
+</div>
+<div class="journey-step">
+<div class="step-header"><span class="step-tag t-semi">Claude</span><h4>المفاهيم الإبداعية — /concept</h4></div>
+<p>تعطي Claude نتائج البحث. يولّد: بصيرة + نموذج + 3 سيناريوهات + تطبيقات. أنت تضيف أفكارك وتراجع.</p>
+<div class="time">&#9202; 2-4 ساعات</div>
+</div>
+<div class="journey-step">
+<div class="step-header"><span class="step-tag t-semi">Claude</span><h4>التسعير — /pricing</h4></div>
+<p>تحدد نوع العمل والساعات. Claude يحسب 3 سيناريوهات سعرية. تراجع الأرقام وتعدّل المعاملات.</p>
+<div class="time">&#9202; 1-2 ساعة</div>
+</div>
+<div class="journey-step">
+<div class="step-header"><span class="step-tag t-semi">Claude</span><h4>كتابة العرض — /proposal</h4></div>
+<p>تعطي Claude كل المخرجات السابقة. يكتب العرض النصي (8 أقسام). ثم /review للمراجعة النقدية.</p>
+<div class="time">&#9202; 1.5-2.5 ساعة</div>
+</div>
+<div class="journey-step">
+<div class="step-header"><span class="step-tag t-manual">يدوي 100%</span><h4>التصميم والتسليم</h4></div>
+<p>تاخذ النص وتصمم العرض في Canva/Figma/Gamma. تختار قالب، تنسق، تضيف صور ومخططات. تصدّر PDF وترسل.</p>
+<div class="time">&#9202; 4-8 ساعات تصميم يدوي</div>
+</div>
+</div>
+<div style="background:rgba(39,174,96,0.08);border:1px solid rgba(39,174,96,0.2);border-radius:16px;padding:20px;margin-top:16px">
+<p style="font-size:15px;text-align:center"><strong style="color:#27AE60">المجموع: 12-22 ساعة عمل فعلي على 5-7 أيام</strong></p>
+</div>
+</div>
+
+<!-- Option 2: Medium -->
+<div style="margin-bottom:64px">
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+<div style="width:48px;height:48px;border-radius:50%;background:rgba(241,196,15,0.15);display:flex;align-items:center;justify-content:center;font-size:24px">&#128992;</div>
+<div>
+<h3 style="font-size:22px">الخيار المتوسط — شبه آلي</h3>
+<p style="color:var(--gray);font-size:14px">2,000-3,000 ريال/شهر &nbsp;|&nbsp; تأسيس: 15-37K &nbsp;|&nbsp; 2-3 أيام &nbsp;|&nbsp; أتمتة 50-60%</p>
+</div>
+</div>
+
+<div class="journey">
+<div class="journey-step auto">
+<div class="step-header"><span class="step-tag t-semi">شبه آلي</span><h4>فورم "مشروع جديد" في Notion</h4></div>
+<p>تعبي فورم سريع: اسم العميل، القطاع، نوع الطلب. Make.com ينشئ مجلد المشروع تلقائياً + يرسل إشعار للفريق + ينشئ كارت Kanban.</p>
+<div class="time">&#9202; 5 دقائق</div>
+</div>
+<div class="journey-step auto">
+<div class="step-header"><span class="step-tag t-auto">آلي</span><h4>البحث العميق — زر واحد</h4></div>
+<p>تضغط "ابدأ البحث" في Notion. Make.com يرسل لـ Claude API. النتائج ترجع تلقائياً. أنت تراجع وتعدّل فقط.</p>
+<div class="time">&#9202; 1-2 ساعة (بدل 3-5)</div>
+</div>
+<div class="journey-step auto">
+<div class="step-header"><span class="step-tag t-auto">آلي</span><h4>توليد المفاهيم — زر واحد</h4></div>
+<p>تضغط "ولّد المفاهيم". Claude API يستلم البحث تلقائياً ويولّد: بصيرة + نموذج + 3 سيناريوهات. أنت تضيف لمستك.</p>
+<div class="time">&#9202; 1-2 ساعة (بدل 2-4)</div>
+</div>
+<div class="journey-step auto">
+<div class="step-header"><span class="step-tag t-auto">آلي</span><h4>التسعير التلقائي</h4></div>
+<p>Notion Database يحسب التسعير تلقائياً. تدخل الساعات + نوع العمل + نوع العميل. المعادلة تحسب 3 سيناريوهات.</p>
+<div class="time">&#9202; 15 دقيقة (بدل 1-2 ساعة)</div>
+</div>
+<div class="journey-step review">
+<div class="step-header"><span class="step-tag t-semi">شبه آلي</span><h4>العرض التقديمي</h4></div>
+<p>تضغط "صدّر لـ Gamma". Gamma Pro يولّد عرض من النص. تعدّل التصميم وتضيف صور Midjourney.</p>
+<div class="time">&#9202; 2-3 ساعات (بدل 4-8)</div>
+</div>
+</div>
+<div style="background:rgba(241,196,15,0.08);border:1px solid rgba(241,196,15,0.2);border-radius:16px;padding:20px;margin-top:16px">
+<p style="font-size:15px;text-align:center"><strong style="color:#F1C40F">المجموع: 5-8 ساعات عمل فعلي على 2-3 أيام</strong></p>
+</div>
+</div>
+
+<!-- Option 3: Pro -->
+<div>
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+<div style="width:48px;height:48px;border-radius:50%;background:rgba(231,76,60,0.15);display:flex;align-items:center;justify-content:center;font-size:24px">&#128308;</div>
+<div>
+<h3 style="font-size:22px">الخيار الخارق — آلي بالكامل تقريباً</h3>
+<p style="color:var(--gray);font-size:14px">6,000-8,000 ريال/شهر &nbsp;|&nbsp; تأسيس: 80-197K &nbsp;|&nbsp; 4-8 ساعات &nbsp;|&nbsp; أتمتة 85-90%</p>
+</div>
+</div>
+
+<div class="journey">
+<div class="journey-step auto">
+<div class="step-header"><span class="step-tag t-auto">بسيط</span><h4>فورم سريع في المنصة المخصصة</h4></div>
+<p>تفتح azr-studio.app وتعبي: اسم العميل، القطاع، نوع الطلب، رابط الموقع.</p>
+<div class="time">&#9202; 3 دقائق</div>
+</div>
+<div class="journey-step auto">
+<div class="step-header"><span class="step-tag t-auto">آلي بالكامل</span><h4>&#129302; 4 AI Agents يشتغلون</h4></div>
+<p><strong style="color:var(--white)">Research Agent:</strong> يبحث الموقع + السوق + المنافسين + النماذج العالمية ← تقرير + 5 بصائر<br>
+<strong style="color:var(--white)">Creative Agent:</strong> يبني البصيرة + النموذج + 3 سيناريوهات + التطبيقات<br>
+<strong style="color:var(--white)">Planning Agent:</strong> يحسب الجداول والتكاليف والتسعير الديناميكي<br>
+<strong style="color:var(--white)">Presentation Agent:</strong> يجمع كل شي ويولّد مسودة العرض + prompts صور</p>
+<div class="time">&#9202; 4-8 ساعات عمل آلي (أنت ما تسوي شي!)</div>
+</div>
+<div class="journey-step review">
+<div class="step-header"><span class="step-tag t-semi">مراجعة إنسانية</span><h4>المراجعة والتحسين</h4></div>
+<p>يوصلك إشعار "المشروع جاهز". تفتح الداشبورد وتراجع: البحث ← المفاهيم ← الأسعار ← العرض. تضيف لمستك الإبداعية.</p>
+<div class="time">&#9202; 2-3 ساعات مراجعة</div>
+</div>
+<div class="journey-step">
+<div class="step-header"><span class="step-tag t-manual">التصميم النهائي</span><h4>المصمم يحوّل للتصميم النهائي</h4></div>
+<p>المسودة جاهزة + صور Midjourney جاهزة. المصمم يحوّل في Figma للنسخة النهائية.</p>
+<div class="time">&#9202; 2-4 ساعات</div>
+</div>
+</div>
+<div style="background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2);border-radius:16px;padding:20px;margin-top:16px">
+<p style="font-size:15px;text-align:center"><strong style="color:#E74C3C">المجموع: 4-7 ساعات إنسان + 4-8 ساعات آلي</strong></p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SECTION: ROLES -->
+<section class="section section-navy" id="roles">
+<div class="container">
+<div class="section-badge-sm">الأدوار والمسؤوليات</div>
+<h2 class="section-title">مين يسوي <span>إيش؟</span></h2>
+<p class="section-sub">توضيح واضح لدور كل طرف في كل مرحلة — عشان ما أحد يقول "مو مسؤوليتي".</p>
+
+<div class="roles-grid">
+<div class="role-card fade-up">
+<div class="role-avatar" style="background:rgba(224,124,36,0.1)">&#129302;</div>
+<h3>Claude AI</h3>
+<div class="role-title">المحرك الذكي</div>
+<ul>
+<li>&#128269; البحث السوقي 4 طبقات (/research)</li>
+<li>&#128161; توليد المفاهيم والسيناريوهات (/concept)</li>
+<li>&#128176; حساب التسعير الديناميكي (/pricing)</li>
+<li>&#128196; كتابة العرض الفني 8 أقسام (/proposal)</li>
+<li>&#128270; المراجعة النقدية (/review)</li>
+<li>&#9888;&#65039; لا يُرسل شي للعميل مباشرة — دائماً يمر بالإنسان</li>
+</ul>
+</div>
+
+<div class="role-card fade-up">
+<div class="role-avatar" style="background:rgba(212,160,23,0.1)">&#128100;</div>
+<h3>المدير الإبداعي</h3>
+<div class="role-title">صاحب القرار الإبداعي</div>
+<ul>
+<li>&#9989; مراجعة واعتماد نتائج البحث</li>
+<li>&#9989; إضافة اللمسة الإبداعية على المفاهيم</li>
+<li>&#9989; اختيار السيناريو المُوصى به</li>
+<li>&#9989; اعتماد الأسعار قبل الإرسال</li>
+<li>&#9989; المراجعة النهائية للعرض</li>
+<li>&#9989; التواصل المباشر مع العميل</li>
+</ul>
+</div>
+
+<div class="role-card fade-up">
+<div class="role-avatar" style="background:rgba(74,45,107,0.2)">&#127912;</div>
+<h3>المصمم</h3>
+<div class="role-title">التنفيذ البصري</div>
+<ul>
+<li>&#127912; تحويل النص لتصميم بصري مبهر</li>
+<li>&#127912; اختيار وتنقية صور Midjourney</li>
+<li>&#127912; تصميم العرض في Figma/Canva</li>
+<li>&#127912; مزج هوية أزر مع هوية العميل</li>
+<li>&#127912; تصدير PDF النهائي</li>
+<li>&#127912; تصميم قوالب التقارير</li>
+</ul>
+</div>
+
+<div class="role-card fade-up">
+<div class="role-avatar" style="background:rgba(52,152,219,0.1)">&#128187;</div>
+<h3>المطور (الخيار المتوسط/الخارق)</h3>
+<div class="role-title">البنية التحتية</div>
+<ul>
+<li>&#128736;&#65039; إعداد Notion + Make.com (المتوسط)</li>
+<li>&#128736;&#65039; بناء المنصة المخصصة (الخارق)</li>
+<li>&#128736;&#65039; برمجة AI Agents</li>
+<li>&#128736;&#65039; ربط الأتمتة</li>
+<li>&#128736;&#65039; صيانة وتحديث الأنظمة</li>
+<li>&#128736;&#65039; مطلوب فقط في الخيار المتوسط والخارق</li>
+</ul>
+</div>
+</div>
+
+<!-- Roles Matrix -->
+<div style="margin-top:48px">
+<h3 style="font-size:20px;margin-bottom:20px">مصفوفة المسؤوليات — من يسوي إيش في كل مرحلة؟</h3>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>المرحلة</th><th>&#129302; Claude AI</th><th>&#128100; المدير الإبداعي</th><th>&#127912; المصمم</th><th>النتيجة المتوقعة</th></tr>
+</thead>
+<tbody>
+<tr>
+<td style="color:var(--white);font-weight:700">0. العرض</td>
+<td>يكتب المسودة (8 أقسام)</td>
+<td>يراجع ويعتمد + يوافق على السعر</td>
+<td>يصمم العرض بصرياً</td>
+<td style="color:var(--gold)">عرض فني ومالي جاهز للإرسال</td>
+</tr>
+<tr>
+<td style="color:var(--white);font-weight:700">1. الاستكشاف</td>
+<td>يبحث 4 طبقات + يحلل</td>
+<td>يراجع ويضيف رؤيته</td>
+<td>—</td>
+<td style="color:var(--gold)">5 بصائر + خريطة فرص + توصية</td>
+</tr>
+<tr>
+<td style="color:var(--white);font-weight:700">2. المفهوم</td>
+<td>يولّد البصيرة + النموذج + 3 سيناريوهات</td>
+<td>يضيف أفكاره + يختار الاتجاه</td>
+<td>يولّد صور مرجعية (Midjourney)</td>
+<td style="color:var(--gold)">نموذج جوهري + 3 سيناريوهات + تطبيقات</td>
+</tr>
+<tr>
+<td style="color:var(--white);font-weight:700">3. التخطيط</td>
+<td>يحسب التكاليف والأسعار</td>
+<td>يوافق أو يعدّل المعاملات</td>
+<td>—</td>
+<td style="color:var(--gold)">جدول زمني + 3 ميزانيات + لوحة ربحية</td>
+</tr>
+<tr>
+<td style="color:var(--white);font-weight:700">4. القياس</td>
+<td>يجمع البيانات ويحلل</td>
+<td>يقرر التحسينات + المرحلة الثانية</td>
+<td>يصمم تقرير الأثر</td>
+<td style="color:var(--gold)">تقرير أثر + توصيات + خطة مستقبلية</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: PRICING -->
+<section class="section section-dark" id="pricing-sec">
+<div class="container">
+<div class="section-badge-sm">آلية التسعير</div>
+<h2 class="section-title">كيف نسعّر <span>مشاريعنا؟</span></h2>
+<p class="section-sub">معادلة واحدة موحدة — تضمن العدالة للعميل والربحية لأزر.</p>
+
+<div class="pricing-formula">
+<p style="color:var(--gray);margin-bottom:12px">المعادلة الموحدة:</p>
+<div class="formula">سعر البيع = التكلفة الفعلية &times; معامل القيمة &times; معامل العميل &times; معامل الإلحاح</div>
+</div>
+
+<div class="cards-grid">
+<div class="card fade-up">
+<h3 style="color:var(--orange)">&#128176; أسعار الفريق بالساعة</h3>
+<div class="table-wrap" style="margin:16px 0 0">
+<table>
+<thead><tr><th>الدور</th><th>ريال/ساعة</th></tr></thead>
+<tbody>
+<tr><td>مدير إبداعي</td><td style="color:var(--gold);font-weight:700">350</td></tr>
+<tr><td>مدير مشروع</td><td style="color:var(--gold);font-weight:700">250</td></tr>
+<tr><td>استراتيجي / باحث</td><td style="color:var(--gold);font-weight:700">250</td></tr>
+<tr><td>مصمم أول</td><td style="color:var(--gold);font-weight:700">200</td></tr>
+<tr><td>مصمم مبتدئ</td><td style="color:var(--gold);font-weight:700">150</td></tr>
+<tr><td>كاتب محتوى</td><td style="color:var(--gold);font-weight:700">150</td></tr>
+<tr><td>مطور ويب/تطبيقات</td><td style="color:var(--gold);font-weight:700">200</td></tr>
+<tr><td>مصور / مخرج فيديو</td><td style="color:var(--gold);font-weight:700">250</td></tr>
+<tr><td>منسق تنفيذ</td><td style="color:var(--gold);font-weight:700">120</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="card fade-up">
+<h3 style="color:var(--orange)">&#128200; المعاملات</h3>
+<div style="margin-top:16px">
+<h4 style="font-size:14px;color:var(--gold);margin-bottom:8px">معامل القيمة:</h4>
+<ul>
+<li>عمل تشغيلي عادي: <strong style="color:var(--white)">1.5x - 2.0x</strong></li>
+<li>عمل إبداعي (تصميم، محتوى): <strong style="color:var(--white)">2.0x - 3.0x</strong></li>
+<li>عمل استراتيجي (استشارات): <strong style="color:var(--white)">3.0x - 5.0x</strong></li>
+<li>عمل تحولي (تحول مؤسسي): <strong style="color:var(--white)">4.0x - 8.0x</strong></li>
+</ul>
+<div class="gold-line"></div>
+<h4 style="font-size:14px;color:var(--gold);margin-bottom:8px">معامل العميل:</h4>
+<ul>
+<li>شركة ناشئة/صغيرة: <strong style="color:var(--white)">0.8x</strong></li>
+<li>شركة متوسطة: <strong style="color:var(--white)">1.0x</strong></li>
+<li>شركة كبرى: <strong style="color:var(--white)">1.2x</strong></li>
+<li>جهة حكومية/سيادية: <strong style="color:var(--white)">1.3x - 1.5x</strong></li>
+</ul>
+<div class="gold-line"></div>
+<h4 style="font-size:14px;color:var(--gold);margin-bottom:8px">معامل الإلحاح:</h4>
+<ul>
+<li>جدول عادي: <strong style="color:var(--white)">1.0x</strong></li>
+<li>مستعجل (-30%): <strong style="color:var(--white)">1.3x</strong></li>
+<li>طوارئ (&lt; أسبوع): <strong style="color:var(--white)">1.5x - 2.0x</strong></li>
+</ul>
+</div>
+</div>
+
+<div class="card fade-up" style="grid-column:1/-1">
+<h3 style="color:var(--orange)">&#128203; ما يشوفه العميل في عرض السعر:</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:16px">
+<div style="background:rgba(224,124,36,0.05);border-radius:12px;padding:16px">
+<h4 style="font-size:14px;color:var(--gold)">1. البحث والاستراتيجية</h4>
+<p style="font-size:13px;color:var(--gray)">___ ريال — X أيام عمل</p>
+</div>
+<div style="background:rgba(224,124,36,0.05);border-radius:12px;padding:16px">
+<h4 style="font-size:14px;color:var(--gold)">2. التصميم والمفاهيم</h4>
+<p style="font-size:13px;color:var(--gray)">___ ريال — X أيام عمل</p>
+</div>
+<div style="background:rgba(224,124,36,0.05);border-radius:12px;padding:16px">
+<h4 style="font-size:14px;color:var(--gold)">3. الإنتاج والتنفيذ</h4>
+<p style="font-size:13px;color:var(--gray)">___ ريال — حسب البنود</p>
+</div>
+<div style="background:rgba(224,124,36,0.05);border-radius:12px;padding:16px">
+<h4 style="font-size:14px;color:var(--gold)">4. إدارة المشروع</h4>
+<p style="font-size:13px;color:var(--gray)">___ ريال — % من الإجمالي</p>
+</div>
+<div style="background:rgba(224,124,36,0.05);border-radius:12px;padding:16px">
+<h4 style="font-size:14px;color:var(--gold)">5. احتياطي مخاطر</h4>
+<p style="font-size:13px;color:var(--gray)">___ ريال — 10-15%</p>
+</div>
+<div style="background:rgba(224,124,36,0.05);border-radius:12px;padding:16px">
+<h4 style="font-size:14px;color:var(--gold)">الإجمالي + ضريبة 15%</h4>
+<p style="font-size:13px;color:var(--gray)">___ ريال شامل الضريبة</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECTION: COMPARISON -->
+<section class="section section-purple" id="compare">
+<div class="container">
+<div class="section-badge-sm">مقارنة شاملة</div>
+<h2 class="section-title">الخيارات الثلاثة <span>وجهاً لوجه</span></h2>
+<p class="section-sub">كل بُعد، كل رقم، كل أداة — مقارنة صريحة بدون تجميل.</p>
+
+<div class="compare-grid">
+<!-- Free -->
+<div class="compare-card free fade-up">
+<div class="badge">&#128994; مجاني</div>
+<h3>الخيار المجاني</h3>
+<div class="price">0 ريال</div>
+<div class="price-note">شهرياً — بدون تأسيس</div>
+<ul>
+<li>الأتمتة <span>10%</span></li>
+<li>وقت المشروع <span>5-7 أيام</span></li>
+<li>مشاريع/شهر <span>2-3</span></li>
+<li>حجم الفريق <span>1-3</span></li>
+<li>مهارات تقنية <span>لا شيء</span></li>
+<li>وقت الإعداد <span>فوري</span></li>
+<li>مركزية البيانات <span>&#10060;</span></li>
+<li>تتبع المشاريع <span>&#10060;</span></li>
+<li>لوحة ربحية <span>&#10060;</span></li>
+<li>AI Agents <span>&#10060;</span></li>
+<li>قابلية التوسع <span>&#10060;</span></li>
+<li>الصيانة <span>لا شيء</span></li>
+</ul>
+</div>
+
+<!-- Medium -->
+<div class="compare-card mid fade-up">
+<div class="rec-badge">&#11088; موصى به</div>
+<div class="badge">&#128992; متوسط</div>
+<h3>الخيار المتوسط</h3>
+<div class="price">2,000-3,000 ر</div>
+<div class="price-note">شهرياً + 15-37K تأسيس</div>
+<ul>
+<li>الأتمتة <span>50-60%</span></li>
+<li>وقت المشروع <span>2-3 أيام</span></li>
+<li>مشاريع/شهر <span>5-15</span></li>
+<li>حجم الفريق <span>3-8</span></li>
+<li>مهارات تقنية <span>متوسطة</span></li>
+<li>وقت الإعداد <span>2-4 أسابيع</span></li>
+<li>مركزية البيانات <span>&#9989; Notion</span></li>
+<li>تتبع المشاريع <span>&#9989; Kanban</span></li>
+<li>لوحة ربحية <span>&#9989; بسيطة</span></li>
+<li>AI Agents <span>&#9888;&#65039; بسيطة</span></li>
+<li>قابلية التوسع <span>&#9989; معقولة</span></li>
+<li>الصيانة <span>شهرية</span></li>
+</ul>
+</div>
+
+<!-- Pro -->
+<div class="compare-card pro fade-up">
+<div class="badge">&#128308; خارق</div>
+<h3>الخيار الخارق</h3>
+<div class="price">6,000-8,000 ر</div>
+<div class="price-note">شهرياً + 80-197K تأسيس</div>
+<ul>
+<li>الأتمتة <span>85-90%</span></li>
+<li>وقت المشروع <span>4-8 ساعات</span></li>
+<li>مشاريع/شهر <span>10-30+</span></li>
+<li>حجم الفريق <span>5+</span></li>
+<li>مهارات تقنية <span>عالية (setup)</span></li>
+<li>وقت الإعداد <span>6-12 أسبوع</span></li>
+<li>مركزية البيانات <span>&#9989; منصة</span></li>
+<li>تتبع المشاريع <span>&#9989; + تحليلات</span></li>
+<li>لوحة ربحية <span>&#9989; لحظية</span></li>
+<li>AI Agents <span>&#9989; 4-6 ذكية</span></li>
+<li>قابلية التوسع <span>&#9989; ممتازة</span></li>
+<li>الصيانة <span>أسبوعية</span></li>
+</ul>
+</div>
+</div>
+
+<!-- Tools detail -->
+<div style="margin-top:48px">
+<h3 style="font-size:20px;margin-bottom:20px">الأدوات المطلوبة لكل خيار — بالتفصيل:</h3>
+<div class="table-wrap">
+<table>
+<thead><tr><th>الفئة</th><th style="color:#27AE60">&#128994; مجاني</th><th style="color:#F1C40F">&#128992; متوسط</th><th style="color:#E74C3C">&#128308; خارق</th></tr></thead>
+<tbody>
+<tr><td style="color:var(--white);font-weight:700">الذكاء الاصطناعي</td><td>Claude Free</td><td>Claude Pro (150ر) + Perplexity Pro (75ر)</td><td>Claude API Opus (375-750ر) + Perplexity + أداة سوقية</td></tr>
+<tr><td style="color:var(--white);font-weight:700">توليد الصور</td><td>—</td><td>Midjourney Standard (112ر)</td><td>Midjourney Pro + DALL-E + Firefly (300-450ر)</td></tr>
+<tr><td style="color:var(--white);font-weight:700">توليد الفيديو</td><td>—</td><td>—</td><td>Runway ML Pro (131ر)</td></tr>
+<tr><td style="color:var(--white);font-weight:700">التصميم</td><td>Canva Free / Figma Free</td><td>Figma Pro ×3 (169ر) + Canva Pro (56ر)</td><td>Figma Pro ×5 + Adobe CC (544ر)</td></tr>
+<tr><td style="color:var(--white);font-weight:700">العروض التقديمية</td><td>Google Slides / Gamma Free</td><td>Gamma Pro (56ر)</td><td>Gamma Ultra + Beautiful.ai (788ر)</td></tr>
+<tr><td style="color:var(--white);font-weight:700">إدارة المشاريع</td><td>Google Sheets</td><td>Notion Business ×5 (338ر)</td><td>Notion Business ×8 + منصة مخصصة (540-720ر)</td></tr>
+<tr><td style="color:var(--white);font-weight:700">الأتمتة</td><td>—</td><td>Make.com Core (41ر)</td><td>n8n Pro + Make.com Pro (315ر)</td></tr>
+<tr><td style="color:var(--white);font-weight:700">تحليل المنافسين</td><td>Google يدوي</td><td>—</td><td>SimilarWeb أو SEMrush (525-746ر)</td></tr>
+<tr style="background:rgba(224,124,36,0.05)"><td style="color:var(--orange);font-weight:900">المجموع الشهري</td><td style="color:#27AE60;font-weight:900">0 ريال</td><td style="color:#F1C40F;font-weight:900">~1,035-2,500 ريال</td><td style="color:#E74C3C;font-weight:900">~4,200-5,700 ريال</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Cost over year -->
+<div style="margin-top:48px">
+<h3 style="font-size:20px;margin-bottom:20px">التكلفة الإجمالية — السنة الأولى:</h3>
+<div class="kpi-grid">
+<div class="kpi" style="border-color:rgba(39,174,96,0.3)">
+<div class="val" style="background:none;-webkit-text-fill-color:#27AE60;color:#27AE60">0</div>
+<div class="lbl">المجاني — ريال/سنة</div>
+</div>
+<div class="kpi" style="border-color:rgba(241,196,15,0.3)">
+<div class="val" style="background:none;-webkit-text-fill-color:#F1C40F;color:#F1C40F">33-73K</div>
+<div class="lbl">المتوسط — ريال/سنة</div>
+</div>
+<div class="kpi" style="border-color:rgba(231,76,60,0.3)">
+<div class="val" style="background:none;-webkit-text-fill-color:#E74C3C;color:#E74C3C">152-293K</div>
+<div class="lbl">الخارق — ريال/سنة</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- SECTION: ROADMAP -->
+<section class="section section-navy" id="roadmap">
+<div class="container">
+<div class="section-badge-sm">خارطة الطريق</div>
+<h2 class="section-title">التطور <span>التدريجي</span></h2>
+<p class="section-sub">ما تحتاج تختار الخارق من اليوم. ابدأ بالمجاني — وتطور حسب الحاجة.</p>
+
+<div class="timeline-h" style="justify-content:center">
+<div class="tl-item">
+<h4 style="color:#27AE60">الشهر 1-3</h4>
+<p>ابدأ بالمجاني<br>تعلّم النظام<br>جرّب الـ Skills<br>اعرف احتياجك</p>
+</div>
+<div class="tl-item">
+<h4 style="color:#F1C40F">الشهر 3-6</h4>
+<p>انتقل للمتوسط<br>سوّي الـ setup<br>أتمت 50%<br>Notion + Make.com</p>
+</div>
+<div class="tl-item">
+<h4 style="color:var(--orange)">الشهر 6-12</h4>
+<p>حسّن وطوّر<br>أضف أدوات<br>حسّن الأتمتة<br>قيّم الأداء</p>
+</div>
+<div class="tl-item">
+<h4 style="color:#E74C3C">بعد سنة+</h4>
+<p>قرر الخارق<br>بناءً على النمو<br>ابني المنصة<br>4-6 AI Agents</p>
+</div>
+</div>
+
+<!-- Decision tree -->
+<div style="background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:32px;margin-top:48px">
+<h3 style="font-size:20px;margin-bottom:24px;text-align:center">&#127919; ملخص القرار السريع</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+<div style="background:rgba(39,174,96,0.06);border:1px solid rgba(39,174,96,0.2);border-radius:16px;padding:20px">
+<h4 style="color:#27AE60;margin-bottom:12px">&#128994; اختر المجاني إذا:</h4>
+<ul style="font-size:14px;color:var(--gray);padding-right:16px">
+<li>ميزانيتك صفر حالياً</li>
+<li>مشاريعك أقل من 5 بالشهر</li>
+<li>فريقك 1-3 أشخاص</li>
+<li>تبي تبدأ فوراً</li>
+<li>تبي تجرب النظام أولاً</li>
+</ul>
+</div>
+<div style="background:rgba(241,196,15,0.06);border:1px solid rgba(241,196,15,0.2);border-radius:16px;padding:20px">
+<h4 style="color:#F1C40F;margin-bottom:12px">&#128992; اختر المتوسط إذا:</h4>
+<ul style="font-size:14px;color:var(--gray);padding-right:16px">
+<li>عندك 2-3K شهري + 15-37K مرة</li>
+<li>مشاريعك 5-15 بالشهر</li>
+<li>فريقك 3-8 أشخاص</li>
+<li>تبي توازن التكلفة والكفاءة</li>
+<li>عندك شخص تقني يسوي الـ setup</li>
+</ul>
+</div>
+<div style="background:rgba(231,76,60,0.06);border:1px solid rgba(231,76,60,0.2);border-radius:16px;padding:20px">
+<h4 style="color:#E74C3C;margin-bottom:12px">&#128308; اختر الخارق إذا:</h4>
+<ul style="font-size:14px;color:var(--gray);padding-right:16px">
+<li>عندك 6-8K شهري + 80-197K مرة</li>
+<li>مشاريعك 10-30+ بالشهر</li>
+<li>فريقك 5+ أشخاص</li>
+<li>تبي ميزة تنافسية حقيقية</li>
+<li>جاهز تنتظر 6-12 أسبوع بناء</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Rules -->
+<div style="margin-top:48px">
+<h3 style="font-size:20px;margin-bottom:20px">&#9888;&#65039; القواعد الصارمة — ما يتغير أبداً:</h3>
+<div class="cards-grid">
+<div class="card" style="border-color:rgba(231,76,60,0.3)">
+<h3 style="color:#E74C3C;font-size:16px">&#10060; ممنوع</h3>
+<ul>
+<li>اختراع أرقام بدون مصدر</li>
+<li>نسخ محتوى بدون تحليل</li>
+<li>إرسال أسعار بدون موافقة إنسان</li>
+<li>إرسال مخرج للعميل بدون مراجعة بشرية</li>
+</ul>
+</div>
+<div class="card" style="border-color:rgba(39,174,96,0.3)">
+<h3 style="color:#27AE60;font-size:16px">&#9989; واجب</h3>
+<ul>
+<li>كل رقم بمصدر أو علامة "تقديري"</li>
+<li>كل بحث ينتهي باستنتاج واضح</li>
+<li>الحساسية الثقافية في كل مخرج</li>
+<li>العربية الفصحى في المخرجات الرسمية</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<p>&#169; 2026 AZR Creative Studio — الخطة التشغيلية والاستراتيجية v1.0</p>
+<p style="margin-top:8px;color:var(--gray-dark)">آخر تحديث: مارس 2026</p>
+</div>
+</footer>
+
+<script>
+// Fade-up animation on scroll
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Nav active state
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.topnav-links a');
+window.addEventListener('scroll', () => {
+let current = '';
+sections.forEach(s => { if(scrollY >= s.offsetTop - 200) current = s.getAttribute('id') });
+navLinks.forEach(a => {
+a.classList.remove('active');
+if(a.getAttribute('href') === '#' + current) a.classList.add('active');
+});
+});
+</script>
+</body>
+</html>
