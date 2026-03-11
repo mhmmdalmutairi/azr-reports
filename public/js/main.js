@@ -146,7 +146,7 @@ var cur=0, timer;
 function goTo(n){
   if(!track)return;
   cur=n;
-  track.style.transform='translateX('+n*100+'%)';
+  track.style.transform='translateX('+(n*-100)+'%)';
   dots.forEach(function(d,i){ d.classList.toggle('active',i===n); });
 }
 function next(){ goTo((cur+1)%dots.length); }
