@@ -706,7 +706,8 @@ body {
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {
-  .slide { padding: 30px 5%; overflow-y: auto; }
+  .slide { padding: 24px 4%; overflow-y: auto; -webkit-overflow-scrolling: touch; align-items: flex-start; }
+  .slide-content { padding-top: 20px; padding-bottom: 60px; }
   .case-card, .intervention-card { padding: 20px; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .case-highlights { grid-template-columns: repeat(2, 1fr); gap: 10px; }
