@@ -112,18 +112,72 @@ document.querySelectorAll('.progress-fill').forEach(el => {
   progressObserver.observe(el);
 });
 
-// Typed text effect for hero
-function typeText(element, text, speed = 50) {
-  if (!element) return;
-  let i = 0;
-  element.textContent = '';
-  element.style.opacity = '1';
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
+// Cursor glow effect
+const cursorGlow = document.createElement('div');
+cursorGlow.className = 'cursor-glow';
+document.body.appendChild(cursorGlow);
+let mouseX = 0, mouseY = 0, glowX = 0, glowY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateCursor() {
+  glowX += (mouseX - glowX) * 0.15;
+  glowY += (mouseY - glowY) * 0.15;
+  cursorGlow.style.left = glowX + 'px';
+  cursorGlow.style.top = glowY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Hide cursor glow on mobile
+if ('ontouchstart' in window) {
+  cursorGlow.style.display = 'none';
+}
+
+// Testimonials carousel
+const track = document.getElementById('testimonialTrack');
+const dots = document.querySelectorAll('#testimonialDots .dot');
+let currentSlide = 0;
+let autoSlideTimer;
+
+function goToSlide(index) {
+  if (!track) return;
+  currentSlide = index;
+  track.style.transform = `translateX(${index * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === index));
+}
+
+function nextSlide() {
+  goToSlide((currentSlide + 1) % dots.length);
+}
+
+function startAutoSlide() {
+  autoSlideTimer = setInterval(nextSlide, 5000);
+}
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    clearInterval(autoSlideTimer);
+    goToSlide(+dot.dataset.index);
+    startAutoSlide();
+  });
+});
+
+if (track) {
+  startAutoSlide();
+  // Swipe support
+  let touchStartX = 0;
+  track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+  track.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      clearInterval(autoSlideTimer);
+      if (diff > 0) goToSlide(Math.min(currentSlide + 1, dots.length - 1));
+      else goToSlide(Math.max(currentSlide - 1, 0));
+      startAutoSlide();
     }
-  }
-  type();
+  });
 }
