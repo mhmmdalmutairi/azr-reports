@@ -17,13 +17,21 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar scrolled" id="navbar">
   <div class="container">
-    <a href="index.html" class="nav-logo nav-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio"></a>
+    <a href="index.html" class="nav-logo nav-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio" width="120" height="40"></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="services.html">خدماتنا</a></li>
@@ -117,6 +125,60 @@
   </div>
 </section>
 
+<!-- Timeline -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge anim-hidden">رحلتنا</span>
+      <h2 class="section-title anim-hidden">محطات <span class="highlight">بارزة</span></h2>
+    </div>
+    <div class="azr-timeline">
+      <div class="timeline-item anim-hidden">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-content">
+          <h4>التأسيس</h4>
+          <p>انطلاقة AZR Innovation Studio من الرياض — بدأنا بحلم بناء منظومة تشغيل نمو مبتكرة</p>
+        </div>
+      </div>
+      <div class="timeline-item anim-hidden">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-content">
+          <h4>أول شراكة كبرى</h4>
+          <p>بدء التعاون مع stc في حملات إبداعية وطنية — يوم التأسيس ورمضان</p>
+        </div>
+      </div>
+      <div class="timeline-item anim-hidden">
+        <div class="timeline-year">2020</div>
+        <div class="timeline-content">
+          <h4>التوسع في القطاع الحكومي</h4>
+          <p>شراكات مع وزارة العدل ومنظومة علم — قيادة مشاريع تحولية رقمية</p>
+        </div>
+      </div>
+      <div class="timeline-item anim-hidden">
+        <div class="timeline-year">2022</div>
+        <div class="timeline-content">
+          <h4>منظومة زاد</h4>
+          <p>إطلاق منظومة زاد للاستدامة المالية للقطاع غير الربحي — +10 مليون مشترك</p>
+        </div>
+      </div>
+      <div class="timeline-item anim-hidden">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-content">
+          <h4>+150 مشروع</h4>
+          <p>تجاوزنا 150 مشروع مع أكثر من 85 شريك — من الحملات الإبداعية إلى الاستراتيجيات الوطنية</p>
+        </div>
+      </div>
+      <div class="timeline-item anim-hidden">
+        <div class="timeline-year">2026</div>
+        <div class="timeline-content">
+          <h4>رؤية المستقبل</h4>
+          <p>التوسع الإقليمي وبناء شراكات دولية — نحو أن نكون المنظومة الأولى لتشغيل النمو في المنطقة</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Values -->
 <section class="section">
   <div class="container">
@@ -164,7 +226,7 @@
     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 700px; margin: 0 auto;">
       <div class="card team-card anim-hidden">
         <div class="team-avatar-img">
-          <img src="assets/ahmed-alharbi.png" alt="أحمد الحربي">
+          <img src="assets/ahmed-alharbi.png" alt="أحمد الحربي" loading="lazy" width="200" height="200">
         </div>
         <h4>أحمد الحربي</h4>
         <div class="team-role">Chief Executive Officer</div>
@@ -172,7 +234,7 @@
       </div>
       <div class="card team-card anim-hidden anim-delay-2">
         <div class="team-avatar-img">
-          <img src="assets/mohammed-almutairi-photo.png" alt="محمد المطيري">
+          <img src="assets/mohammed-almutairi-photo.png" alt="محمد المطيري" loading="lazy" width="200" height="200">
         </div>
         <h4>محمد المطيري</h4>
         <div class="team-role">Business Development Manager</div>
@@ -213,22 +275,22 @@
     </div>
     <div class="partners-grid anim-hidden">
       <div class="partner-logo-img">
-        <img src="assets/logos/moj.svg" alt="وزارة العدل">
+        <img src="assets/logos/moj.svg" alt="وزارة العدل" loading="lazy" width="120" height="60">
       </div>
       <div class="partner-logo-img">
-        <img src="assets/logos/mof.svg" alt="وزارة المالية">
+        <img src="assets/logos/mof.svg" alt="وزارة المالية" loading="lazy" width="120" height="60">
       </div>
       <div class="partner-logo-img">
-        <img src="assets/logos/moh.svg" alt="وزارة الصحة">
+        <img src="assets/logos/moh.svg" alt="وزارة الصحة" loading="lazy" width="120" height="60">
       </div>
       <div class="partner-logo-img">
-        <img src="assets/logos/misk.svg" alt="مؤسسة مسك">
+        <img src="assets/logos/misk.svg" alt="مؤسسة مسك" loading="lazy" width="120" height="60">
       </div>
       <div class="partner-logo-img">
-        <img src="assets/logos/elm.svg" alt="منظومة علم">
+        <img src="assets/logos/elm.svg" alt="منظومة علم" loading="lazy" width="120" height="60">
       </div>
       <div class="partner-logo-img">
-        <img src="assets/logos/leap.svg" alt="LEAP">
+        <img src="assets/logos/leap.svg" alt="LEAP" loading="lazy" width="120" height="60">
       </div>
     </div>
   </div>
@@ -249,11 +311,11 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo footer-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio"></a>
+        <a href="index.html" class="nav-logo footer-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio" loading="lazy" width="120" height="40"></a>
         <p>منظومة تشغيل نمو تهدف إلى رفع نمو الشركات والمؤسسات</p>
       </div>
       <div class="footer-col"><h4>خدماتنا</h4><ul><li><a href="services.html">بناء المشاريع</a></li><li><a href="services.html">تصميم الخدمات</a></li><li><a href="services.html">استشارات النمو</a></li></ul></div>
-      <div class="footer-col"><h4>الشركة</h4><ul><li><a href="about.html">من نحن</a></li><li><a href="portfolio.html">مشاريعنا</a></li><li><a href="contact.html">تواصل معنا</a></li></ul></div>
+      <div class="footer-col"><h4>الشركة</h4><ul><li><a href="about.html">من نحن</a></li><li><a href="portfolio.html">مشاريعنا</a></li><li><a href="methodology.html">منهجيتنا</a></li><li><a href="blog.html">رؤى وأفكار</a></li><li><a href="contact.html">تواصل معنا</a></li></ul></div>
       <div class="footer-col"><h4>تواصل</h4><ul><li><a href="mailto:HALA@Aazr.info">HALA@Aazr.info</a></li><li><a href="tel:+966541170272">+966 54 117 0272</a></li><li><a href="tel:+966550066918">+966 55 006 6918</a></li><li>الرياض، المملكة العربية السعودية</li></ul></div>
     </div>
     <div class="footer-bottom">
@@ -269,6 +331,72 @@
 <script src="js/app.js"></script>
 
 <style>
+  /* Timeline */
+  .azr-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px 0;
+  }
+  .azr-timeline::before {
+    content: '';
+    position: absolute;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--azr-gold), var(--azr-teal-light));
+    transform: translateX(50%);
+  }
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .timeline-item:nth-child(odd) {
+    flex-direction: row-reverse;
+    text-align: left;
+  }
+  .timeline-item:nth-child(even) {
+    text-align: right;
+  }
+  .timeline-year {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--azr-navy);
+    position: relative;
+    z-index: 2;
+  }
+  .timeline-content {
+    flex: 1;
+    max-width: calc(50% - 72px);
+    padding: 24px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(12px);
+  }
+  .timeline-content h4 {
+    color: var(--azr-gold);
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+  .timeline-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+  }
+
   @media (max-width: 768px) {
     section[style*="padding-top: 160px"] {
       padding-top: 100px !important;
@@ -286,6 +414,25 @@
     /* Expert network tags */
     div[style*="display: flex; flex-wrap: wrap; justify-content: center"] {
       gap: 8px !important;
+    }
+    /* Timeline mobile */
+    .azr-timeline::before {
+      right: 40px;
+      transform: none;
+    }
+    .timeline-item,
+    .timeline-item:nth-child(odd) {
+      flex-direction: row;
+      text-align: right;
+    }
+    .timeline-year {
+      width: 60px;
+      height: 60px;
+      font-size: 15px;
+    }
+    .timeline-content {
+      max-width: none;
+      flex: 1;
     }
   }
 </style>

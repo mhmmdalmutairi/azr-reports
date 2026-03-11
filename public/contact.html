@@ -9,13 +9,21 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar scrolled" id="navbar">
   <div class="container">
-    <a href="index.html" class="nav-logo nav-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio"></a>
+    <a href="index.html" class="nav-logo nav-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio" width="120" height="40"></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">الرئيسية</a></li>
       <li><a href="services.html">خدماتنا</a></li>
@@ -45,7 +53,7 @@
       <!-- Contact Form -->
       <div class="card anim-hidden" style="padding: 40px;">
         <h3 style="margin-bottom: 32px;">أرسل لنا رسالة</h3>
-        <form id="contactForm" onsubmit="return handleSubmit(event)">
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="return handleSubmit(event)">
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
             <div class="form-group">
               <label>الاسم الكامل</label>
@@ -141,7 +149,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo footer-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio"></a>
+        <a href="index.html" class="nav-logo footer-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio" loading="lazy" width="120" height="40"></a>
         <p>منظومة تشغيل نمو تهدف إلى رفع نمو الشركات والمؤسسات عبر الابتكار والشراكة الاستراتيجية</p>
       </div>
       <div class="footer-col">
@@ -157,6 +165,8 @@
         <ul>
           <li><a href="about.html">من نحن</a></li>
           <li><a href="portfolio.html">مشاريعنا</a></li>
+          <li><a href="methodology.html">منهجيتنا</a></li>
+          <li><a href="blog.html">رؤى وأفكار</a></li>
           <li><a href="contact.html">تواصل معنا</a></li>
         </ul>
       </div>
@@ -189,17 +199,35 @@ function handleSubmit(e) {
   btn.textContent = 'جاري الإرسال...';
   btn.disabled = true;
 
-  // Simulate form submission (replace with actual endpoint later)
-  setTimeout(() => {
-    btn.textContent = 'تم الإرسال بنجاح!';
-    btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
-    form.reset();
+  const data = new FormData(form);
+
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      btn.textContent = 'تم الإرسال بنجاح!';
+      btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+      form.reset();
+    } else {
+      btn.textContent = 'حدث خطأ، حاول مرة ثانية';
+      btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
+    }
     setTimeout(() => {
       btn.textContent = 'إرسال الرسالة';
       btn.style.background = '';
       btn.disabled = false;
     }, 3000);
-  }, 1500);
+  }).catch(() => {
+    btn.textContent = 'حدث خطأ في الاتصال';
+    btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
+    setTimeout(() => {
+      btn.textContent = 'إرسال الرسالة';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  });
 
   return false;
 }

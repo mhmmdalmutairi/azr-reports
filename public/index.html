@@ -16,6 +16,41 @@
   <meta name="twitter:description" content="منظومة تشغيل نمو متكاملة — نبدأ بالاكتشاف، ونصل لتحقيق نمو مستدام وأثر ملموس">
   <meta name="twitter:image" content="https://azr-reports.pages.dev/assets/og-thumbnail.png">
   <title>AZR Innovation Studio — نبتكر.. لننمو</title>
+  <link rel="canonical" href="https://azr-reports.pages.dev/">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AZR Innovation Studio",
+    "alternateName": "آزر استديو",
+    "url": "https://azr-reports.pages.dev",
+    "logo": "https://azr-reports.pages.dev/assets/azr-brand-logo.png",
+    "description": "منظومة تشغيل نمو متكاملة — نبدأ بالاكتشاف، ونصل لتحقيق نمو مستدام وأثر ملموس",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "الرياض",
+      "addressCountry": "SA"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+966541170272",
+      "email": "HALA@Aazr.info",
+      "contactType": "customer service"
+    },
+    "sameAs": ["https://www.aazr.info"],
+    "foundingDate": "2018",
+    "numberOfEmployees": "10-50"
+  }
+  </script>
+  <!-- Google Analytics — replace G-XXXXXXXXXX with your actual ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
@@ -248,6 +283,52 @@
   </div>
 </section>
 
+<!-- === Testimonials === -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge anim-hidden">شهادات عملائنا</span>
+      <h2 class="section-title anim-hidden">ماذا يقول <span class="highlight">شركاؤنا</span></h2>
+    </div>
+    <div class="testimonials-carousel anim-hidden" id="testimonialsCarousel">
+      <div class="testimonial-track" id="testimonialTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"فريق أزر ما يقدم لك مجرد خدمة — يقدم لك رؤية متكاملة تغيّر طريقة تفكيرك عن مشروعك. شراكتنا معهم كانت نقطة تحول حقيقية."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-info">
+              <div class="testimonial-name">عميل في القطاع الحكومي</div>
+              <div class="testimonial-role">مشروع تحول رقمي</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"الاحترافية والإبداع في التنفيذ فاقوا توقعاتنا. فريق أزر فهم احتياجاتنا من أول جلسة وقدّم حلول ما كنا نتخيل إنها ممكنة."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-info">
+              <div class="testimonial-name">شريك استراتيجي</div>
+              <div class="testimonial-role">حملة إبداعية وطنية</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"أزر ساعدونا نبني نموذج عمل مستدام حقق نتائج ملموسة خلال أشهر. الفريق يجمع بين العمق الاستراتيجي والتنفيذ العملي."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-info">
+              <div class="testimonial-name">مؤسس مشروع ريادي</div>
+              <div class="testimonial-role">بناء مشاريع واستشارات نمو</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots">
+        <button class="dot active" data-index="0"></button>
+        <button class="dot" data-index="1"></button>
+        <button class="dot" data-index="2"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- === CTA Section === -->
 <section class="section" id="cta" style="text-align: center;">
   <div class="glow-orb glow-orb-3" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
@@ -270,7 +351,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-logo footer-logo-svg">
-          <img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio">
+          <img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio" loading="lazy" width="120" height="40">
         </a>
         <p>منظومة تشغيل نمو تهدف إلى رفع نمو الشركات والمؤسسات عبر الابتكار والشراكة الاستراتيجية</p>
       </div>
@@ -287,6 +368,8 @@
         <ul>
           <li><a href="about.html">من نحن</a></li>
           <li><a href="portfolio.html">مشاريعنا</a></li>
+          <li><a href="methodology.html">منهجيتنا</a></li>
+          <li><a href="blog.html">رؤى وأفكار</a></li>
           <li><a href="contact.html">تواصل معنا</a></li>
         </ul>
       </div>
