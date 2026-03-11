@@ -1,4 +1,4 @@
-/* === AZR Innovation Studio — Animations === */
+/* === AZR Innovation Studio — Animations (Apple-grade) === */
 
 /* === Keyframes === */
 @keyframes fadeInUp {
@@ -58,24 +58,91 @@
   100% { transform: rotate(360deg); }
 }
 
-/* === Animation Classes === */
+/* === Apple-grade Animation Classes === */
+
+/* Default: fade + rise */
 .anim-hidden {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(50px) scale(0.97);
+  filter: blur(4px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .anim-visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
-.anim-delay-1 { transition-delay: 0.1s; }
-.anim-delay-2 { transition-delay: 0.2s; }
-.anim-delay-3 { transition-delay: 0.3s; }
-.anim-delay-4 { transition-delay: 0.4s; }
-.anim-delay-5 { transition-delay: 0.5s; }
-.anim-delay-6 { transition-delay: 0.6s; }
+/* Slide from right (for RTL layouts) */
+.anim-slide-right {
+  opacity: 0;
+  transform: translateX(-60px);
+  filter: blur(3px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-slide-right.anim-visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* Slide from left */
+.anim-slide-left {
+  opacity: 0;
+  transform: translateX(60px);
+  filter: blur(3px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-slide-left.anim-visible {
+  opacity: 1;
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+/* Scale up from center */
+.anim-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  filter: blur(6px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-scale.anim-visible {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* Stagger delays — smoother with longer gaps */
+.anim-delay-1 { transition-delay: 0.12s; }
+.anim-delay-2 { transition-delay: 0.24s; }
+.anim-delay-3 { transition-delay: 0.36s; }
+.anim-delay-4 { transition-delay: 0.48s; }
+.anim-delay-5 { transition-delay: 0.6s; }
+.anim-delay-6 { transition-delay: 0.72s; }
+
+/* === Card hover — Apple lift effect === */
+.card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
 
 /* === Parallax Glow Orbs === */
 .glow-orb {
@@ -85,6 +152,7 @@
   opacity: 0.15;
   pointer-events: none;
   animation: pulseBg 8s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 .glow-orb-1 {
@@ -139,14 +207,36 @@
 /* === Cursor Glow === */
 .cursor-glow {
   position: fixed;
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(224,124,36,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(224,124,36,0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: opacity 0.3s;
+  will-change: left, top;
+}
+
+/* === Section divider line === */
+.section-reveal {
+  position: relative;
+}
+
+.section-reveal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--azr-gold), transparent);
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-reveal.anim-visible::before {
+  width: 200px;
 }
 
 /* === Testimonials === */
@@ -159,7 +249,7 @@
 
 .testimonial-track {
   display: flex;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   direction: ltr;
 }
 
@@ -225,7 +315,7 @@
   border: none;
   background: rgba(255,255,255,0.2);
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 0;
 }
 
@@ -233,6 +323,28 @@
   background: var(--azr-gold);
   width: 28px;
   border-radius: 5px;
+}
+
+/* === Smooth number reveal === */
+.stat-number {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-card:hover .stat-number {
+  transform: scale(1.08);
+}
+
+/* === Hero text reveal — word by word === */
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+/* === Smooth scroll behavior === */
+html {
+  scroll-behavior: smooth;
 }
 
 /* === Reduced Motion === */
@@ -243,8 +355,16 @@
     transition-duration: 0.01ms !important;
   }
 
-  .anim-hidden {
+  .anim-hidden,
+  .anim-slide-right,
+  .anim-slide-left,
+  .anim-scale {
     opacity: 1;
     transform: none;
+    filter: none;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }
