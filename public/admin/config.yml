@@ -1,15 +1,10 @@
 backend:
-  name: github
-  repo: mhmmdalmutairi/azr-reports
-  branch: main
+  name: test-repo
 
-# Since this is a plain static site with no build step,
-# published content goes directly into the public/ folder.
 media_folder: "public/assets"
 public_folder: "/assets"
 
 collections:
-  # ── Blog Posts ──────────────────────────────────────────
   - name: "blog"
     label: "Blog Posts"
     folder: "public/blog"
@@ -30,7 +25,6 @@ collections:
           - "Digital Transformation"
       - { label: "Body", name: "body", widget: "markdown" }
 
-  # ── Projects / Portfolio ────────────────────────────────
   - name: "projects"
     label: "Projects"
     folder: "public/projects"
@@ -42,7 +36,6 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Featured Image", name: "image", widget: "image", required: false }
 
-  # ── Site Settings ───────────────────────────────────────
   - name: "settings"
     label: "Site Settings"
     files:
@@ -57,7 +50,6 @@ collections:
               - { label: "Company Name", name: "name", widget: "string", default: "AZR Innovation Studio" }
               - { label: "Tagline", name: "tagline", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
-
           - label: "Contact Details"
             name: "contact"
             widget: "object"
@@ -65,12 +57,3 @@ collections:
               - { label: "Email", name: "email", widget: "string" }
               - { label: "Phone", name: "phone", widget: "string", required: false }
               - { label: "Address", name: "address", widget: "text", required: false }
-
-          - label: "Social Links"
-            name: "social"
-            widget: "object"
-            fields:
-              - { label: "Twitter / X", name: "twitter", widget: "string", required: false }
-              - { label: "LinkedIn", name: "linkedin", widget: "string", required: false }
-              - { label: "GitHub", name: "github", widget: "string", required: false }
-              - { label: "Instagram", name: "instagram", widget: "string", required: false }
