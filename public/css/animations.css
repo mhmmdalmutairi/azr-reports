@@ -58,6 +58,46 @@
   100% { transform: rotate(360deg); }
 }
 
+/* Text reveal — words slide up from behind a clip mask */
+@keyframes textRevealUp {
+  0% { opacity: 0; transform: translateY(110%); }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Scale up with subtle overshoot for stats/numbers */
+@keyframes statScaleIn {
+  0% { opacity: 0; transform: scale(0.5); filter: blur(8px); }
+  70% { opacity: 1; transform: scale(1.06); filter: blur(0); }
+  85% { transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0); }
+}
+
+/* Badge shimmer/shine sweep */
+@keyframes badgeShine {
+  0% { left: -100%; }
+  50%, 100% { left: 200%; }
+}
+
+/* CTA breathing pulse */
+@keyframes ctaBreath {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.4); }
+  50% { box-shadow: 0 0 24px 4px rgba(212, 160, 23, 0.18); }
+}
+
+/* Section gold line dramatic reveal */
+@keyframes goldLineExpand {
+  0% { width: 0; opacity: 0; }
+  30% { opacity: 1; }
+  100% { width: 360px; opacity: 1; }
+}
+
+/* Cursor glow interactive pulse */
+@keyframes cursorGlowPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.08; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.14; }
+}
+
 /* === Apple-grade Animation Classes === */
 
 /* Default: fade + rise */
@@ -132,16 +172,179 @@
 .anim-delay-5 { transition-delay: 0.6s; }
 .anim-delay-6 { transition-delay: 0.72s; }
 
-/* === Card hover — Apple lift effect === */
+/* === Text Reveal Animation === */
+.text-reveal-line {
+  overflow: hidden;
+  display: block;
+}
+
+.text-reveal-line .text-reveal-inner {
+  display: block;
+  opacity: 0;
+  transform: translateY(110%);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-reveal-line.anim-visible .text-reveal-inner,
+.anim-visible .text-reveal-line .text-reveal-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Word-by-word stagger reveal */
+.word-reveal {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.word-reveal .word-inner {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(105%);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.anim-visible .word-reveal .word-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Section Badge Shimmer === */
+.section-badge,
+.badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-badge::after,
+.badge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: badgeShine 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* === Card hover — Apple dramatic lift + glow === */
 .card {
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.5s ease;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.55s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  transform: translateY(-12px) scale(1.025);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(212, 160, 23, 0.08),
+    0 0 80px rgba(212, 160, 23, 0.04);
+  border-color: rgba(212, 160, 23, 0.25);
+}
+
+/* === Stat / Number Scale Animation === */
+.stat-number {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s ease;
+}
+
+.stat-number.anim-stat-visible {
+  animation: statScaleIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stat-card:hover .stat-number {
+  transform: scale(1.12);
+  color: var(--azr-gold);
+}
+
+.stat-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35),
+              0 0 30px rgba(212, 160, 23, 0.06);
+}
+
+/* === Parallax Depth Layers === */
+.parallax-layer-1 {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.parallax-layer-2 {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.parallax-layer-3 {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* === Section divider line — dramatic gold === */
+.section-reveal {
+  position: relative;
+}
+
+.section-reveal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(212, 160, 23, 0.3),
+    var(--azr-gold),
+    rgba(212, 160, 23, 0.3),
+    transparent
+  );
+  transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease;
+  opacity: 0;
+  box-shadow: 0 0 20px rgba(212, 160, 23, 0.15),
+              0 0 40px rgba(212, 160, 23, 0.06);
+}
+
+.section-reveal.anim-visible::before {
+  width: 360px;
+  opacity: 1;
+}
+
+/* === CTA Button Breathing Pulse === */
+.btn-primary,
+.btn-cta,
+.cta-btn {
+  animation: ctaBreath 3s ease-in-out infinite;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-cta:hover,
+.cta-btn:hover {
+  animation: none;
+  box-shadow: 0 0 32px rgba(212, 160, 23, 0.35),
+              0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* === Parallax Glow Orbs === */
@@ -214,29 +417,16 @@
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: opacity 0.3s;
-  will-change: left, top;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.4s ease;
+  will-change: left, top, width, height;
 }
 
-/* === Section divider line === */
-.section-reveal {
-  position: relative;
-}
-
-.section-reveal::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--azr-gold), transparent);
-  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.section-reveal.anim-visible::before {
-  width: 200px;
+.cursor-glow.cursor-glow-interactive {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(212,160,23,0.14) 0%, rgba(224,124,36,0.06) 40%, transparent 70%);
 }
 
 /* === Testimonials === */
@@ -326,12 +516,9 @@
 }
 
 /* === Smooth number reveal === */
-.stat-number {
+.counter {
+  display: inline-block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stat-card:hover .stat-number {
-  transform: scale(1.08);
 }
 
 /* === Hero text reveal — word by word === */
@@ -340,6 +527,12 @@
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s forwards;
+}
+
+/* === Hero parallax text === */
+.hero-parallax-text {
+  will-change: transform;
+  transition: transform 0.05s linear;
 }
 
 /* === Smooth scroll behavior === */
@@ -362,6 +555,10 @@ html {
     opacity: 1;
     transform: none;
     filter: none;
+  }
+
+  .cursor-glow {
+    display: none !important;
   }
 
   html {
