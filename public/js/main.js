@@ -1,41 +1,76 @@
 (function(){
 "use strict";
 
-/* Scroll Animations */
-var animObserver = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
-    if(entry.isIntersecting){
-      entry.target.classList.add('anim-visible');
-      animObserver.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.08, rootMargin: '0px 0px -60px 0px'});
+/* ============================
+   Wait 2 frames so browser paints the hidden state,
+   THEN start observing — this makes transitions visible.
+   ============================ */
+requestAnimationFrame(function(){
+requestAnimationFrame(function(){
 
-document.querySelectorAll('.anim-hidden, .anim-slide-right, .anim-slide-left, .anim-scale, .section-reveal').forEach(function(el){
-  animObserver.observe(el);
-});
-
-/* Counter Animation */
-var counterObserver = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
-    if(entry.isIntersecting){
-      var el = entry.target;
-      var target = +el.dataset.target;
-      var duration = 2000;
-      var start = performance.now();
-      function easeOutExpo(t){ return t===1?1:1-Math.pow(2,-10*t); }
-      function update(now){
-        var progress = Math.min((now-start)/duration,1);
-        el.textContent = Math.floor(easeOutExpo(progress)*target);
-        if(progress<1) requestAnimationFrame(update);
-        else el.textContent = target;
+  /* Scroll Animations */
+  var animObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('anim-visible');
+        animObserver.unobserve(entry.target);
       }
-      requestAnimationFrame(update);
-      counterObserver.unobserve(el);
-    }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -60px 0px'});
+
+  document.querySelectorAll('.anim-hidden, .anim-slide-right, .anim-slide-left, .anim-scale, .section-reveal').forEach(function(el){
+    animObserver.observe(el);
   });
-}, {threshold: 0.5});
-document.querySelectorAll('.counter').forEach(function(c){ counterObserver.observe(c); });
+
+  /* Counter Animation */
+  var counterObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var el = entry.target;
+        var target = +el.dataset.target;
+        var duration = 2000;
+        var start = performance.now();
+        function easeOutExpo(t){ return t===1?1:1-Math.pow(2,-10*t); }
+        function update(now){
+          var progress = Math.min((now-start)/duration,1);
+          el.textContent = Math.floor(easeOutExpo(progress)*target);
+          if(progress<1) requestAnimationFrame(update);
+          else el.textContent = target;
+        }
+        requestAnimationFrame(update);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, {threshold: 0.5});
+  document.querySelectorAll('.counter').forEach(function(c){ counterObserver.observe(c); });
+
+  /* Stagger Animation */
+  var staggerObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.querySelectorAll('.stagger-item').forEach(function(child,i){
+          child.style.transitionDelay = i*0.12+'s';
+          child.classList.add('anim-visible');
+        });
+        staggerObs.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.08});
+  document.querySelectorAll('.stagger-container').forEach(function(el){ staggerObs.observe(el); });
+
+  /* Fallback: force visible after 4s */
+  setTimeout(function(){
+    document.querySelectorAll('.anim-hidden,.anim-slide-right,.anim-slide-left,.anim-scale').forEach(function(el){
+      if(!el.classList.contains('anim-visible')) el.classList.add('anim-visible');
+    });
+  }, 4000);
+
+}); /* end rAF 2 */
+}); /* end rAF 1 */
+
+/* ============================
+   These run immediately (no delay needed)
+   ============================ */
 
 /* Particles */
 var heroP = document.getElementById('heroParticles');
@@ -71,20 +106,6 @@ window.addEventListener('scroll',function(){
     ticking=true;
   }
 });
-
-/* Stagger Animation */
-var staggerObs = new IntersectionObserver(function(entries){
-  entries.forEach(function(entry){
-    if(entry.isIntersecting){
-      entry.target.querySelectorAll('.stagger-item').forEach(function(child,i){
-        child.style.transitionDelay = i*0.12+'s';
-        child.classList.add('anim-visible');
-      });
-      staggerObs.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.08});
-document.querySelectorAll('.stagger-container').forEach(function(el){ staggerObs.observe(el); });
 
 /* Cursor Glow */
 var glow=document.createElement('div');
@@ -182,12 +203,5 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
   });
 });
-
-/* Fallback: force visible after 2s */
-setTimeout(function(){
-  document.querySelectorAll('.anim-hidden,.anim-slide-right,.anim-slide-left,.anim-scale').forEach(function(el){
-    if(!el.classList.contains('anim-visible')) el.classList.add('anim-visible');
-  });
-}, 2000);
 
 })();
