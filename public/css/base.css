@@ -22,9 +22,10 @@ body {
   color: var(--azr-white);
   line-height: 1.7;
   overflow-x: hidden;
-  direction: rtl;
   width: 100%;
 }
+
+/* Direction is inherited from html[dir] attribute — no hardcoded direction */
 
 /* === Selection === */
 ::selection {
@@ -88,10 +89,19 @@ p {
 }
 
 .section-header {
-  text-align: right;
   margin-bottom: var(--space-2xl);
+  text-align: right;
   border-right: 4px solid var(--azr-gold);
   padding-right: var(--space-lg);
+}
+
+/* LTR overrides for English */
+[dir="ltr"] .section-header {
+  text-align: left;
+  border-right: none;
+  border-left: 4px solid var(--azr-gold);
+  padding-right: 0;
+  padding-left: var(--space-lg);
 }
 
 .section-badge {
@@ -221,6 +231,11 @@ p {
   height: 2px;
   background: var(--azr-teal);
   transition: width var(--transition-normal);
+}
+
+[dir="ltr"] .nav-links a::after {
+  right: auto;
+  left: 0;
 }
 
 .nav-links a:hover,
@@ -430,11 +445,24 @@ p {
 
   .section-desc {
     font-size: 16px;
+  }
+
+  [dir="rtl"] .section-desc {
     text-align: right;
   }
 
-  .section-header {
+  [dir="ltr"] .section-desc {
+    text-align: left;
+  }
+
+  [dir="rtl"] .section-header {
     padding-right: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  [dir="ltr"] .section-header {
+    padding-left: var(--space-md);
+    padding-right: 0;
     margin-bottom: var(--space-xl);
   }
 

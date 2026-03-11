@@ -120,6 +120,10 @@
   text-align: right;
 }
 
+[dir="ltr"] .service-features {
+  text-align: left;
+}
+
 .service-features li {
   padding: 6px 0;
   font-size: 14px;
@@ -556,7 +560,15 @@
   .testimonial-quote::before {
     font-size: 50px;
     top: -10px;
+  }
+
+  [dir="rtl"] .testimonial-quote::before {
     right: -4px;
+  }
+
+  [dir="ltr"] .testimonial-quote::before {
+    right: auto;
+    left: -4px;
   }
 
   .testimonial-name {

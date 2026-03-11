@@ -447,7 +447,16 @@
   min-width: 100%;
   padding: 48px 40px;
   text-align: center;
+}
+
+/* In RTL pages, card content should be RTL while track stays LTR for translateX */
+[dir="rtl"] .testimonial-card {
   direction: rtl;
+}
+
+/* In LTR pages, card content stays LTR naturally */
+[dir="ltr"] .testimonial-card {
+  direction: ltr;
 }
 
 .testimonial-quote {
@@ -460,7 +469,7 @@
 }
 
 .testimonial-quote::before {
-  content: '\201D';
+  content: '\201C';
   position: absolute;
   top: -20px;
   right: -10px;
@@ -469,6 +478,12 @@
   opacity: 0.2;
   font-style: normal;
   line-height: 1;
+}
+
+[dir="ltr"] .testimonial-quote::before {
+  content: '\201C';
+  right: auto;
+  left: -10px;
 }
 
 .testimonial-author {
