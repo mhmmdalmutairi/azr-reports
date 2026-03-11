@@ -149,6 +149,24 @@ p {
   font-size: 16px;
 }
 
+/* SVG Logo */
+.nav-logo-svg {
+  display: flex;
+  align-items: center;
+  color: var(--azr-white);
+}
+
+.nav-logo-svg img {
+  height: 42px;
+  width: auto;
+}
+
+.footer-logo-svg img {
+  height: 36px;
+  width: auto;
+  margin-bottom: var(--space-sm);
+}
+
 .nav-links {
   display: flex;
   align-items: center;
