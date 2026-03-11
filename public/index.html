@@ -51,10 +51,10 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
-  <link rel="stylesheet" href="css/variables.css?v=3">
-  <link rel="stylesheet" href="css/base.css?v=3">
-  <link rel="stylesheet" href="css/components.css?v=3">
-  <link rel="stylesheet" href="css/animations.css?v=3">
+  <link rel="stylesheet" href="css/variables.css?v=4">
+  <link rel="stylesheet" href="css/base.css?v=4">
+  <link rel="stylesheet" href="css/components.css?v=4">
+  <link rel="stylesheet" href="css/animations.css?v=4">
   <noscript><style>.anim-hidden,.anim-slide-right,.anim-slide-left,.anim-scale{opacity:1!important;transform:none!important;filter:none!important;}</style></noscript>
 </head>
 <body>
@@ -293,7 +293,7 @@
       <span class="section-badge anim-hidden">شهادات عملائنا</span>
       <h2 class="section-title anim-hidden">ماذا يقول <span class="highlight">شركاؤنا</span></h2>
     </div>
-    <div class="testimonials-carousel anim-hidden" id="testimonialsCarousel">
+    <div class="testimonials-carousel" id="testimonialsCarousel">
       <div class="testimonial-track" id="testimonialTrack">
         <div class="testimonial-card">
           <div class="testimonial-quote">"أزر قدّموا لنا حملة يوم التأسيس بإبل موسومة بشعارنا تجوب المواقع الأيقونية — فكرة ما توقعنا إنها ممكنة. حققت أكثر من 10 مليون مشاهدة وصارت ترند رقم 1."</div>
@@ -415,8 +415,15 @@
   </div>
 </footer>
 
-<script src="js/animations.js?v=3"></script>
-<script src="js/app.js?v=3"></script>
+<script src="js/animations.js?v=4"></script>
+<script src="js/app.js?v=4"></script>
+<script>
+// Fallback: force all hidden elements visible after 1 second
+setTimeout(function(){
+  var els = document.querySelectorAll('.anim-hidden, .anim-slide-right, .anim-slide-left, .anim-scale');
+  for(var i=0;i<els.length;i++) els[i].classList.add('anim-visible');
+}, 1000);
+</script>
 
 <style>
   @media (max-width: 768px) {
