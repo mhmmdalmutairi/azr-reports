@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="تواصل مع AZR Innovation Studio — الرياض، المملكة العربية السعودية">
+  <title>تواصل معنا — AZR Innovation Studio</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo"><span class="logo-mark">AZR</span><span>أزر</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="services.html">خدماتنا</a></li>
+      <li><a href="portfolio.html">مشاريعنا</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html" class="nav-cta active">تواصل معنا</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="section" style="padding-top: 160px; padding-bottom: 40px; text-align: center;">
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <span class="section-badge anim-hidden">CONTACT US</span>
+    <h1 class="anim-hidden" style="margin-top: 16px;">لنبنِ شيئاً <span class="highlight">استثنائياً</span> معاً</h1>
+    <p class="section-desc anim-hidden" style="margin-top: 16px;">نحب نسمع عن أفكاركم ومشاريعكم</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
+
+      <!-- Contact Form -->
+      <div class="card anim-hidden" style="padding: 40px;">
+        <h3 style="margin-bottom: 32px;">أرسل لنا رسالة</h3>
+        <form id="contactForm" onsubmit="return handleSubmit(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label>الاسم الكامل</label>
+              <input type="text" name="name" required placeholder="محمد المطيري">
+            </div>
+            <div class="form-group">
+              <label>الجهة / الشركة</label>
+              <input type="text" name="company" placeholder="اسم الشركة">
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label>البريد الإلكتروني</label>
+              <input type="email" name="email" required placeholder="email@company.com">
+            </div>
+            <div class="form-group">
+              <label>رقم الجوال</label>
+              <input type="tel" name="phone" placeholder="+966 5X XXX XXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>الخدمة المطلوبة</label>
+            <select name="service">
+              <option value="">اختر الخدمة...</option>
+              <option value="build">بناء المشاريع</option>
+              <option value="design">تصميم الخدمات</option>
+              <option value="growth">استشارات النمو</option>
+              <option value="other">أخرى</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>رسالتك</label>
+            <textarea name="message" required placeholder="أخبرنا عن مشروعك أو فكرتك..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            إرسال الرسالة
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <div class="card anim-hidden" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4E7;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">البريد الإلكتروني</div>
+              <a href="mailto:HALA@Aazr.info" style="font-size: 18px; font-weight: 700; color: var(--azr-white);">HALA@Aazr.info</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-1" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4F1;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">الجوال</div>
+              <div>
+                <a href="tel:+966541170272" style="font-size: 16px; font-weight: 700; color: var(--azr-white); direction: ltr; display: inline-block;">+966 54 117 0272</a>
+                <br>
+                <a href="tel:+966550066918" style="font-size: 16px; font-weight: 700; color: var(--azr-white); direction: ltr; display: inline-block;">+966 55 006 6918</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-2" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4CD;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">الموقع</div>
+              <div style="font-size: 18px; font-weight: 700;">الرياض، المملكة العربية السعودية</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-3" style="padding: 32px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F310;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">الموقع الإلكتروني</div>
+              <a href="https://www.aazr.info" style="font-size: 18px; font-weight: 700; color: var(--azr-teal-light);">www.aazr.info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 AZR Innovation Studio. جميع الحقوق محفوظة.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/animations.js"></script>
+<script src="js/app.js"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'جاري الإرسال...';
+  btn.disabled = true;
+
+  // Simulate form submission (replace with actual endpoint later)
+  setTimeout(() => {
+    btn.textContent = 'تم الإرسال بنجاح!';
+    btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = 'إرسال الرسالة';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }, 1500);
+
+  return false;
+}
+</script>
+
+<style>
+  @media (max-width: 768px) {
+    .section > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+</body>
+</html>

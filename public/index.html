@@ -1,9 +1,306 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>AZR Innovation Reports</title>
-<style>body{font-family:system-ui;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0;background:#0a0a0a;color:#fff}h1{font-size:2rem}</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AZR Innovation Studio — منظومة تشغيل نمو تهدف إلى رفع نمو الشركات والمؤسسات عبر الابتكار">
+  <title>AZR Innovation Studio — نبتكر.. لننمو</title>
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
 </head>
-<body><h1>🚀 AZR Innovation Pipeline — Reports</h1></body>
+<body>
+
+<!-- === Navbar === -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-mark">AZR</span>
+      <span>أزر</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">الرئيسية</a></li>
+      <li><a href="services.html">خدماتنا</a></li>
+      <li><a href="portfolio.html">مشاريعنا</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html" class="nav-cta">تواصل معنا</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- === Hero Section === -->
+<section class="section" id="hero" style="min-height: 100vh; display: flex; align-items: center; padding-top: 120px;">
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="glow-orb glow-orb-2"></div>
+  <div class="particles" id="heroParticles"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <div style="max-width: 700px;">
+      <span class="section-badge anim-hidden">Innovate to Grow | نبتكر.. لننمو</span>
+      <h1 class="anim-hidden" style="margin-top: 24px;">
+        نحوّل التحديات<br>إلى <span class="highlight">فرص نمو</span> استثنائية
+      </h1>
+      <p class="anim-hidden" style="font-size: 20px; margin-top: 24px; max-width: 560px; line-height: 1.9;">
+        منظومة تشغيل نمو متكاملة — نبدأ بالاكتشاف، ونصل لتحقيق نمو مستدام وأثر ملموس عبر الابتكار والشراكة الاستراتيجية
+      </p>
+      <div style="display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap;" class="anim-hidden">
+        <a href="services.html" class="btn btn-primary btn-lg">اكتشف خدماتنا</a>
+        <a href="portfolio.html" class="btn btn-secondary btn-lg">مشاريعنا</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Stats Section === -->
+<section class="section" id="stats">
+  <div class="container">
+    <div class="grid-4">
+      <div class="card stat-card anim-hidden">
+        <div class="stat-number"><span class="counter" data-target="8">0</span>+</div>
+        <div class="stat-label">سنوات خبرة</div>
+      </div>
+      <div class="card stat-card anim-hidden anim-delay-1">
+        <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
+        <div class="stat-label">مشروع منجز</div>
+      </div>
+      <div class="card stat-card anim-hidden anim-delay-2">
+        <div class="stat-number"><span class="counter" data-target="85">0</span>+</div>
+        <div class="stat-label">عميل وشريك</div>
+      </div>
+      <div class="card stat-card anim-hidden anim-delay-3">
+        <div class="stat-number"><span class="counter" data-target="3">0</span></div>
+        <div class="stat-label">قطاعات رئيسية</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Services Section === -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge anim-hidden">خدماتنا</span>
+      <h2 class="section-title anim-hidden">حلول <span class="highlight">متكاملة ومبتكرة</span></h2>
+      <p class="section-desc anim-hidden">لتسريع النمو وتحقيق الأثر المستدام</p>
+    </div>
+    <div class="grid-3">
+      <div class="card service-card anim-hidden">
+        <div class="service-icon">&#x1F3D7;</div>
+        <h3>بناء المشاريع</h3>
+        <p>نحوّل الأفكار الجريئة إلى شركات ناشئة ومشاريع قابلة للتوسع والنمو</p>
+        <ul class="service-features">
+          <li>دراسة الجدوى والتحقق من السوق</li>
+          <li>تطوير نموذج العمل (Business Model)</li>
+          <li>بناء المنتج الأولي (MVP)</li>
+        </ul>
+      </div>
+      <div class="card service-card anim-hidden anim-delay-2">
+        <div class="service-icon">&#x1F3A8;</div>
+        <h3>تصميم الخدمات</h3>
+        <p>نبتكر تجارب عملاء استثنائية ونقاط تلامس فعالة تزيد من الإيرادات وولاء المستفيدين</p>
+        <ul class="service-features">
+          <li>بحث وتحليل تجربة المستخدم</li>
+          <li>تصميم رحلة العميل (Customer Journey)</li>
+          <li>تصميم الهوية المكانية والرقمية</li>
+        </ul>
+      </div>
+      <div class="card service-card anim-hidden anim-delay-4">
+        <div class="service-icon">&#x1F4C8;</div>
+        <h3>استشارات النمو</h3>
+        <p>نقدم استراتيجيات مبنية على البيانات لتعظيم العائد المالي والأثر الاجتماعي</p>
+        <ul class="service-features">
+          <li>استراتيجيات التوسع والانتشار</li>
+          <li>تحسين الكفاءة التشغيلية</li>
+          <li>قياس وإدارة الأثر</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 48px;" class="anim-hidden">
+      <a href="services.html" class="btn btn-secondary">اعرف أكثر عن خدماتنا</a>
+    </div>
+  </div>
+</section>
+
+<!-- === Methodology (4D) Section === -->
+<section class="section" id="methodology" style="background: rgba(0,0,0,0.2);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge anim-hidden">منهجيتنا</span>
+      <h2 class="section-title anim-hidden">نموذج العمل الرباعي <span class="highlight">4D Model</span></h2>
+      <p class="section-desc anim-hidden">أربع مراحل متكاملة لتحقيق النمو المستدام</p>
+    </div>
+    <div class="timeline-4d">
+      <div class="phase-step anim-hidden">
+        <div class="phase-number">1</div>
+        <h4>الاكتشاف</h4>
+        <span class="phase-en">Discover</span>
+        <p>تحليل معمق لبيئة العميل وتحديد الفرص الكامنة</p>
+      </div>
+      <div class="phase-step anim-hidden anim-delay-2">
+        <div class="phase-number">2</div>
+        <h4>التصميم</h4>
+        <span class="phase-en">Design</span>
+        <p>تصميم حلول استراتيجية مخصصة ومبتكرة</p>
+      </div>
+      <div class="phase-step anim-hidden anim-delay-4">
+        <div class="phase-number">3</div>
+        <h4>التسليم</h4>
+        <span class="phase-en">Deliver</span>
+        <p>تنفيذ دقيق وفعال مع إدارة مخاطر محكمة</p>
+      </div>
+      <div class="phase-step anim-hidden anim-delay-6">
+        <div class="phase-number">4</div>
+        <h4>التطوير</h4>
+        <span class="phase-en">Develop</span>
+        <p>توسيع نطاق الحلول لتحقيق النمو المستدام</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Selected Projects === -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge anim-hidden">مشاريعنا</span>
+      <h2 class="section-title anim-hidden">نصنع <span class="highlight">تجارب استثنائية</span></h2>
+      <p class="section-desc anim-hidden">نحوّل الأفكار الجريئة إلى واقع ملموس يترك أثراً مستداماً</p>
+    </div>
+    <div class="grid-3">
+      <div class="card project-card anim-hidden">
+        <div class="card-img" style="background: linear-gradient(135deg, #148F77, #1ABC9C);">&#x1F4B0;</div>
+        <div class="card-body">
+          <span class="card-tag">تمكين رقمي</span>
+          <h3>منظومة زاد</h3>
+          <p>القوة الدافعة وراء الاستدامة المالية لمنظمات القطاع غير الربحي بالمملكة</p>
+        </div>
+      </div>
+      <div class="card project-card anim-hidden anim-delay-2">
+        <div class="card-img" style="background: linear-gradient(135deg, #1B4F72, #2E86C1);">&#x1F3E8;</div>
+        <div class="card-body">
+          <span class="card-tag">ضيافة وابتكار</span>
+          <h3>MAQAM</h3>
+          <p>مفهوم فندقي مبتكر بوحدات معيارية ذكية ومستدامة — تقليص مدة البناء بنسبة 60%</p>
+        </div>
+      </div>
+      <div class="card project-card anim-hidden anim-delay-4">
+        <div class="card-img" style="background: linear-gradient(135deg, #8E44AD, #BB8FCE);">&#x1F3B5;</div>
+        <div class="card-body">
+          <span class="card-tag">تفعيل حضري</span>
+          <h3>الفن في الطريق</h3>
+          <p>تحويل الفراغات العمرانية إلى مسارح حية تعزز التفاعل الاجتماعي وجودة الحياة</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 48px;" class="anim-hidden">
+      <a href="portfolio.html" class="btn btn-secondary">جميع المشاريع</a>
+    </div>
+  </div>
+</section>
+
+<!-- === Values Section === -->
+<section class="section" id="values" style="background: rgba(0,0,0,0.2);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge anim-hidden">القيم الجوهرية</span>
+      <h2 class="section-title anim-hidden">ما <span class="highlight">يحركنا</span></h2>
+    </div>
+    <div class="grid-5">
+      <div class="card value-card anim-hidden">
+        <span class="value-icon">&#x1F4A1;</span>
+        <h4>الابتكار</h4>
+        <p>نتجاوز الأساليب التقليدية لنبتكر حلولاً استثنائية وعملية</p>
+      </div>
+      <div class="card value-card anim-hidden anim-delay-1">
+        <span class="value-icon">&#x2B50;</span>
+        <h4>التميز</h4>
+        <p>نلتزم بأعلى معايير الجودة والتطوير المستمر في كل تفصيل</p>
+      </div>
+      <div class="card value-card anim-hidden anim-delay-2">
+        <span class="value-icon">&#x1F30D;</span>
+        <h4>الأثر</h4>
+        <p>نصنع عوائد اجتماعية وبيئية ملموسة توازي النتائج المالية</p>
+      </div>
+      <div class="card value-card anim-hidden anim-delay-3">
+        <span class="value-icon">&#x1F91D;</span>
+        <h4>النزاهة</h4>
+        <p>نعمل بشفافية مطلقة والتزام أخلاقي كامل في جميع تعاملاتنا</p>
+      </div>
+      <div class="card value-card anim-hidden anim-delay-4">
+        <span class="value-icon">&#x26A1;</span>
+        <h4>المرونة</h4>
+        <p>نستجيب للمتغيرات بسرعة وكفاءة لنضمن استمرارية النمو</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === CTA Section === -->
+<section class="section" id="cta" style="text-align: center;">
+  <div class="glow-orb glow-orb-3" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <h2 class="anim-hidden" style="font-size: clamp(28px, 4vw, 48px);">
+      "نعدكم بتجارب استثنائية تتجاوز التوقعات وتصنع الفرق"
+    </h2>
+    <p class="anim-hidden" style="font-size: 20px; margin-top: 20px; color: rgba(255,255,255,0.6);">
+      لنبنِ شيئاً استثنائياً معاً
+    </p>
+    <div style="margin-top: 40px;" class="anim-hidden">
+      <a href="contact.html" class="btn btn-gold btn-lg">تواصل معنا الحين</a>
+    </div>
+  </div>
+</section>
+
+<!-- === Footer === -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark">AZR</span>
+          <span>أزر للابتكار</span>
+        </a>
+        <p>منظومة تشغيل نمو تهدف إلى رفع نمو الشركات والمؤسسات عبر الابتكار والشراكة الاستراتيجية</p>
+      </div>
+      <div class="footer-col">
+        <h4>خدماتنا</h4>
+        <ul>
+          <li><a href="services.html">بناء المشاريع</a></li>
+          <li><a href="services.html">تصميم الخدمات</a></li>
+          <li><a href="services.html">استشارات النمو</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>الشركة</h4>
+        <ul>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="portfolio.html">مشاريعنا</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل</h4>
+        <ul>
+          <li><a href="mailto:HALA@Aazr.info">HALA@Aazr.info</a></li>
+          <li><a href="tel:+966541170272">+966 54 117 0272</a></li>
+          <li><a href="tel:+966550066918">+966 55 006 6918</a></li>
+          <li>الرياض، المملكة العربية السعودية</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 AZR Innovation Studio. جميع الحقوق محفوظة.</span>
+      <div class="footer-social">
+        <a href="https://www.aazr.info" aria-label="الموقع">&#x1F310;</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/animations.js"></script>
+<script src="js/app.js"></script>
+</body>
 </html>
