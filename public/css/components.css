@@ -475,7 +475,53 @@
 }
 
 @media (max-width: 768px) {
-  .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
-  .stat-number { font-size: 36px; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .grid-5 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stat-number { font-size: 32px; }
+  .stat-label { font-size: 14px; }
+  .stat-card { padding: var(--space-md); }
   .phase-step { flex: 0 0 100%; }
+  .phase-number { width: 60px; height: 60px; font-size: 22px; }
+
+  .btn-lg { padding: 14px 32px; font-size: 16px; }
+
+  .service-card { padding: var(--space-lg) var(--space-md); }
+  .service-card h3 { font-size: 18px; }
+
+  .card { padding: var(--space-lg); }
+
+  .team-card { padding: var(--space-lg); }
+
+  .value-card { padding: var(--space-md); }
+  .value-icon { font-size: 32px; }
+  .value-card h4 { font-size: 16px; }
+  .value-card p { font-size: 13px; }
+
+  .partners-grid {
+    gap: var(--space-md);
+  }
+  .partner-logo-img {
+    min-width: 120px;
+    min-height: 60px;
+    padding: var(--space-sm) var(--space-md);
+  }
+  .partner-logo-img img {
+    max-width: 100px;
+    max-height: 40px;
+  }
+
+  .partner-logo {
+    font-size: 12px;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .project-card .card-img { height: 180px; }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
 }

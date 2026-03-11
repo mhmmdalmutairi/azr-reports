@@ -187,6 +187,16 @@
     #design > .container > div,
     #growth > .container > div {
       grid-template-columns: 1fr !important;
+      gap: 24px !important;
+    }
+    #design > .container > div > .card { order: 2; }
+    .card[style*="min-height: 400px"] {
+      min-height: 200px !important;
+      font-size: 64px !important;
+    }
+    section[style*="padding-top: 160px"] {
+      padding-top: 100px !important;
+      padding-bottom: 32px !important;
     }
   }
 </style>

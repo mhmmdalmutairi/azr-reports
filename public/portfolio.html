@@ -270,6 +270,24 @@
     #najez > .container > div, #misk > .container > div, #garage > .container > div,
     #riyadh-kids > .container > div {
       grid-template-columns: 1fr !important;
+      gap: 24px !important;
+    }
+    /* On mobile: text first, image second */
+    #zad > .container > div > .card { order: 2; }
+    #art > .container > div > .card { order: 2; }
+    #misk > .container > div > .card { order: 2; }
+    #riyadh-kids > .container > div > .card { order: 2; }
+    /* Reduce image card height on mobile */
+    .card[style*="min-height: 380px"] {
+      min-height: 200px !important;
+    }
+    .card[style*="min-height: 380px"] div[style*="font-size: 80px"] {
+      font-size: 48px !important;
+    }
+    /* Hero padding */
+    section[style*="padding-top: 160px"] {
+      padding-top: 100px !important;
+      padding-bottom: 32px !important;
     }
   }
 </style>

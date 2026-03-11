@@ -267,5 +267,27 @@
 
 <script src="js/animations.js"></script>
 <script src="js/app.js"></script>
+
+<style>
+  @media (max-width: 768px) {
+    section[style*="padding-top: 160px"] {
+      padding-top: 100px !important;
+      padding-bottom: 32px !important;
+    }
+    /* Team grid: single column */
+    div[style*="grid-template-columns: repeat(2, 1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+    /* Values grid-5 */
+    .grid-5 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
+    /* Expert network tags */
+    div[style*="display: flex; flex-wrap: wrap; justify-content: center"] {
+      gap: 8px !important;
+    }
+  }
+</style>
 </body>
 </html>

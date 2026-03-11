@@ -217,6 +217,18 @@ function handleSubmit(e) {
   @media (max-width: 768px) {
     .section > .container > div[style*="grid-template-columns: 1fr 1fr"] {
       grid-template-columns: 1fr !important;
+      gap: 24px !important;
+    }
+    .card[style*="padding: 40px"] {
+      padding: 24px !important;
+    }
+    .form-group div[style*="grid-template-columns: 1fr 1fr"],
+    div[style*="grid-template-columns: 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    section[style*="padding-top: 160px"] {
+      padding-top: 100px !important;
+      padding-bottom: 24px !important;
     }
   }
 </style>
