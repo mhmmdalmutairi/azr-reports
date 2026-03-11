@@ -22,7 +22,6 @@
   --dark: #0B1D14;
   --text-dark: #1a1a2e;
   --text-light: #E8E8E8;
-  --slide-h: 100vh;
   --azr-navy: #1C2D4F;
   --azr-orange: #E07C24;
   --azr-gold: #D4A017;
@@ -176,63 +175,6 @@ body {
 .slide-light .slide-next span { color: rgba(0,0,0,0.3); }
 .slide-case .slide-next span { color: rgba(0,0,0,0.3); }
 
-/* ============ SLIDE REFS — ALWAYS VISIBLE BAR ============ */
-.slide-refs {
-  position: absolute; bottom: 52px; left: 4%; right: 4%;
-  z-index: 14;
-  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px;
-  padding: 8px 14px;
-  background: rgba(255,255,255,0.55); backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(0,0,0,0.06);
-}
-.slide-refs::before {
-  content: '📎';
-  font-size: 0.8rem; margin-left: 6px;
-}
-.slide-refs a.ref-row {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 10px;
-  border-radius: 20px; text-decoration: none;
-  font-size: 0.78rem; font-weight: 500;
-  color: rgba(0,0,0,0.55);
-  background: rgba(255,255,255,0.6);
-  border: 1px solid rgba(0,0,0,0.06);
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-.slide-refs a.ref-row:hover {
-  background: var(--azr-orange); color: white;
-  border-color: var(--azr-orange);
-  transform: translateY(-1px);
-  box-shadow: 0 3px 10px rgba(224,124,36,0.3);
-}
-.slide-refs .ref-num {
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: 18px; height: 18px; padding: 1px 5px;
-  background: var(--azr-orange); color: white;
-  border-radius: 5px; font-size: 0.65rem; font-weight: 800;
-  flex-shrink: 0;
-}
-.slide-refs a.ref-row:hover .ref-num {
-  background: rgba(255,255,255,0.3);
-}
-.slide-refs .ref-text { font-size: 0.72rem; }
-
-/* Dark/Section slides */
-.slide-dark .slide-refs, .slide-section .slide-refs {
-  background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.08);
-}
-.slide-dark .slide-refs a.ref-row, .slide-section .slide-refs a.ref-row {
-  color: rgba(255,255,255,0.5);
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.08);
-}
-.slide-dark .slide-refs a.ref-row:hover, .slide-section .slide-refs a.ref-row:hover {
-  background: var(--azr-orange); color: white;
-  border-color: var(--azr-orange);
-}
-
 /* ============ DOWNLOAD BUTTON ============ */
 #download-btn {
   position: fixed; bottom: 28px; right: 28px;
@@ -371,31 +313,6 @@ body {
   }
 }
 
-/* ============ REFERENCE LINKS ============ */
-.ref-link {
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 0.8rem; font-weight: 800;
-  color: var(--white); text-decoration: none;
-  vertical-align: middle; line-height: 1;
-  margin: 0 4px; padding: 3px 8px;
-  background: var(--azr-orange); border-radius: 6px;
-  border: none; min-width: 24px; min-height: 22px;
-  box-shadow: 0 2px 8px rgba(224,124,36,0.3);
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-.ref-link:hover {
-  background: #c96a1a; color: white;
-  transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(224,124,36,0.5);
-}
-.slide-dark .ref-link {
-  background: var(--azr-orange);
-  color: var(--white);
-}
-.slide-dark .ref-link:hover {
-  background: #c96a1a;
-}
 
 /* ============ CASE STUDY IMAGE PLACEHOLDER ============ */
 .case-image-placeholder {
@@ -896,13 +813,7 @@ body {
   .cover-logo-img { max-width: 200px !important; width: 200px !important; }
   .cover-title { font-size: clamp(1.6rem, 5vw, 2.4rem); }
   .cta-btn { padding: 14px 36px; font-size: 1rem; }
-  .ref-link { font-size: 0.65rem; min-width: 18px; min-height: 18px; padding: 2px 5px; }
   .cover-client-logo, .cover-client-logo-fallback { width: 60px; height: 60px; }
-  .slide-refs { bottom: 42px; padding: 6px 10px; gap: 3px 6px; }
-  .slide-refs::before { font-size: 0.7rem; }
-  .slide-refs a.ref-row { padding: 3px 7px; font-size: 0.68rem; }
-  .slide-refs .ref-num { min-width: 15px; height: 15px; font-size: 0.55rem; }
-  .slide-refs .ref-text { font-size: 0.62rem; }
   #azr-header-logo { top: 12px; right: 14px; padding: 8px 10px; border-radius: 10px; }
   #azr-header-logo img { width: 100px; }
   .slide-next { bottom: 14px; }
@@ -980,46 +891,10 @@ body {
   /* === إخفاء العناصر التفاعلية === */
   #nav-dots, #progress-bar, #loader, .slide-next,
   #slide-counter, #azr-header-logo, #particles-canvas,
-  #download-btn, .blob, .cover-decoration {
+  #download-btn, .blob, .cover-decoration, .clickable-hint {
     display: none !important;
   }
 
-  /* === المصادر أسفل الصفحة === */
-  .slide-refs {
-    max-height: none !important;
-    opacity: 1 !important;
-    padding: 3mm 5mm !important;
-    position: absolute !important;
-    bottom: 4mm !important;
-    left: 8mm !important;
-    right: 8mm !important;
-    font-size: 6.5pt !important;
-    background: rgba(240,240,240,0.9) !important;
-    border-radius: 2mm !important;
-    pointer-events: none !important;
-    border: 0.3mm solid rgba(0,0,0,0.1) !important;
-    box-shadow: none !important;
-  }
-  .slide-dark .slide-refs, .slide-section .slide-refs {
-    background: rgba(30,30,30,0.8) !important;
-    color: rgba(255,255,255,0.8) !important;
-    border-color: rgba(255,255,255,0.1) !important;
-  }
-  .slide-refs a.ref-row {
-    padding: 0.5mm 1.5mm !important;
-    font-size: 6pt !important;
-    display: inline-flex !important;
-    gap: 1.5mm !important;
-    margin: 0 2mm 0 0 !important;
-    color: inherit !important;
-  }
-  .slide-refs .ref-num {
-    min-width: 3.5mm !important;
-    height: 3.5mm !important;
-    font-size: 5pt !important;
-    padding: 0.3mm 1mm !important;
-    border-radius: 1mm !important;
-  }
 
   /* === الأنيميشن === */
   .anim {
@@ -1089,13 +964,15 @@ body {
   .tag { font-size: 6.5pt !important; padding: 1.5mm 4mm !important; }
   .cta-btn { display: none !important; }
 
-  /* === المصادر داخل النص === */
-  .ref-link {
-    font-size: 5.5pt !important;
-    min-width: 3.5mm !important;
-    min-height: 3.5mm !important;
-    padding: 0.3mm 1mm !important;
-    border-radius: 1mm !important;
+  /* === أيقونات الروابط في الطباعة === */
+  .card-link-icon {
+    opacity: 0.7 !important;
+    width: 4mm !important; height: 4mm !important;
+    font-size: 5pt !important;
+    top: 2mm !important; left: 2mm !important;
+  }
+  a.stat-card, a.case-highlight {
+    text-decoration: none !important; color: inherit !important;
   }
 }
 </style>
