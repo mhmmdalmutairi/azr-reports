@@ -1,6 +1,10 @@
 (function(){
 "use strict";
 
+/* Detect mobile/touch device — needed early */
+var isMobile = window.innerWidth <= 768;
+var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
 /* ============================
    Wait 2 frames so browser paints the hidden state,
    THEN start observing — this makes transitions visible.
@@ -16,7 +20,7 @@ requestAnimationFrame(function(){
         animObserver.unobserve(entry.target);
       }
     });
-  }, {threshold: 0.08, rootMargin: '0px 0px -60px 0px'});
+  }, {threshold: 0.05, rootMargin: '0px 0px -30px 0px'});
 
   document.querySelectorAll('.anim-hidden, .anim-slide-right, .anim-slide-left, .anim-scale, .section-reveal').forEach(function(el){
     animObserver.observe(el);
@@ -91,7 +95,7 @@ requestAnimationFrame(function(){
         counterObserver.unobserve(el);
       }
     });
-  }, {threshold: 0.5});
+  }, {threshold: isMobile ? 0.2 : 0.5});
   document.querySelectorAll('.counter').forEach(function(c){ counterObserver.observe(c); });
 
   /* Stagger Animation (legacy support) */
@@ -122,10 +126,11 @@ requestAnimationFrame(function(){
    These run immediately (no delay needed)
    ============================ */
 
-/* Particles */
+/* Particles — fewer on mobile */
 var heroP = document.getElementById('heroParticles');
 if(heroP){
-  for(var i=0;i<20;i++){
+  var particleCount = isMobile ? 8 : 20;
+  for(var i=0;i<particleCount;i++){
     var p = document.createElement('div');
     p.className='particle';
     p.style.left=Math.random()*100+'%';
@@ -147,96 +152,102 @@ window.addEventListener('scroll',function(){
     requestAnimationFrame(function(){
       var scrollY=window.scrollY;
 
-      /* Glow orb parallax */
-      document.querySelectorAll('.glow-orb').forEach(function(orb,i){
-        orb.style.transform='translateY('+scrollY*(0.05+i*0.02)+'px)';
-      });
-
-      /* Navbar scroll state */
+      /* Navbar scroll state — always needed */
       var nav=document.getElementById('navbar');
       if(nav){
-        if(scrollY>80) nav.classList.add('scrolled');
+        if(scrollY>50) nav.classList.add('scrolled');
         else if(!nav.classList.contains('always-scrolled')) nav.classList.remove('scrolled');
       }
 
-      /* Hero text subtle parallax — moves slightly slower than scroll */
-      if(heroTextEl && scrollY < 800){
-        heroTextEl.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
-        heroTextEl.style.opacity = Math.max(1 - scrollY / 600, 0);
-      }
+      /* Skip heavy parallax on mobile for performance */
+      if(!isMobile){
+        /* Glow orb parallax */
+        document.querySelectorAll('.glow-orb').forEach(function(orb,i){
+          orb.style.transform='translateY('+scrollY*(0.05+i*0.02)+'px)';
+        });
 
-      /* Parallax depth layers — different speeds */
-      parallaxLayers.forEach(function(layer){
-        var speed = 0.03;
-        if(layer.classList.contains('parallax-layer-2')) speed = 0.06;
-        if(layer.classList.contains('parallax-layer-3')) speed = 0.1;
-        layer.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
-      });
+        /* Hero text subtle parallax — moves slightly slower than scroll */
+        if(heroTextEl && scrollY < 800){
+          heroTextEl.style.transform = 'translateY(' + (scrollY * 0.15) + 'px)';
+          heroTextEl.style.opacity = Math.max(1 - scrollY / 600, 0);
+        }
+
+        /* Parallax depth layers — different speeds */
+        parallaxLayers.forEach(function(layer){
+          var speed = 0.03;
+          if(layer.classList.contains('parallax-layer-2')) speed = 0.06;
+          if(layer.classList.contains('parallax-layer-3')) speed = 0.1;
+          layer.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
+        });
+      }
 
       ticking=false;
     });
     ticking=true;
   }
-});
+}, {passive: true});
 
-/* Cursor Glow — enhanced with interactive element detection */
-var glow=document.createElement('div');
-glow.className='cursor-glow';
-document.body.appendChild(glow);
-var mx=0,my=0,gx=0,gy=0;
-var isInteractive = false;
+/* Cursor Glow — only on non-touch devices */
+if(!isTouch){
+  var glow=document.createElement('div');
+  glow.className='cursor-glow';
+  document.body.appendChild(glow);
+  var mx=0,my=0,gx=0,gy=0;
+  var isInteractive = false;
 
-document.addEventListener('mousemove',function(e){
-  mx=e.clientX; my=e.clientY;
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX; my=e.clientY;
 
-  /* Check if hovering over an interactive element */
-  var target = e.target;
-  var hoveredInteractive = false;
-  while(target && target !== document.body){
-    if(target.tagName === 'A' || target.tagName === 'BUTTON' ||
-       target.classList.contains('btn') || target.classList.contains('card') ||
-       target.classList.contains('dot') || target.classList.contains('nav-link') ||
-       target.classList.contains('cta-btn') || target.classList.contains('stat-card')){
-      hoveredInteractive = true;
-      break;
+    /* Check if hovering over an interactive element */
+    var target = e.target;
+    var hoveredInteractive = false;
+    while(target && target !== document.body){
+      if(target.tagName === 'A' || target.tagName === 'BUTTON' ||
+         target.classList.contains('btn') || target.classList.contains('card') ||
+         target.classList.contains('dot') || target.classList.contains('nav-link') ||
+         target.classList.contains('cta-btn') || target.classList.contains('stat-card')){
+        hoveredInteractive = true;
+        break;
+      }
+      target = target.parentElement;
     }
-    target = target.parentElement;
-  }
 
-  if(hoveredInteractive && !isInteractive){
-    isInteractive = true;
-    glow.classList.add('cursor-glow-interactive');
-  } else if(!hoveredInteractive && isInteractive){
-    isInteractive = false;
-    glow.classList.remove('cursor-glow-interactive');
-  }
-});
-
-(function loop(){
-  gx+=(mx-gx)*0.1; gy+=(my-gy)*0.1;
-  glow.style.left=gx+'px'; glow.style.top=gy+'px';
-  requestAnimationFrame(loop);
-})();
-if('ontouchstart' in window) glow.style.display='none';
-
-/* Magnetic Buttons */
-document.querySelectorAll('.btn').forEach(function(btn){
-  btn.addEventListener('mousemove',function(e){
-    var r=btn.getBoundingClientRect();
-    btn.style.transform='translate('+(e.clientX-r.left-r.width/2)*0.15+'px,'+(e.clientY-r.top-r.height/2)*0.15+'px)';
+    if(hoveredInteractive && !isInteractive){
+      isInteractive = true;
+      glow.classList.add('cursor-glow-interactive');
+    } else if(!hoveredInteractive && isInteractive){
+      isInteractive = false;
+      glow.classList.remove('cursor-glow-interactive');
+    }
   });
-  btn.addEventListener('mouseleave',function(){ btn.style.transform=''; });
-});
 
-/* 3D Card Tilt */
-document.querySelectorAll('.card').forEach(function(card){
-  card.addEventListener('mousemove',function(e){
-    var r=card.getBoundingClientRect();
-    var x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
-    card.style.transform='perspective(800px) rotateX('+((y-0.5)*6)+'deg) rotateY('+((x-0.5)*-6)+'deg) translateY(-12px) scale(1.025)';
+  (function loop(){
+    gx+=(mx-gx)*0.1; gy+=(my-gy)*0.1;
+    glow.style.left=gx+'px'; glow.style.top=gy+'px';
+    requestAnimationFrame(loop);
+  })();
+}
+
+/* Magnetic Buttons — desktop only */
+if(!isTouch){
+  document.querySelectorAll('.btn').forEach(function(btn){
+    btn.addEventListener('mousemove',function(e){
+      var r=btn.getBoundingClientRect();
+      btn.style.transform='translate('+(e.clientX-r.left-r.width/2)*0.15+'px,'+(e.clientY-r.top-r.height/2)*0.15+'px)';
+    });
+    btn.addEventListener('mouseleave',function(){ btn.style.transform=''; });
   });
-  card.addEventListener('mouseleave',function(){ card.style.transform=''; });
-});
+
+  /* 3D Card Tilt — desktop only */
+  document.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('mousemove',function(e){
+      var r=card.getBoundingClientRect();
+      var x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+      card.style.transform='perspective(800px) rotateX('+((y-0.5)*6)+'deg) rotateY('+((x-0.5)*-6)+'deg) translateY(-12px) scale(1.025)';
+    });
+    card.addEventListener('mouseleave',function(){ card.style.transform=''; });
+  });
+}
 
 /* Testimonials Carousel */
 var track=document.getElementById('testimonialTrack');
@@ -255,12 +266,37 @@ dots.forEach(function(dot){
 });
 if(track){
   startAuto();
-  var tsx=0;
-  track.addEventListener('touchstart',function(e){ tsx=e.touches[0].clientX; });
+  var tsx=0, tsy=0, tsTime=0;
+  track.addEventListener('touchstart',function(e){
+    tsx=e.touches[0].clientX;
+    tsy=e.touches[0].clientY;
+    tsTime=Date.now();
+  }, {passive: true});
   track.addEventListener('touchend',function(e){
-    var d=tsx-e.changedTouches[0].clientX;
-    if(Math.abs(d)>50){ clearInterval(timer); d>0?goTo(Math.min(cur+1,dots.length-1)):goTo(Math.max(cur-1,0)); startAuto(); }
-  });
+    var dx=tsx-e.changedTouches[0].clientX;
+    var dy=tsy-e.changedTouches[0].clientY;
+    var elapsed=Date.now()-tsTime;
+    /* Only trigger if horizontal swipe > vertical and threshold met */
+    if(Math.abs(dx)>30 && Math.abs(dx)>Math.abs(dy) && elapsed<500){
+      clearInterval(timer);
+      /* RTL: track uses ltr direction, so swipe left (dx>0) = next, swipe right (dx<0) = prev */
+      if(dx>0) goTo(Math.min(cur+1,dots.length-1));
+      else goTo(Math.max(cur-1,0));
+      startAuto();
+    }
+  }, {passive: true});
+  /* Pause auto-play when carousel is in viewport on mobile */
+  if(isMobile){
+    var carouselEl=document.getElementById('testimonialsCarousel');
+    if(carouselEl){
+      var carouselObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){ clearInterval(timer); startAuto(); }
+        });
+      }, {threshold: 0.5});
+      carouselObs.observe(carouselEl);
+    }
+  }
 }
 
 /* Mobile Menu */

@@ -422,11 +422,16 @@
     /* Hero */
     #hero {
       min-height: auto !important;
-      padding-top: 90px !important;
+      padding-top: 80px !important;
       padding-bottom: 40px !important;
+    }
+    #hero h1 {
+      font-size: 28px !important;
+      line-height: 1.4 !important;
     }
     #hero p[style*="font-size: 20px"] {
       font-size: 16px !important;
+      line-height: 1.8 !important;
     }
     #hero div[style*="display: flex; gap: 16px"] {
       flex-direction: column !important;
@@ -437,17 +442,53 @@
       width: 100%;
       text-align: center;
     }
+    #hero div[style*="max-width: 700px"] {
+      max-width: 100% !important;
+    }
+    /* Stats */
+    #stats .grid-4 {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
     /* Values grid-5 to 2 columns */
     #values .grid-5 {
       grid-template-columns: repeat(2, 1fr) !important;
       gap: 12px !important;
     }
+    /* Methodology section */
+    #methodology {
+      padding: 48px 0 !important;
+    }
     /* CTA */
     #cta h2 {
       font-size: 22px !important;
+      line-height: 1.5 !important;
     }
     #cta p[style*="font-size: 20px"] {
       font-size: 16px !important;
+    }
+    #cta div[style*="margin-top: 40px"] {
+      margin-top: 24px !important;
+    }
+    /* Glow orbs overflow fix */
+    .glow-orb {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #hero {
+      padding-top: 72px !important;
+      padding-bottom: 32px !important;
+    }
+    #hero h1 {
+      font-size: 24px !important;
+    }
+    #hero p[style*="font-size: 20px"] {
+      font-size: 15px !important;
+    }
+    #cta h2 {
+      font-size: 20px !important;
     }
   }
 </style>
