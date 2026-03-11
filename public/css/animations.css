@@ -60,11 +60,7 @@
 
 /* === Apple-grade Animation Classes === */
 
-/* Default: fade + rise — with CSS-only fallback if JS fails */
-@keyframes forceVisible {
-  to { opacity: 1; transform: none; filter: none; }
-}
-
+/* Default: fade + rise */
 .anim-hidden {
   opacity: 0;
   transform: translateY(50px) scale(0.97);
@@ -72,17 +68,6 @@
   transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
               filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: forceVisible 0s 3s forwards;
-}
-
-.anim-slide-right {
-  animation: forceVisible 0s 3s forwards;
-}
-.anim-slide-left {
-  animation: forceVisible 0s 3s forwards;
-}
-.anim-scale {
-  animation: forceVisible 0s 3s forwards;
 }
 
 .anim-visible {
