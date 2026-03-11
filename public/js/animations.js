@@ -1,6 +1,6 @@
-/* === AZR Innovation Studio — Animations Engine v2 === */
+/* === AZR Innovation Studio — Animations Engine v3 (Apple-grade) === */
 
-// Intersection Observer for scroll animations
+// Intersection Observer for scroll animations — all animation types
 const animObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -8,9 +8,9 @@ const animObserver = new IntersectionObserver((entries) => {
       animObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
 
-document.querySelectorAll('.anim-hidden').forEach(el => {
+document.querySelectorAll('.anim-hidden, .anim-slide-right, .anim-slide-left, .anim-scale, .section-reveal').forEach(el => {
   animObserver.observe(el);
 });
 
@@ -72,25 +72,33 @@ window.addEventListener('scroll', () => {
         const speed = 0.05 + (i * 0.02);
         orb.style.transform = `translateY(${scrollY * speed}px)`;
       });
+
+      // Navbar background on scroll
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        if (scrollY > 80) navbar.classList.add('scrolled');
+        else if (!navbar.classList.contains('always-scrolled')) navbar.classList.remove('scrolled');
+      }
+
       ticking = false;
     });
     ticking = true;
   }
 });
 
-// Staggered children animation
+// Staggered children animation — Apple style with longer delays
 const staggerObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const children = entry.target.querySelectorAll('.stagger-item');
       children.forEach((child, i) => {
-        child.style.transitionDelay = `${i * 0.1}s`;
+        child.style.transitionDelay = `${i * 0.12}s`;
         child.classList.add('anim-visible');
       });
       staggerObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.08 });
 
 document.querySelectorAll('.stagger-container').forEach(el => {
   staggerObserver.observe(el);
@@ -112,7 +120,7 @@ document.querySelectorAll('.progress-fill').forEach(el => {
   progressObserver.observe(el);
 });
 
-// Cursor glow effect
+// Cursor glow effect — smoother follow
 const cursorGlow = document.createElement('div');
 cursorGlow.className = 'cursor-glow';
 document.body.appendChild(cursorGlow);
@@ -124,8 +132,8 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function animateCursor() {
-  glowX += (mouseX - glowX) * 0.15;
-  glowY += (mouseY - glowY) * 0.15;
+  glowX += (mouseX - glowX) * 0.1;
+  glowY += (mouseY - glowY) * 0.1;
   cursorGlow.style.left = glowX + 'px';
   cursorGlow.style.top = glowY + 'px';
   requestAnimationFrame(animateCursor);
@@ -136,6 +144,36 @@ animateCursor();
 if ('ontouchstart' in window) {
   cursorGlow.style.display = 'none';
 }
+
+// Magnetic hover effect on buttons
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+  });
+});
+
+// Tilt effect on cards (subtle 3D)
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    const tiltX = (y - 0.5) * 6;
+    const tiltY = (x - 0.5) * -6;
+    card.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-4px) scale(1.01)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
 
 // Testimonials carousel
 const track = document.getElementById('testimonialTrack');
@@ -181,3 +219,12 @@ if (track) {
     }
   });
 }
+
+// Smooth page transition — fade in on load
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.5s ease';
+  requestAnimationFrame(() => {
+    document.body.style.opacity = '1';
+  });
+});
