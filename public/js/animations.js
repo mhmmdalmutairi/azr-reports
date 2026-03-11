@@ -220,11 +220,13 @@ if (track) {
   });
 }
 
-// Smooth page transition — fade in on load
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.5s ease';
-  requestAnimationFrame(() => {
-    document.body.style.opacity = '1';
-  });
+// Ensure all animated elements become visible even if observer fails
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.anim-hidden, .anim-slide-right, .anim-slide-left, .anim-scale').forEach(el => {
+      if (!el.classList.contains('anim-visible')) {
+        el.classList.add('anim-visible');
+      }
+    });
+  }, 3000);
 });
