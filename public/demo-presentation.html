@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أزر للابتكار — عرض تجريبي</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --primary: #2563eb;
+    --primary-light: #3b82f6;
+    --accent: #f59e0b;
+    --dark: #0f172a;
+    --darker: #020617;
+    --glass: rgba(255,255,255,0.06);
+    --glass-border: rgba(255,255,255,0.1);
+  }
+
+  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; overflow-y: scroll; }
+  body { font-family: 'Tajawal', sans-serif; background: var(--darker); color: #fff; overflow-x: hidden; }
+
+  /* === الشرائح === */
+  .slide {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 40px;
+  }
+
+  /* === الخلفيات المتحركة === */
+  .slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+    z-index: 0;
+  }
+
+  .slide-1::before {
+    background: radial-gradient(ellipse at 30% 50%, var(--primary) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, #7c3aed 0%, transparent 50%);
+    animation: pulse-bg 8s ease-in-out infinite alternate;
+  }
+
+  .slide-2::before {
+    background: radial-gradient(ellipse at 70% 30%, #059669 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 70%, #0891b2 0%, transparent 50%);
+    animation: pulse-bg 10s ease-in-out infinite alternate;
+  }
+
+  .slide-3::before {
+    background: radial-gradient(ellipse at 50% 50%, var(--accent) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, #ef4444 0%, transparent 50%);
+    animation: pulse-bg 7s ease-in-out infinite alternate;
+  }
+
+  .slide-4::before {
+    background: radial-gradient(ellipse at 40% 60%, #8b5cf6 0%, transparent 60%),
+                radial-gradient(ellipse at 60% 20%, var(--primary) 0%, transparent 50%);
+    animation: pulse-bg 9s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-bg {
+    0% { transform: scale(1); opacity: 0.2; }
+    100% { transform: scale(1.2); opacity: 0.4; }
+  }
+
+  /* === الجزيئات المتحركة === */
+  .particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    animation: float-up linear infinite;
+  }
+
+  @keyframes float-up {
+    0% { transform: translateY(100vh) scale(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  }
+
+  /* === المحتوى === */
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  /* === الشريحة الأولى: الغلاف === */
+  .hero-badge {
+    display: inline-block;
+    padding: 8px 24px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    font-size: 14px;
+    color: var(--accent);
+    margin-bottom: 30px;
+    animation: fade-in-up 1s ease both;
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-title {
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    animation: fade-in-up 1s 0.2s ease both;
+  }
+
+  .hero-title .highlight {
+    background: linear-gradient(135deg, var(--primary-light), #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(18px, 2.5vw, 24px);
+    color: rgba(255,255,255,0.7);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    animation: fade-in-up 1s 0.4s ease both;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--primary), #7c3aed);
+    border: none;
+    border-radius: 16px;
+    color: #fff;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    animation: fade-in-up 1s 0.6s ease both;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(37,99,235,0.3);
+  }
+
+  .hero-cta .arrow { font-size: 24px; transition: transform 0.3s; }
+  .hero-cta:hover .arrow { transform: translateX(-6px); }
+
+  /* === الشريحة الثانية: الإحصائيات === */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .stat-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    transition: transform 0.4s, box-shadow 0.4s;
+    animation: fade-in-up 0.8s ease both;
+  }
+
+  .stat-card:nth-child(1) { animation-delay: 0.1s; }
+  .stat-card:nth-child(2) { animation-delay: 0.2s; }
+  .stat-card:nth-child(3) { animation-delay: 0.3s; }
+  .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+  .stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .stat-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #fff, rgba(255,255,255,0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-number .counter { display: inline; }
+
+  .stat-label {
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+  }
+
+  /* === الشريحة الثالثة: الأزرار === */
+  .buttons-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .btn-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    min-width: 100px;
+  }
+
+  .btn {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 14px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .btn:hover::after { opacity: 1; }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(37,99,235,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(37,99,235,0.4); }
+
+  .btn-secondary {
+    background: var(--glass);
+    border: 2px solid var(--glass-border);
+    color: #fff;
+    backdrop-filter: blur(10px);
+  }
+  .btn-secondary:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.3); }
+
+  .btn-success {
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(5,150,105,0.3);
+  }
+  .btn-success:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(5,150,105,0.4); }
+
+  .btn-warning {
+    background: linear-gradient(135deg, #d97706, #f59e0b);
+    color: #000;
+    box-shadow: 0 8px 30px rgba(245,158,11,0.3);
+  }
+  .btn-warning:hover { transform: translateY(-3px); }
+
+  .btn-danger {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(239,68,68,0.3);
+  }
+  .btn-danger:hover { transform: translateY(-3px); }
+
+  .btn-disabled {
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.3);
+    cursor: not-allowed;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .btn-lg { padding: 18px 44px; font-size: 18px; border-radius: 18px; }
+  .btn-sm { padding: 10px 20px; font-size: 14px; border-radius: 10px; }
+  .btn-icon { display: inline-flex; align-items: center; gap: 10px; }
+
+  /* === الشريحة الرابعة: وورك فلو === */
+  .workflow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 40px;
+    position: relative;
+  }
+
+  .workflow::before {
+    content: '';
+    position: absolute;
+    right: 39px;
+    top: 40px;
+    bottom: 40px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary), #7c3aed, var(--accent));
+    border-radius: 3px;
+  }
+
+  .wf-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 24px 0;
+    animation: fade-in-right 0.8s ease both;
+  }
+
+  .wf-step:nth-child(1) { animation-delay: 0.1s; }
+  .wf-step:nth-child(2) { animation-delay: 0.3s; }
+  .wf-step:nth-child(3) { animation-delay: 0.5s; }
+  .wf-step:nth-child(4) { animation-delay: 0.7s; }
+  .wf-step:nth-child(5) { animation-delay: 0.9s; }
+
+  .wf-number {
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+  }
+
+  .wf-step:nth-child(1) .wf-number { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+  .wf-step:nth-child(2) .wf-number { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+  .wf-step:nth-child(3) .wf-number { background: linear-gradient(135deg, #059669, #10b981); }
+  .wf-step:nth-child(4) .wf-number { background: linear-gradient(135deg, #d97706, #f59e0b); color: #000; }
+  .wf-step:nth-child(5) .wf-number { background: linear-gradient(135deg, #dc2626, #ef4444); }
+
+  .wf-content {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 28px;
+    flex: 1;
+    backdrop-filter: blur(20px);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .wf-content:hover {
+    transform: translateX(-8px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+
+  .wf-title {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .wf-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* === الأنيميشن === */
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in-right {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  /* === التنقل بين الشرائح === */
+  .slide-nav {
+    position: fixed;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 100;
+  }
+
+  .slide-nav a {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.3s;
+    display: block;
+  }
+
+  .slide-nav a:hover,
+  .slide-nav a.active {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+    transform: scale(1.3);
+  }
+
+  /* === شريط التقدم === */
+  .progress-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to left, var(--primary), #7c3aed, var(--accent));
+    z-index: 200;
+    transition: width 0.3s;
+  }
+
+  /* === التجاوب === */
+  @media (max-width: 768px) {
+    .slide { padding: 40px 20px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .stat-card { padding: 24px 16px; }
+    .stat-number { font-size: 36px; }
+    .btn-row { gap: 12px; }
+    .wf-number { width: 50px; height: 50px; min-width: 50px; font-size: 18px; }
+    .workflow::before { right: 24px; }
+    .slide-nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- شريط التقدم -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- التنقل -->
+<nav class="slide-nav">
+  <a href="#slide1" class="active"></a>
+  <a href="#slide2"></a>
+  <a href="#slide3"></a>
+  <a href="#slide4"></a>
+</nav>
+
+<!-- === الشريحة ١: الغلاف === -->
+<section class="slide slide-1" id="slide1">
+  <div class="particles" id="particles1"></div>
+  <div class="content">
+    <span class="hero-badge">عرض تجريبي — أزر للابتكار</span>
+    <h1 class="hero-title">
+      نبني المستقبل<br>
+      بـ<span class="highlight">حلول ذكية</span>
+    </h1>
+    <p class="hero-subtitle">
+      نصمم تجارب رقمية مبهرة تجمع بين البيانات والتصميم والتقنية لتقديم نتائج استثنائية لعملائنا
+    </p>
+    <a href="#slide2" class="hero-cta">
+      اكتشف المزيد
+      <span class="arrow">←</span>
+    </a>
+  </div>
+</section>
+
+<!-- === الشريحة ٢: الإحصائيات === -->
+<section class="slide slide-2" id="slide2">
+  <div class="particles" id="particles2"></div>
+  <div class="content">
+    <h2 class="section-title">إنجازاتنا بالأرقام</h2>
+    <p class="section-subtitle">نتائج حقيقية نفخر بها</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-icon">🏗️</span>
+        <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
+        <div class="stat-label">مشروع منجز</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">👥</span>
+        <div class="stat-number"><span class="counter" data-target="85">0</span>+</div>
+        <div class="stat-label">عميل راضي</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">🏆</span>
+        <div class="stat-number"><span class="counter" data-target="12">0</span></div>
+        <div class="stat-label">جائزة تميز</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-icon">📈</span>
+        <div class="stat-number"><span class="counter" data-target="98">0</span>%</div>
+        <div class="stat-label">نسبة الرضا</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === الشريحة ٣: الأزرار === -->
+<section class="slide slide-3" id="slide3">
+  <div class="particles" id="particles3"></div>
+  <div class="content">
+    <h2 class="section-title">نظام الأزرار</h2>
+    <p class="section-subtitle">تصميم موحد ومتناسق</p>
+    <div class="buttons-showcase">
+      <div class="btn-row">
+        <span class="btn-label">رئيسي</span>
+        <button class="btn btn-primary btn-lg btn-icon">إنشاء تقرير جديد <span>📄</span></button>
+        <button class="btn btn-primary">حفظ</button>
+        <button class="btn btn-primary btn-sm">تفاصيل</button>
+      </div>
+      <div class="btn-row">
+        <span class="btn-label">ثانوي</span>
+        <button class="btn btn-secondary btn-lg btn-icon">عرض البيانات <span>📊</span></button>
+        <button class="btn btn-secondary">تعديل</button>
+        <button class="btn btn-secondary btn-sm">إلغاء</button>
+      </div>
+      <div class="btn-row">
+        <span class="btn-label">نجاح</span>
+        <button class="btn btn-success btn-icon">تم الإرسال بنجاح <span>✓</span></button>
+        <button class="btn btn-warning btn-icon">بانتظار المراجعة <span>⏳</span></button>
+        <button class="btn btn-danger btn-icon">حذف نهائي <span>🗑</span></button>
+      </div>
+      <div class="btn-row">
+        <span class="btn-label">معطّل</span>
+        <button class="btn btn-disabled" disabled>غير متاح حالياً</button>
+        <button class="btn btn-disabled btn-sm" disabled>قريباً</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === الشريحة ٤: وورك فلو === -->
+<section class="slide slide-4" id="slide4">
+  <div class="particles" id="particles4"></div>
+  <div class="content">
+    <h2 class="section-title">مسار العمل</h2>
+    <p class="section-subtitle">خطوات إنشاء التقرير من البداية للنهاية</p>
+    <div class="workflow">
+      <div class="wf-step">
+        <div class="wf-number">١</div>
+        <div class="wf-content">
+          <div class="wf-title">جمع البيانات</div>
+          <div class="wf-desc">نجمع البيانات من مصادر متعددة ونتحقق من دقتها وصحتها قبل البدء بالتحليل</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-number">٢</div>
+        <div class="wf-content">
+          <div class="wf-title">التحليل والمعالجة</div>
+          <div class="wf-desc">نحلل البيانات باستخدام أدوات متقدمة ونستخرج الأنماط والرؤى المهمة</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-number">٣</div>
+        <div class="wf-content">
+          <div class="wf-title">التصميم البصري</div>
+          <div class="wf-desc">نحوّل البيانات لرسوم بيانية وتصاميم مبهرة تسهّل فهم المعلومات</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-number">٤</div>
+        <div class="wf-content">
+          <div class="wf-title">المراجعة والتدقيق</div>
+          <div class="wf-desc">نراجع كل التفاصيل ونتأكد من دقة المعلومات وجودة التصميم</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-number">٥</div>
+        <div class="wf-content">
+          <div class="wf-title">التسليم والعرض</div>
+          <div class="wf-desc">نسلّم التقرير النهائي ونقدّم عرض تقديمي للعميل مع شرح النتائج</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// === الجزيئات المتحركة ===
+document.querySelectorAll('.particles').forEach(container => {
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (Math.random() * 15 + 10) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.width = p.style.height = (Math.random() * 4 + 2) + 'px';
+    container.appendChild(p);
+  }
+});
+
+// === عداد الأرقام ===
+const counters = document.querySelectorAll('.counter');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = +el.dataset.target;
+      let current = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target;
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current);
+        }
+      }, 25);
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(c => counterObserver.observe(c));
+
+// === شريط التقدم ===
+const progressBar = document.getElementById('progressBar');
+window.addEventListener('scroll', () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / scrollHeight) * 100;
+  progressBar.style.width = progress + '%';
+});
+
+// === تحديث نقاط التنقل ===
+const slides = document.querySelectorAll('.slide');
+const navLinks = document.querySelectorAll('.slide-nav a');
+
+const slideObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(l => l.classList.remove('active'));
+      const activeLink = document.querySelector(`.slide-nav a[href="#${id}"]`);
+      if (activeLink) activeLink.classList.add('active');
+    }
+  });
+}, { threshold: 0.5 });
+
+slides.forEach(s => slideObserver.observe(s));
+
+// === أنيميشن عند الظهور ===
+const animElements = document.querySelectorAll('.stat-card, .wf-step, .btn-row');
+const animObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animationPlayState = 'running';
+    }
+  });
+}, { threshold: 0.2 });
+
+animElements.forEach(el => {
+  el.style.animationPlayState = 'paused';
+  animObserver.observe(el);
+});
+</script>
+
+</body>
+</html>
