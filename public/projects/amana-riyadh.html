@@ -329,6 +329,48 @@ body {
 .green-text { color: var(--green-mid); }
 .orange-text { color: var(--azr-orange); }
 
+/* ============ CLICKABLE HINT ============ */
+.clickable-hint {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  font-size: 0.72rem; color: rgba(0,0,0,0.3); font-weight: 500;
+  margin-bottom: 8px;
+}
+.clickable-hint .hint-icon { font-size: 0.85rem; }
+.slide-dark .clickable-hint { color: rgba(255,255,255,0.3); }
+
+/* ============ PRINT HEADER/FOOTER ============ */
+.print-header, .print-footer { display: none; }
+@media print {
+  .print-header {
+    display: flex !important; align-items: center; justify-content: space-between;
+    position: absolute; top: 5mm; left: 10mm; right: 10mm;
+    padding-bottom: 3mm; border-bottom: 0.3mm solid rgba(0,0,0,0.1);
+  }
+  .print-header img { height: 8mm; filter: none; }
+  .print-header .ph-title {
+    font-size: 7pt; color: rgba(0,0,0,0.4); font-weight: 600;
+  }
+  .slide-dark .print-header, .slide-section .print-header {
+    border-color: rgba(255,255,255,0.15);
+  }
+  .slide-dark .print-header img, .slide-section .print-header img {
+    filter: brightness(0) invert(1);
+  }
+  .slide-dark .print-header .ph-title, .slide-section .print-header .ph-title {
+    color: rgba(255,255,255,0.4);
+  }
+  .print-footer {
+    display: flex !important; align-items: center; justify-content: space-between;
+    position: absolute; bottom: 5mm; left: 10mm; right: 10mm;
+    padding-top: 3mm; border-top: 0.3mm solid rgba(0,0,0,0.1);
+    font-size: 6pt; color: rgba(0,0,0,0.3);
+  }
+  .slide-dark .print-footer, .slide-section .print-footer {
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.3);
+  }
+}
+
 /* ============ REFERENCE LINKS ============ */
 .ref-link {
   display: inline-flex; align-items: center; justify-content: center;
@@ -510,12 +552,22 @@ body {
   border-radius: 20px; padding: 32px 24px; text-align: center;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 4px 30px rgba(0,0,0,0.04);
+  cursor: pointer; position: relative; text-decoration: none; display: block; color: inherit;
 }
 .stat-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 40px rgba(27,67,50,0.1);
-  border-color: rgba(224,124,36,0.2);
+  border-color: rgba(224,124,36,0.3);
 }
+.stat-card .card-link-icon {
+  position: absolute; top: 10px; left: 10px;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--azr-orange); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; opacity: 0.5;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.stat-card:hover .card-link-icon { opacity: 1; transform: scale(1.15); }
 .stat-number {
   font-size: 2.8rem; font-weight: 900; color: var(--green-deep);
   line-height: 1; margin-bottom: 8px;
@@ -597,11 +649,23 @@ body {
   border-radius: 14px; padding: 20px; text-align: center;
   border: 1px solid rgba(82,183,136,0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; text-decoration: none; display: block; color: inherit;
+  position: relative;
 }
 .case-highlight:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border-color: rgba(224,124,36,0.3);
 }
+.case-highlight .card-link-icon {
+  position: absolute; top: 8px; left: 8px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--azr-orange); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.55rem; opacity: 0.4;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.case-highlight:hover .card-link-icon { opacity: 1; transform: scale(1.15); }
 .case-highlight-num {
   font-size: 1.6rem; font-weight: 900; color: var(--green-deep);
 }
@@ -1064,9 +1128,27 @@ body {
 <nav id="nav-dots"></nav>
 
 <!-- ========== DOWNLOAD BUTTON ========== -->
-<a id="download-btn" onclick="window.print(); return false;" title="تحميل كـ PDF">
+<a id="download-btn" onclick="preparePrint()" title="تحميل كـ PDF">
   <span class="dl-icon">⬇</span> تحميل PDF
 </a>
+<script>
+function preparePrint() {
+  // Add print header/footer to every slide that doesn't have one
+  document.querySelectorAll('.slide').forEach(function(slide, i) {
+    if (!slide.querySelector('.print-header')) {
+      var h = document.createElement('div');
+      h.className = 'print-header';
+      h.innerHTML = '<img src="/assets/azr-brand-logo.png" alt="AZR" onerror="this.style.display=\'none\'"><span class="ph-title">تفعيل حدائق الرياض | أزر للاستشارات</span>';
+      slide.appendChild(h);
+      var f = document.createElement('div');
+      f.className = 'print-footer';
+      f.innerHTML = '<span>azr.sa</span><span>صفحة ' + (i + 1) + ' من 18</span><span>سري وخاص</span>';
+      slide.appendChild(f);
+    }
+  });
+  setTimeout(function() { window.print(); }, 100);
+}
+</script>
 
 <!-- ========== SLIDES WRAP ========== -->
 <div class="slides-wrap" id="slidesWrap">
@@ -1104,30 +1186,29 @@ body {
     <p class="anim anim-up stagger-3 slide-body" style="margin-bottom:2rem;">
       تسعى رؤية الرياض الخضراء إلى تحويل العاصمة إلى واحدة من أكثر المدن استدامة وملاءمة للعيش في العالم، من خلال برنامج تشجير وتطوير حدائق غير مسبوق.
     </p>
+    <div class="clickable-hint"><span class="hint-icon">🔗</span> اضغط على أي كرت للاطلاع على المصدر</div>
     <div class="stats-grid">
-      <div class="anim anim-scale stagger-3 stat-card">
+      <a class="anim anim-scale stagger-3 stat-card" href="https://www.saudigreeninitiative.org/" target="_blank" rel="noopener">
+        <span class="card-link-icon">↗</span>
         <div class="stat-number" data-count="7.5">0</div>
-        <div class="stat-label">مليون شجرة مستهدفة <a href="https://www.saudigreeninitiative.org/" target="_blank" rel="noopener" class="ref-link" title="مبادرة السعودية الخضراء">1</a></div>
-      </div>
-      <div class="anim anim-scale stagger-4 stat-card">
+        <div class="stat-label">مليون شجرة مستهدفة</div>
+      </a>
+      <a class="anim anim-scale stagger-4 stat-card" href="https://www.rcrc.gov.sa/en/projects/green-riyadh" target="_blank" rel="noopener">
+        <span class="card-link-icon">↗</span>
         <div class="stat-number" data-count="700" data-suffix="+">0</div>
-        <div class="stat-label">حديقة قائمة <a href="https://www.rcrc.gov.sa/en/projects/green-riyadh" target="_blank" rel="noopener" class="ref-link" title="الهيئة الملكية لمدينة الرياض">2</a></div>
-      </div>
-      <div class="anim anim-scale stagger-5 stat-card">
+        <div class="stat-label">حديقة قائمة</div>
+      </a>
+      <a class="anim anim-scale stagger-5 stat-card" href="https://www.rcrc.gov.sa/en/projects" target="_blank" rel="noopener">
+        <span class="card-link-icon">↗</span>
         <div class="stat-number" data-count="87">0</div>
-        <div class="stat-label">حديقة جديدة في ٣ سنوات <a href="https://www.rcrc.gov.sa/en/projects" target="_blank" rel="noopener" class="ref-link" title="تقارير الهيئة الملكية">3</a></div>
-      </div>
-      <div class="anim anim-scale stagger-6 stat-card">
+        <div class="stat-label">حديقة جديدة في ٣ سنوات</div>
+      </a>
+      <a class="anim anim-scale stagger-6 stat-card" href="https://www.rcrc.gov.sa/en/projects/neighborhood-parks" target="_blank" rel="noopener">
+        <span class="card-link-icon">↗</span>
         <div class="stat-number" data-count="3330" data-comma="true">0</div>
-        <div class="stat-label">حديقة حي مخطط لها <a href="https://www.rcrc.gov.sa/en/projects/neighborhood-parks" target="_blank" rel="noopener" class="ref-link" title="خطط حدائق الأحياء — RCRC">4</a></div>
-      </div>
+        <div class="stat-label">حديقة حي مخطط لها</div>
+      </a>
     </div>
-  </div>
-  <div class="slide-refs">
-    <a class="ref-row" href="https://www.saudigreeninitiative.org/" target="_blank" rel="noopener"><span class="ref-num">1</span><span class="ref-text">مبادرة السعودية الخضراء</span></a>
-    <a class="ref-row" href="https://www.rcrc.gov.sa/en/projects/green-riyadh" target="_blank" rel="noopener"><span class="ref-num">2</span><span class="ref-text">الهيئة الملكية — الرياض الخضراء</span></a>
-    <a class="ref-row" href="https://www.rcrc.gov.sa/en/projects" target="_blank" rel="noopener"><span class="ref-num">3</span><span class="ref-text">تقارير الهيئة الملكية</span></a>
-    <a class="ref-row" href="https://www.rcrc.gov.sa/en/projects/neighborhood-parks" target="_blank" rel="noopener"><span class="ref-num">4</span><span class="ref-text">خطط حدائق الأحياء</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(2)"><span>التحدي</span><span class="arr">&#8595;</span></div>
 </section>
@@ -1186,30 +1267,29 @@ body {
       <p class="anim anim-up stagger-3 case-body">
         نموذج الشراكة بين القطاعين العام والخاص عبر مؤسسة Central Park Conservancy التي تدير الحديقة بكفاءة عالية. تقدم الحديقة برامج لياقة بدنية، حفلات موسيقية، مسرح مفتوح، حلبة تزلج على الجليد، ومهرجانات موسمية — محققة إيرادات تغطي تكاليف التشغيل مع خدمة المجتمع.
       </p>
+      <div class="clickable-hint"><span class="hint-icon">🔗</span> اضغط على أي كرت للاطلاع على المصدر</div>
       <div class="case-highlights">
-        <div class="anim anim-scale stagger-4 case-highlight">
+        <a class="anim anim-scale stagger-4 case-highlight" href="https://www.centralparknyc.org/activities" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">+80</div>
-          <div class="case-highlight-label">فعالية سنوياً <a href="https://www.centralparknyc.org/activities" target="_blank" rel="noopener" class="ref-link" title="Central Park Conservancy — Activities">5</a></div>
-        </div>
-        <div class="anim anim-scale stagger-5 case-highlight">
+          <div class="case-highlight-label">فعالية سنوياً</div>
+        </a>
+        <a class="anim anim-scale stagger-5 case-highlight" href="https://www.centralparknyc.org/about/annual-report" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">$65M</div>
-          <div class="case-highlight-label">ميزانية سنوية <a href="https://www.centralparknyc.org/about/annual-report" target="_blank" rel="noopener" class="ref-link" title="Central Park Annual Report">6</a></div>
-        </div>
-        <div class="anim anim-scale stagger-6 case-highlight">
+          <div class="case-highlight-label">ميزانية سنوية</div>
+        </a>
+        <a class="anim anim-scale stagger-6 case-highlight" href="https://www.centralparknyc.org/about" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">42M</div>
-          <div class="case-highlight-label">زائر سنوياً <a href="https://www.centralparknyc.org/about" target="_blank" rel="noopener" class="ref-link" title="Central Park Conservancy — About">7</a></div>
-        </div>
+          <div class="case-highlight-label">زائر سنوياً</div>
+        </a>
         <div class="anim anim-scale stagger-7 case-highlight">
           <div class="case-highlight-num">PPP</div>
           <div class="case-highlight-label">شراكة عام-خاص</div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="slide-refs">
-    <a class="ref-row" href="https://www.centralparknyc.org/activities" target="_blank" rel="noopener"><span class="ref-num">5</span><span class="ref-text">Central Park — Activities</span></a>
-    <a class="ref-row" href="https://www.centralparknyc.org/about/annual-report" target="_blank" rel="noopener"><span class="ref-num">6</span><span class="ref-text">Central Park — Annual Report</span></a>
-    <a class="ref-row" href="https://www.centralparknyc.org/about" target="_blank" rel="noopener"><span class="ref-num">7</span><span class="ref-text">Central Park — About</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(5)"><span>سوبركيلن</span><span class="arr">&#8595;</span></div>
 </section>
@@ -1231,30 +1311,29 @@ body {
       <p class="anim anim-up stagger-3 case-body">
         مشروع تجديد حضري يحتفي بالتنوع الثقافي من خلال ثلاث مناطق ملوّنة: الساحة الحمراء للرياضة والنشاط البدني، السوق الأسود للتفاعل الاجتماعي والتبادل الثقافي، والحديقة الخضراء للاسترخاء والترفيه العائلي. شارك سكان الحي المتنوع عرقياً في التصميم واختيار العناصر الحضرية.
       </p>
+      <div class="clickable-hint"><span class="hint-icon">🔗</span> اضغط على أي كرت للاطلاع على المصدر</div>
       <div class="case-highlights">
-        <div class="anim anim-scale stagger-4 case-highlight">
+        <a class="anim anim-scale stagger-4 case-highlight" href="https://big.dk/#projects-sup" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">3</div>
-          <div class="case-highlight-label">مناطق ملوّنة <a href="https://big.dk/#projects-sup" target="_blank" rel="noopener" class="ref-link" title="BIG Architects — Superkilen">8</a></div>
-        </div>
-        <div class="anim anim-scale stagger-5 case-highlight">
+          <div class="case-highlight-label">مناطق ملوّنة</div>
+        </a>
+        <a class="anim anim-scale stagger-5 case-highlight" href="https://big.dk/#projects-sup" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">100+</div>
-          <div class="case-highlight-label">عنصر حضري <a href="https://big.dk/#projects-sup" target="_blank" rel="noopener" class="ref-link" title="BIG Architects — Elements">9</a></div>
-        </div>
-        <div class="anim anim-scale stagger-6 case-highlight">
+          <div class="case-highlight-label">عنصر حضري</div>
+        </a>
+        <a class="anim anim-scale stagger-6 case-highlight" href="https://big.dk/#projects-sup" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">60</div>
-          <div class="case-highlight-label">دولة ممثلة <a href="https://big.dk/#projects-sup" target="_blank" rel="noopener" class="ref-link" title="BIG Architects — Countries">10</a></div>
-        </div>
+          <div class="case-highlight-label">دولة ممثلة</div>
+        </a>
         <div class="anim anim-scale stagger-7 case-highlight">
           <div class="case-highlight-num">100%</div>
           <div class="case-highlight-label">مشاركة مجتمعية</div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="slide-refs">
-    <a class="ref-row" href="https://big.dk/#projects-sup" target="_blank" rel="noopener"><span class="ref-num">8</span><span class="ref-text">BIG Architects — Superkilen</span></a>
-    <a class="ref-row" href="https://big.dk/#projects-sup" target="_blank" rel="noopener"><span class="ref-num">9</span><span class="ref-text">BIG — Urban Elements</span></a>
-    <a class="ref-row" href="https://big.dk/#projects-sup" target="_blank" rel="noopener"><span class="ref-num">10</span><span class="ref-text">BIG — Represented Countries</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(6)"><span>حدائق الخليج</span><span class="arr">&#8595;</span></div>
 </section>
@@ -1276,15 +1355,18 @@ body {
       <p class="anim anim-up stagger-3 case-body">
         تجربة رائدة تدمج الطبيعة بالتقنية عبر الأشجار الخارقة (Supertrees) التي تعمل كحدائق عمودية وتستضيف عروضاً ضوئية مبهرة كل ليلة. تقدم برامج للتنوع البيولوجي، ورش عمل بيئية، ومعارض فنية، مما جعلها واحدة من أكثر الوجهات زيارة في آسيا.
       </p>
+      <div class="clickable-hint"><span class="hint-icon">🔗</span> اضغط على أي كرت للاطلاع على المصدر</div>
       <div class="case-highlights">
-        <div class="anim anim-scale stagger-4 case-highlight">
+        <a class="anim anim-scale stagger-4 case-highlight" href="https://www.gardensbythebay.com.sg/en/the-gardens/about-us.html" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">15M+</div>
-          <div class="case-highlight-label">زائر سنوياً <a href="https://www.gardensbythebay.com.sg/en/the-gardens/about-us.html" target="_blank" rel="noopener" class="ref-link" title="Gardens by the Bay — About Us">11</a></div>
-        </div>
-        <div class="anim anim-scale stagger-5 case-highlight">
+          <div class="case-highlight-label">زائر سنوياً</div>
+        </a>
+        <a class="anim anim-scale stagger-5 case-highlight" href="https://www.gardensbythebay.com.sg/en/things-to-do/attractions/supertree-grove.html" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">18</div>
-          <div class="case-highlight-label">شجرة خارقة <a href="https://www.gardensbythebay.com.sg/en/things-to-do/attractions/supertree-grove.html" target="_blank" rel="noopener" class="ref-link" title="Supertree Grove">12</a></div>
-        </div>
+          <div class="case-highlight-label">شجرة خارقة</div>
+        </a>
         <div class="anim anim-scale stagger-6 case-highlight">
           <div class="case-highlight-num">365</div>
           <div class="case-highlight-label">يوم عروض ضوئية</div>
@@ -1295,10 +1377,6 @@ body {
         </div>
       </div>
     </div>
-  </div>
-  <div class="slide-refs">
-    <a class="ref-row" href="https://www.gardensbythebay.com.sg/en/the-gardens/about-us.html" target="_blank" rel="noopener"><span class="ref-num">11</span><span class="ref-text">Gardens by the Bay — About Us</span></a>
-    <a class="ref-row" href="https://www.gardensbythebay.com.sg/en/things-to-do/attractions/supertree-grove.html" target="_blank" rel="noopener"><span class="ref-num">12</span><span class="ref-text">Supertree Grove</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(7)"><span>سيولو 7017</span><span class="arr">&#8595;</span></div>
 </section>
@@ -1320,29 +1398,28 @@ body {
       <p class="anim anim-up stagger-3 case-body">
         تحويل طريق سريع مرتفع إلى حديقة سماوية مذهلة. يحتضن المشروع تنوعاً نباتياً كبيراً مع برمجة ثقافية مستمرة تشمل معارض فنية، عروض موسيقية، وأسواق موسمية. تستخدم إضاءة ذكية تتغير مع الفصول لخلق تجارب بصرية فريدة.
       </p>
+      <div class="clickable-hint"><span class="hint-icon">🔗</span> اضغط على أي كرت للاطلاع على المصدر</div>
       <div class="case-highlights">
-        <div class="anim anim-scale stagger-4 case-highlight">
+        <a class="anim anim-scale stagger-4 case-highlight" href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">24K</div>
-          <div class="case-highlight-label">نبتة <a href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" rel="noopener" class="ref-link" title="Seoul Metropolitan Government — Seoullo 7017">13</a></div>
-        </div>
+          <div class="case-highlight-label">نبتة</div>
+        </a>
         <div class="anim anim-scale stagger-5 case-highlight">
           <div class="case-highlight-num">50</div>
           <div class="case-highlight-label">فصيلة نباتية</div>
         </div>
-        <div class="anim anim-scale stagger-6 case-highlight">
+        <a class="anim anim-scale stagger-6 case-highlight" href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" rel="noopener">
+          <span class="card-link-icon">↗</span>
           <div class="case-highlight-num">983m</div>
-          <div class="case-highlight-label">طول المسار <a href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" rel="noopener" class="ref-link" title="Seoul Metropolitan Government">14</a></div>
-        </div>
+          <div class="case-highlight-label">طول المسار</div>
+        </a>
         <div class="anim anim-scale stagger-7 case-highlight">
           <div class="case-highlight-num">Smart</div>
           <div class="case-highlight-label">إضاءة ذكية</div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="slide-refs">
-    <a class="ref-row" href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" rel="noopener"><span class="ref-num">13</span><span class="ref-text">Seoul Metropolitan Government — Seoullo 7017</span></a>
-    <a class="ref-row" href="https://english.seoul.go.kr/seoullo-7017/" target="_blank" rel="noopener"><span class="ref-num">14</span><span class="ref-text">Seoul Metropolitan Government — Trail Length</span></a>
   </div>
   <div class="slide-next" onclick="goSlide(8)"><span>رؤى مستنتجة</span><span class="arr">&#8595;</span></div>
 </section>
