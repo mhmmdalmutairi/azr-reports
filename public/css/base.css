@@ -1,5 +1,6 @@
-/* === AZR Innovation Studio — Base Styles === */
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+/* === AZR Innovation Studio — Base Styles v2 === */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -10,32 +11,28 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-}
-
-html {
   overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-primary);
-  background: var(--azr-navy);
-  color: var(--azr-white);
+  background: var(--azr-bg);
+  color: var(--text-primary);
   line-height: 1.7;
   overflow-x: hidden;
   width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Direction is inherited from html[dir] attribute — no hardcoded direction */
-
-/* === Selection === */
 ::selection {
-  background: var(--azr-teal);
-  color: var(--azr-white);
+  background: var(--azr-gold);
+  color: var(--azr-bg);
 }
 
 /* === Links === */
 a {
-  color: var(--azr-teal-light);
+  color: var(--azr-gold-light);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -46,18 +43,27 @@ a:hover {
 
 /* === Typography === */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-bold);
   line-height: 1.2;
+  color: var(--text-primary);
 }
 
-h1 { font-size: clamp(36px, 6vw, 72px); }
-h2 { font-size: clamp(28px, 4vw, 52px); }
+h1 { font-size: clamp(36px, 6vw, 72px); font-weight: var(--font-weight-black); }
+h2 { font-size: clamp(28px, 4vw, 52px); font-weight: var(--font-weight-bold); }
 h3 { font-size: clamp(22px, 3vw, 32px); }
 h4 { font-size: clamp(18px, 2vw, 24px); }
 
 p {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text-secondary);
   font-size: clamp(16px, 1.2vw, 18px);
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* === Container === */
@@ -70,51 +76,46 @@ p {
 
 /* === Section === */
 .section {
-  padding: var(--space-3xl) 0;
+  padding: var(--space-4xl) 0;
   position: relative;
   overflow: hidden;
 }
 
-/* Gold divider between sections — matching AZR brand */
+/* Subtle gradient divider */
 .section + .section::before {
   content: '';
   display: block;
   width: 100%;
-  height: 4px;
-  background: var(--gradient-gold);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 39, 0.2), transparent);
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
 }
 
+/* Section Header — centered with decorative lines */
 .section-header {
   margin-bottom: var(--space-2xl);
-  text-align: right;
-  border-right: 4px solid var(--azr-gold);
-  padding-right: var(--space-lg);
-}
-
-/* LTR overrides for English */
-[dir="ltr"] .section-header {
-  text-align: left;
+  text-align: center;
   border-right: none;
-  border-left: 4px solid var(--azr-gold);
   padding-right: 0;
-  padding-left: var(--space-lg);
 }
 
 .section-badge {
-  display: inline-block;
-  padding: 6px 20px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: var(--azr-gold-glow);
+  border: 1px solid var(--border-gold);
   border-radius: var(--radius-full);
   font-size: 14px;
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   color: var(--azr-gold);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
   backdrop-filter: blur(10px);
+  letter-spacing: 0.5px;
 }
 
 .section-title {
@@ -132,6 +133,24 @@ p {
   max-width: 600px;
   margin: 0 auto;
   font-size: 18px;
+  color: var(--text-secondary);
+}
+
+/* Section Label — decorative lines on sides */
+.section-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: var(--space-lg);
+}
+
+.section-label::before,
+.section-label::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, var(--azr-gold), transparent);
 }
 
 /* === Navbar === */
@@ -144,13 +163,13 @@ p {
   display: flex;
   align-items: center;
   z-index: 1000;
-  transition: background var(--transition-normal), box-shadow var(--transition-normal);
+  transition: all var(--transition-normal);
 }
 
 .navbar.scrolled {
-  background: rgba(10, 22, 40, 0.95);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(8, 8, 10, 0.92);
+  backdrop-filter: blur(20px) saturate(1.2);
+  box-shadow: 0 1px 0 var(--border-subtle), 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .navbar .container {
@@ -168,19 +187,6 @@ p {
   color: var(--azr-white);
 }
 
-.nav-logo .logo-mark {
-  width: 40px;
-  height: 40px;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: var(--font-weight-black);
-  font-size: 16px;
-}
-
-/* SVG Logo */
 .nav-logo-svg {
   display: flex;
   align-items: center;
@@ -188,11 +194,11 @@ p {
 }
 
 .nav-logo-svg img {
-  height: 52px;
+  height: 48px;
   width: auto;
   filter: brightness(0) invert(1);
-  transition: filter var(--transition-fast), opacity var(--transition-fast);
-  opacity: 0.95;
+  transition: all var(--transition-fast);
+  opacity: 0.9;
 }
 
 .nav-logo-svg:hover img {
@@ -200,37 +206,39 @@ p {
 }
 
 .footer-logo-svg img {
-  height: 44px;
+  height: 40px;
   width: auto;
   margin-bottom: var(--space-sm);
   filter: brightness(0) invert(1);
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   list-style: none;
 }
 
 .nav-links a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   font-weight: var(--font-weight-medium);
   font-size: 15px;
   transition: color var(--transition-fast);
   position: relative;
+  padding: 4px 0;
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   right: 0;
   width: 0;
   height: 2px;
-  background: var(--azr-teal);
+  background: var(--gradient-gold);
   transition: width var(--transition-normal);
+  border-radius: 1px;
 }
 
 [dir="ltr"] .nav-links a::after {
@@ -240,7 +248,7 @@ p {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--azr-white);
+  color: var(--text-primary);
 }
 
 .nav-links a:hover::after,
@@ -249,18 +257,18 @@ p {
 }
 
 .nav-cta {
-  padding: 10px 24px;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-full);
-  color: var(--azr-white) !important;
+  padding: 10px 24px !important;
+  background: var(--gradient-primary) !important;
+  border-radius: var(--radius-full) !important;
+  color: var(--azr-bg) !important;
   font-weight: var(--font-weight-bold) !important;
   font-size: 14px !important;
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast) !important;
 }
 
 .nav-cta:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-teal);
+  box-shadow: var(--shadow-gold-sm);
 }
 
 .nav-cta::after { display: none !important; }
@@ -279,16 +287,16 @@ p {
 .nav-toggle span {
   width: 24px;
   height: 2px;
-  background: var(--azr-white);
+  background: var(--text-primary);
   border-radius: 2px;
   transition: var(--transition-normal);
 }
 
 /* === Footer === */
 .footer {
-  background: #060E1A;
+  background: #050506;
   padding: var(--space-2xl) 0 var(--space-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .footer-grid {
@@ -301,14 +309,15 @@ p {
 .footer-brand p {
   margin-top: var(--space-md);
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   line-height: 1.8;
 }
 
 .footer-col h4 {
-  color: var(--azr-white);
+  color: var(--text-primary);
   margin-bottom: var(--space-md);
   font-size: 16px;
+  font-weight: var(--font-weight-semibold);
 }
 
 .footer-col ul {
@@ -317,15 +326,18 @@ p {
 
 .footer-col li {
   margin-bottom: var(--space-sm);
-}
-
-.footer-col a {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   font-size: 14px;
 }
 
+.footer-col a {
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: color var(--transition-fast);
+}
+
 .footer-col a:hover {
-  color: var(--azr-teal-light);
+  color: var(--azr-gold);
 }
 
 .footer-bottom {
@@ -333,9 +345,9 @@ p {
   justify-content: space-between;
   align-items: center;
   padding-top: var(--space-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--border-subtle);
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
 }
 
 .footer-social {
@@ -348,17 +360,18 @@ p {
   height: 36px;
   border-radius: 50%;
   background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  transition: var(--transition-fast);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
 }
 
 .footer-social a:hover {
-  background: var(--azr-teal);
-  color: var(--azr-white);
+  background: var(--azr-gold-dim);
+  border-color: var(--border-gold);
+  color: var(--azr-gold);
 }
 
 /* === Responsive === */
@@ -392,7 +405,7 @@ p {
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(10, 22, 40, 0.98);
+    background: rgba(8, 8, 10, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
     justify-content: center;
@@ -437,7 +450,7 @@ p {
   }
 
   .section {
-    padding: var(--space-xl) 0;
+    padding: var(--space-3xl) 0;
   }
 
   h1 { font-size: clamp(28px, 8vw, 42px); }
@@ -447,22 +460,7 @@ p {
     font-size: 16px;
   }
 
-  [dir="rtl"] .section-desc {
-    text-align: right;
-  }
-
-  [dir="ltr"] .section-desc {
-    text-align: left;
-  }
-
-  [dir="rtl"] .section-header {
-    padding-right: var(--space-md);
-    margin-bottom: var(--space-xl);
-  }
-
-  [dir="ltr"] .section-header {
-    padding-left: var(--space-md);
-    padding-right: 0;
+  .section-header {
     margin-bottom: var(--space-xl);
   }
 
@@ -486,7 +484,6 @@ p {
     text-align: center;
   }
 
-  /* All inline 2-column grids become single column */
   [style*="grid-template-columns: 1fr 1fr"] {
     grid-template-columns: 1fr !important;
     gap: 32px !important;

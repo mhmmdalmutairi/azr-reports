@@ -17,7 +17,6 @@
   <meta name="twitter:image" content="https://azr-reports.pages.dev/assets/og-thumbnail.png">
   <title>AZR Innovation Studio — نبتكر.. لننمو</title>
   <link rel="canonical" href="https://azr-reports.pages.dev/">
-  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,7 +42,6 @@
     "numberOfEmployees": "10-50"
   }
   </script>
-  <!-- Google Analytics — replace G-XXXXXXXXXX with your actual ID -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -51,13 +49,16 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
-  <link rel="stylesheet" href="css/variables.css?v=8">
-  <link rel="stylesheet" href="css/base.css?v=8">
-  <link rel="stylesheet" href="css/components.css?v=8">
-  <link rel="stylesheet" href="css/animations.css?v=8">
+  <link rel="stylesheet" href="css/variables.css?v=9">
+  <link rel="stylesheet" href="css/base.css?v=9">
+  <link rel="stylesheet" href="css/components.css?v=9">
+  <link rel="stylesheet" href="css/animations.css?v=9">
   <noscript><style>.anim-hidden,.anim-slide-right,.anim-slide-left,.anim-scale{opacity:1!important;transform:none!important;filter:none!important;}</style></noscript>
 </head>
 <body>
+
+<!-- === Noise Texture Overlay === -->
+<div class="noise-overlay"></div>
 
 <!-- === Navbar === -->
 <nav class="navbar" id="navbar">
@@ -82,23 +83,42 @@
 </nav>
 
 <!-- === Hero Section === -->
-<section class="section" id="hero" style="min-height: 100vh; display: flex; align-items: center; padding-top: 120px;">
-  <div class="glow-orb glow-orb-1"></div>
-  <div class="glow-orb glow-orb-2"></div>
-  <div class="particles" id="heroParticles"></div>
-  <div class="container" style="position: relative; z-index: 1;">
-    <div style="max-width: 700px;">
-      <span class="section-badge anim-hidden">Innovate to Grow | نبتكر.. لننمو</span>
-      <h1 class="anim-hidden" style="margin-top: 24px;">
-        نحوّل التحديات<br>إلى <span class="highlight">فرص نمو</span> استثنائية
+<section class="hero-section" id="hero">
+  <div class="hero-bg">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-glow hero-glow-3"></div>
+    <div class="hero-grid-pattern"></div>
+    <div class="hero-rings">
+      <div class="hero-ring hero-ring-1"></div>
+      <div class="hero-ring hero-ring-2"></div>
+    </div>
+    <div class="particles" id="heroParticles"></div>
+  </div>
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="hero-badge anim-hidden">
+        <span class="hero-badge-dot"></span>
+        <span>Innovate to Grow</span>
+        <span class="hero-badge-divider">|</span>
+        <span>نبتكر.. لننمو</span>
+      </div>
+      <h1 class="hero-title anim-hidden">
+        نحوّل التحديات<br>
+        إلى <span class="text-gradient">فرص نمو</span><br>
+        استثنائية
       </h1>
-      <p class="anim-hidden" style="font-size: 20px; margin-top: 24px; max-width: 560px; line-height: 1.9;">
+      <p class="hero-desc anim-hidden">
         منظومة تشغيل نمو متكاملة — نبدأ بالاكتشاف، ونصل لتحقيق نمو مستدام وأثر ملموس عبر الابتكار والشراكة الاستراتيجية
       </p>
-      <div style="display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap;" class="anim-hidden">
-        <a href="services.html" class="btn btn-primary btn-lg">اكتشف خدماتنا</a>
+      <div class="hero-actions anim-hidden">
+        <a href="services.html" class="btn btn-gold btn-lg">اكتشف خدماتنا</a>
         <a href="portfolio.html" class="btn btn-secondary btn-lg">مشاريعنا</a>
       </div>
+    </div>
+    <div class="hero-scroll-indicator anim-hidden">
+      <div class="scroll-line"></div>
+      <span>اكتشف أكثر</span>
     </div>
   </div>
 </section>
@@ -174,7 +194,7 @@
 </section>
 
 <!-- === Methodology (4D) Section === -->
-<section class="section" id="methodology" style="background: var(--gradient-purple);">
+<section class="section section-alt" id="methodology">
   <div class="container">
     <div class="section-header">
       <span class="section-badge anim-hidden">منهجيتنا</span>
@@ -220,7 +240,7 @@
     </div>
     <div class="grid-3">
       <div class="card project-card anim-hidden">
-        <div class="card-img" style="background: linear-gradient(135deg, #148F77, #1ABC9C);">&#x1F4B0;</div>
+        <div class="card-img" style="background: linear-gradient(135deg, #1a3a2a, #2d6b4a);">&#x1F4B0;</div>
         <div class="card-body">
           <span class="card-tag">تمكين رقمي</span>
           <h3>منظومة زاد</h3>
@@ -228,7 +248,7 @@
         </div>
       </div>
       <div class="card project-card anim-hidden anim-delay-2">
-        <div class="card-img" style="background: linear-gradient(135deg, #1B4F72, #2E86C1);">&#x1F3E8;</div>
+        <div class="card-img" style="background: linear-gradient(135deg, #1a2a3a, #2d4a6b);">&#x1F3E8;</div>
         <div class="card-body">
           <span class="card-tag">ضيافة وابتكار</span>
           <h3>MAQAM</h3>
@@ -236,7 +256,7 @@
         </div>
       </div>
       <div class="card project-card anim-hidden anim-delay-4">
-        <div class="card-img" style="background: linear-gradient(135deg, #8E44AD, #BB8FCE);">&#x1F3B5;</div>
+        <div class="card-img" style="background: linear-gradient(135deg, #2a1a3a, #4a2d6b);">&#x1F3B5;</div>
         <div class="card-body">
           <span class="card-tag">تفعيل حضري</span>
           <h3>الفن في الطريق</h3>
@@ -251,7 +271,7 @@
 </section>
 
 <!-- === Values Section === -->
-<section class="section" id="values" style="background: rgba(0,0,0,0.2);">
+<section class="section section-alt" id="values">
   <div class="container">
     <div class="section-header">
       <span class="section-badge anim-hidden">القيم الجوهرية</span>
@@ -354,13 +374,15 @@
 </section>
 
 <!-- === CTA Section === -->
-<section class="section" id="cta" style="text-align: center;">
-  <div class="glow-orb glow-orb-3" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
-  <div class="container" style="position: relative; z-index: 1;">
+<section class="section cta-section" id="cta">
+  <div class="cta-bg">
+    <div class="cta-glow"></div>
+  </div>
+  <div class="container" style="position: relative; z-index: 1; text-align: center;">
     <h2 class="anim-hidden" style="font-size: clamp(28px, 4vw, 48px);">
-      "نعدكم بتجارب استثنائية تتجاوز التوقعات وتصنع الفرق"
+      نعدكم بتجارب استثنائية<br>تتجاوز التوقعات <span class="text-gradient">وتصنع الفرق</span>
     </h2>
-    <p class="anim-hidden" style="font-size: 20px; margin-top: 20px; color: rgba(255,255,255,0.6);">
+    <p class="anim-hidden" style="font-size: 20px; margin-top: 20px; color: var(--text-muted);">
       لنبنِ شيئاً استثنائياً معاً
     </p>
     <div style="margin-top: 40px;" class="anim-hidden">
@@ -415,88 +437,294 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=9"></script>
 
 <style>
-  @media (max-width: 768px) {
-    /* Hero */
-    #hero {
-      min-height: auto !important;
-      padding-top: 80px !important;
-      padding-bottom: 40px !important;
-    }
-    #hero h1 {
-      font-size: 28px !important;
-      line-height: 1.4 !important;
-    }
-    #hero p[style*="font-size: 20px"] {
-      font-size: 16px !important;
-      line-height: 1.8 !important;
-    }
-    #hero div[style*="display: flex; gap: 16px"] {
-      flex-direction: column !important;
-      gap: 12px !important;
-      margin-top: 24px !important;
-    }
-    #hero .btn-lg {
-      width: 100%;
-      text-align: center;
-    }
-    #hero div[style*="max-width: 700px"] {
-      max-width: 100% !important;
-    }
-    /* Stats */
-    #stats .grid-4 {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 12px !important;
-    }
-    /* Values grid-5 to 2 columns */
-    #values .grid-5 {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 12px !important;
-    }
-    /* Methodology section */
-    #methodology {
-      padding: 48px 0 !important;
-    }
-    /* CTA */
-    #cta h2 {
-      font-size: 22px !important;
-      line-height: 1.5 !important;
-    }
-    #cta p[style*="font-size: 20px"] {
-      font-size: 16px !important;
-    }
-    #cta div[style*="margin-top: 40px"] {
-      margin-top: 24px !important;
-    }
-    /* Glow orbs overflow fix */
-    .glow-orb {
-      display: none;
-    }
-  }
+/* === Hero Premium Styles === */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
 
-  @media (max-width: 480px) {
-    #hero {
-      padding-top: 72px !important;
-      padding-bottom: 32px !important;
-    }
-    #hero h1 {
-      font-size: 24px !important;
-    }
-    #hero p[style*="font-size: 20px"] {
-      font-size: 15px !important;
-    }
-    #cta h2 {
-      font-size: 20px !important;
-    }
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.hero-glow-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.08), transparent 70%);
+  top: -200px;
+  right: -100px;
+}
+
+.hero-glow-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.05), transparent 70%);
+  bottom: -100px;
+  left: -100px;
+}
+
+.hero-glow-3 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.06), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseBg 8s ease-in-out infinite alternate;
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, black 20%, transparent 70%);
+}
+
+.hero-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-ring {
+  position: absolute;
+  border: 1px solid rgba(201, 162, 39, 0.06);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-ring-1 {
+  width: 500px;
+  height: 500px;
+  animation: rotateGlow 60s linear infinite;
+}
+
+.hero-ring-2 {
+  width: 700px;
+  height: 700px;
+  animation: rotateGlow 80s linear infinite reverse;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 80px);
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: var(--azr-gold-glow);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  color: var(--azr-gold);
+  margin-bottom: 32px;
+  font-family: 'Inter', var(--font-primary);
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--azr-gold);
+  animation: pulseBg 2s ease-in-out infinite;
+}
+
+.hero-badge-divider {
+  color: var(--border-default);
+  margin: 0 2px;
+}
+
+.hero-title {
+  font-size: clamp(40px, 6vw, 76px);
+  font-weight: var(--font-weight-black);
+  line-height: 1.15;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+
+.hero-desc {
+  font-size: 20px;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin-bottom: 40px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--azr-gold), transparent);
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Section alt background */
+.section-alt {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+/* CTA Section */
+.cta-section {
+  position: relative;
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cta-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.06), transparent 60%);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+/* Language toggle */
+.nav-lang {
+  font-weight: 700 !important;
+  color: var(--azr-gold) !important;
+  font-size: 14px !important;
+  letter-spacing: 1px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* === Mobile Responsive === */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 60px;
   }
-  .nav-lang {
-    font-weight: 700;
-    color: var(--azr-gold) !important;
-    font-size: 14px;
-    letter-spacing: 1px;
+  .hero-container {
+    min-height: auto;
   }
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+  .hero-desc {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-actions .btn-lg {
+    width: 100%;
+    text-align: center;
+  }
+  .hero-scroll-indicator {
+    display: none;
+  }
+  .hero-ring {
+    display: none;
+  }
+  .hero-grid-pattern {
+    opacity: 0.5;
+  }
+  #stats .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  #values .grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  #cta h2 {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  #cta p[style*="font-size: 20px"] {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 28px;
+  }
+  .hero-desc {
+    font-size: 15px;
+  }
+  #cta h2 {
+    font-size: 20px;
+  }
+}
 </style>
 </body>
 </html>
