@@ -10,14 +10,30 @@ interface ScrollRevealProps {
   direction?: "up" | "down" | "left" | "right" | "none";
   className?: string;
   once?: boolean;
+  stagger?: boolean;
 }
 
 const variants: Record<string, Variants> = {
-  up:    { hidden: { opacity: 0, y: 20 },  visible: { opacity: 1, y: 0 } },
-  down:  { hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } },
-  left:  { hidden: { opacity: 0, x: 20 },  visible: { opacity: 1, x: 0 } },
-  right: { hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } },
-  none:  { hidden: { opacity: 0 },          visible: { opacity: 1 } },
+  up: {
+    hidden: { opacity: 0, y: 40, filter: "blur(4px)", scale: 0.97 },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", scale: 1 },
+  },
+  down: {
+    hidden: { opacity: 0, y: -40, filter: "blur(4px)", scale: 0.97 },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", scale: 1 },
+  },
+  left: {
+    hidden: { opacity: 0, x: 40, filter: "blur(4px)", scale: 0.97 },
+    visible: { opacity: 1, x: 0, filter: "blur(0px)", scale: 1 },
+  },
+  right: {
+    hidden: { opacity: 0, x: -40, filter: "blur(4px)", scale: 0.97 },
+    visible: { opacity: 1, x: 0, filter: "blur(0px)", scale: 1 },
+  },
+  none: {
+    hidden: { opacity: 0, filter: "blur(4px)", scale: 0.97 },
+    visible: { opacity: 1, filter: "blur(0px)", scale: 1 },
+  },
 };
 
 export default function ScrollReveal({
@@ -38,7 +54,7 @@ export default function ScrollReveal({
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={variants[direction]}
-      transition={{ duration: 0.3, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}

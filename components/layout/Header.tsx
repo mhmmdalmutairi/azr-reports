@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -44,9 +45,14 @@ export default function Header({ locale = "ar" }: HeaderProps) {
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href={isRTL ? "/" : "/en"} className="flex items-center gap-2">
-          <span className="text-xl font-bold text-white">azr</span>
-          <span className="text-white/30 text-sm hidden sm:inline">|</span>
+        <Link href={isRTL ? "/" : "/en"} className="flex items-center gap-3">
+          <Image
+            src="/assets/azr-logo-ar.svg"
+            alt="azr"
+            width={40}
+            height={40}
+            className="h-8 w-auto"
+          />
           <span className="text-white/50 text-xs hidden sm:inline">
             {isRTL ? "استوديو الابتكار" : "innovation studio"}
           </span>
