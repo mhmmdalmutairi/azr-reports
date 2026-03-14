@@ -1,0 +1,104 @@
+/* === AZR Innovation Studio — Premium Design System v2 === */
+
+:root {
+  /* Primary — Ultra Dark */
+  --azr-bg: #08080A;
+  --azr-bg-card: #111113;
+  --azr-bg-elevated: #18181B;
+  --azr-navy: #08080A;
+  --azr-navy-dark: #050506;
+
+  /* Gold Palette */
+  --azr-gold: #C9A227;
+  --azr-gold-light: #E8C94A;
+  --azr-gold-dim: rgba(201, 162, 39, 0.15);
+  --azr-gold-glow: rgba(201, 162, 39, 0.08);
+
+  /* Legacy aliases */
+  --azr-orange: #C9A227;
+  --azr-teal: #C9A227;
+  --azr-teal-light: #E8C94A;
+  --azr-yellow: #E8C94A;
+  --azr-blue: #1C2D4F;
+  --azr-blue-light: #2E4A7A;
+  --azr-purple: #1A0F28;
+  --azr-purple-light: #2C1845;
+  --azr-white: #FAFAFA;
+
+  /* Text */
+  --text-primary: #E4E4E7;
+  --text-secondary: rgba(228, 228, 231, 0.65);
+  --text-muted: rgba(228, 228, 231, 0.4);
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-gold: rgba(201, 162, 39, 0.2);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #C9A227 0%, #E8C94A 100%);
+  --gradient-gold: linear-gradient(135deg, #C9A227, #E8C94A);
+  --gradient-hero: linear-gradient(160deg, #08080A 0%, #0D0D10 50%, #08080A 100%);
+  --gradient-dark: linear-gradient(180deg, #08080A 0%, #050506 100%);
+  --gradient-purple: linear-gradient(180deg, #0D0A14 0%, #08080A 100%);
+  --gradient-text: linear-gradient(135deg, #C9A227, #E8C94A, #C9A227);
+
+  /* Glass */
+  --glass-bg: rgba(17, 17, 19, 0.6);
+  --glass-bg-solid: rgba(17, 17, 19, 0.9);
+  --glass-border: rgba(255, 255, 255, 0.06);
+
+  /* Phase Colors */
+  --phase-discover: #C9A227;
+  --phase-design: #E8C94A;
+  --phase-deliver: #C9A227;
+  --phase-develop: #A68520;
+
+  /* Typography */
+  --font-primary: 'Cairo', 'Tajawal', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 128px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 100px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.6);
+  --shadow-gold-sm: 0 0 15px rgba(201, 162, 39, 0.15);
+  --shadow-gold-md: 0 0 30px rgba(201, 162, 39, 0.2);
+  --shadow-gold-lg: 0 0 60px rgba(201, 162, 39, 0.25);
+  --shadow-glow-teal: 0 8px 32px rgba(201, 162, 39, 0.2);
+  --shadow-glow-gold: 0 8px 32px rgba(201, 162, 39, 0.25);
+  --shadow-glow-orange: 0 8px 32px rgba(201, 162, 39, 0.2);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 80px;
+}

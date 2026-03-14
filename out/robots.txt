@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://azr-reports.pages.dev/sitemap.xml

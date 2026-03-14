@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="تواصل مع AZR Innovation Studio — الرياض، المملكة العربية السعودية">
+  <title>تواصل معنا — AZR Innovation Studio</title>
+  <link rel="stylesheet" href="css/variables.css?v=8">
+  <link rel="stylesheet" href="css/base.css?v=8">
+  <link rel="stylesheet" href="css/components.css?v=8">
+  <link rel="stylesheet" href="css/animations.css?v=8">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo nav-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio" width="120" height="40"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="services.html">خدماتنا</a></li>
+      <li><a href="portfolio.html">مشاريعنا</a></li>
+      <li><a href="methodology.html">منهجيتنا</a></li>
+      <li><a href="blog.html">رؤى</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="contact.html" class="nav-cta active">تواصل معنا</a></li>
+      <li><a href="en/contact.html" class="nav-lang">EN</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="section" style="padding-top: 160px; padding-bottom: 40px; text-align: center;">
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <span class="section-badge anim-hidden">CONTACT US</span>
+    <h1 class="anim-hidden" style="margin-top: 16px;">لنبنِ شيئاً <span class="highlight">استثنائياً</span> معاً</h1>
+    <p class="section-desc anim-hidden" style="margin-top: 16px;">نحب نسمع عن أفكاركم ومشاريعكم</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
+
+      <!-- Contact Form -->
+      <div class="card anim-hidden" style="padding: 40px;">
+        <h3 style="margin-bottom: 32px;">أرسل لنا رسالة</h3>
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="return handleSubmit(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label>الاسم الكامل</label>
+              <input type="text" name="name" required placeholder="محمد المطيري">
+            </div>
+            <div class="form-group">
+              <label>الجهة / الشركة</label>
+              <input type="text" name="company" placeholder="اسم الشركة">
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label>البريد الإلكتروني</label>
+              <input type="email" name="email" required placeholder="email@company.com">
+            </div>
+            <div class="form-group">
+              <label>رقم الجوال</label>
+              <input type="tel" name="phone" placeholder="+966 5X XXX XXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>الخدمة المطلوبة</label>
+            <select name="service">
+              <option value="">اختر الخدمة...</option>
+              <option value="build">بناء المشاريع</option>
+              <option value="design">تصميم الخدمات</option>
+              <option value="growth">استشارات النمو</option>
+              <option value="other">أخرى</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>رسالتك</label>
+            <textarea name="message" required placeholder="أخبرنا عن مشروعك أو فكرتك..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            إرسال الرسالة
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <div class="card anim-hidden" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4E7;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">البريد الإلكتروني</div>
+              <a href="mailto:HALA@Aazr.info" style="font-size: 18px; font-weight: 700; color: var(--azr-white);">HALA@Aazr.info</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-1" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4F1;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">الجوال</div>
+              <div>
+                <a href="tel:+966541170272" style="font-size: 16px; font-weight: 700; color: var(--azr-white); direction: ltr; display: inline-block;">+966 54 117 0272</a>
+                <br>
+                <a href="tel:+966550066918" style="font-size: 16px; font-weight: 700; color: var(--azr-white); direction: ltr; display: inline-block;">+966 55 006 6918</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-2" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4CD;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">الموقع</div>
+              <div style="font-size: 18px; font-weight: 700;">الرياض، المملكة العربية السعودية</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-3" style="padding: 32px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F310;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">الموقع الإلكتروني</div>
+              <span style="font-size: 18px; font-weight: 700; color: var(--azr-teal-light);">azr-reports.pages.dev</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo footer-logo-svg"><img src="assets/azr-brand-logo.png" alt="AZR Innovation Studio" loading="lazy" width="120" height="40"></a>
+        <p>منظومة تشغيل نمو تهدف إلى رفع نمو الشركات والمؤسسات عبر الابتكار والشراكة الاستراتيجية</p>
+      </div>
+      <div class="footer-col">
+        <h4>خدماتنا</h4>
+        <ul>
+          <li><a href="services.html">بناء المشاريع</a></li>
+          <li><a href="services.html">تصميم الخدمات</a></li>
+          <li><a href="services.html">استشارات النمو</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>الشركة</h4>
+        <ul>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="portfolio.html">مشاريعنا</a></li>
+          <li><a href="methodology.html">منهجيتنا</a></li>
+          <li><a href="blog.html">رؤى وأفكار</a></li>
+          <li><a href="contact.html">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تواصل</h4>
+        <ul>
+          <li><a href="mailto:HALA@Aazr.info">HALA@Aazr.info</a></li>
+          <li><a href="tel:+966541170272">+966 54 117 0272</a></li>
+          <li><a href="tel:+966550066918">+966 55 006 6918</a></li>
+          <li>الرياض، المملكة العربية السعودية</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 AZR Innovation Studio. جميع الحقوق محفوظة.</span>
+      <div class="footer-social">
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js?v=8"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'جاري الإرسال...';
+  btn.disabled = true;
+
+  const data = new FormData(form);
+
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      btn.textContent = 'تم الإرسال بنجاح!';
+      btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+      form.reset();
+    } else {
+      btn.textContent = 'حدث خطأ، حاول مرة ثانية';
+      btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
+    }
+    setTimeout(() => {
+      btn.textContent = 'إرسال الرسالة';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }).catch(() => {
+    btn.textContent = 'حدث خطأ في الاتصال';
+    btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
+    setTimeout(() => {
+      btn.textContent = 'إرسال الرسالة';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  });
+
+  return false;
+}
+</script>
+<style>.nav-lang { font-weight: 700; color: var(--azr-gold) !important; font-size: 14px; letter-spacing: 1px; }</style>
+</body>
+</html>

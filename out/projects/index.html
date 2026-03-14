@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشاريعنا | AZR Innovation Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: #0F1B33;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ===== LOGIN SCREEN ===== */
+        .login-screen {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #0F1B33 0%, #1C2D4F 50%, #0F1B33 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .login-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .login-bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .login-bg-orb.orb1 {
+            width: 500px;
+            height: 500px;
+            background: #E07C24;
+            top: -150px;
+            right: -100px;
+        }
+
+        .login-bg-orb.orb2 {
+            width: 400px;
+            height: 400px;
+            background: #D4A017;
+            bottom: -100px;
+            left: -80px;
+        }
+
+        .login-card {
+            background: rgba(28, 45, 79, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(224, 124, 36, 0.15);
+            border-radius: 24px;
+            padding: 48px 40px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            position: relative;
+            animation: loginSlideUp 0.8s ease-out;
+        }
+
+        @keyframes loginSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-logo {
+            width: 120px;
+            margin-bottom: 24px;
+        }
+
+        .login-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #F4D03F;
+        }
+
+        .login-subtitle {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 32px;
+        }
+
+        .login-field {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .login-field input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(15, 27, 51, 0.8);
+            border: 1px solid rgba(224, 124, 36, 0.2);
+            border-radius: 14px;
+            color: #fff;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            letter-spacing: 4px;
+        }
+
+        .login-field input::placeholder {
+            letter-spacing: 0;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .login-field input:focus {
+            border-color: #E07C24;
+            box-shadow: 0 0 0 3px rgba(224, 124, 36, 0.15);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #E07C24, #D4A017);
+            border: none;
+            border-radius: 14px;
+            color: #fff;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(224, 124, 36, 0.3);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-error {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .login-error.show {
+            opacity: 1;
+        }
+
+        .login-hint {
+            margin-top: 24px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .main-content.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Background decoration */
+        .bg-decoration {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .bg-decoration .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.08;
+        }
+
+        .bg-decoration .orb:nth-child(1) {
+            width: 600px;
+            height: 600px;
+            background: #E07C24;
+            top: -200px;
+            left: -200px;
+        }
+
+        .bg-decoration .orb:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            background: #D4A017;
+            bottom: -150px;
+            right: -150px;
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            z-index: 10;
+            padding: 24px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo {
+            height: 44px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #E07C24;
+        }
+
+        .back-link svg {
+            width: 18px;
+            height: 18px;
+            transform: scaleX(-1); /* flip for RTL */
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 20px 20px;
+            animation: fadeInDown 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #F4D03F, #E07C24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #E07C24, transparent);
+            margin: 24px auto;
+            border-radius: 2px;
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            position: relative;
+            z-index: 10;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px 24px 80px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .project-card {
+            position: relative;
+            background: rgba(28, 45, 79, 0.5);
+            border: 1px solid rgba(224, 124, 36, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            animation: cardFadeIn 0.6s ease-out both;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.3s; }
+        .project-card:nth-child(2) { animation-delay: 0.45s; }
+        .project-card:nth-child(3) { animation-delay: 0.6s; }
+        .project-card:nth-child(4) { animation-delay: 0.75s; }
+
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(224, 124, 36, 0.08);
+            border-color: rgba(224, 124, 36, 0.3);
+        }
+
+        .card-thumbnail {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-thumbnail .gradient-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-thumbnail .gradient-bg .icon {
+            font-size: 3rem;
+            opacity: 0.4;
+        }
+
+        .gradient-green {
+            background: linear-gradient(135deg, #1a5e3a, #2d8a5e, #1a5e3a);
+        }
+
+        .gradient-teal {
+            background: linear-gradient(135deg, #1a4a5e, #2d7a8a, #5e3a1a);
+        }
+
+        .card-thumbnail::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(28, 45, 79, 0.9), transparent);
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .card-body h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #F4D03F;
+        }
+
+        .card-body p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.7;
+        }
+
+        .card-arrow {
+            position: absolute;
+            bottom: 20px;
+            left: 24px; /* left in RTL = visually on the left */
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(224, 124, 36, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .project-card:hover .card-arrow {
+            background: rgba(224, 124, 36, 0.35);
+            transform: translateX(-4px);
+        }
+
+        .card-arrow svg {
+            width: 16px;
+            height: 16px;
+            fill: #E07C24;
+            transform: scaleX(-1);
+        }
+
+        /* Coming Soon Badge */
+        .badge-coming-soon {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(212, 160, 23, 0.2);
+            border: 1px solid rgba(212, 160, 23, 0.4);
+            color: #F4D03F;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            z-index: 2;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 24px;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header {
+                padding: 16px 20px;
+            }
+
+            .header-logo {
+                height: 36px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .projects-section {
+                padding: 16px 16px 60px;
+            }
+
+            .login-card {
+                padding: 36px 24px;
+            }
+
+            .login-logo {
+                width: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== LOGIN SCREEN ===== -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-bg-orb orb1"></div>
+        <div class="login-bg-orb orb2"></div>
+        <div class="login-card">
+            <img src="/assets/azr-brand-logo.png" alt="AZR Innovation Studio" class="login-logo">
+            <h2 class="login-title">بوابة المشاريع</h2>
+            <p class="login-subtitle">أدخل كلمة المرور للوصول إلى مشاريعنا</p>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="login-field">
+                    <input type="password" id="passwordInput" placeholder="كلمة المرور" autocomplete="off" autofocus>
+                </div>
+                <button type="submit" class="login-btn">دخول</button>
+            </form>
+            <p class="login-error" id="loginError">كلمة المرور غير صحيحة</p>
+            <p class="login-hint">هذه البوابة مخصصة لعملاء أزر</p>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content" id="mainContent">
+        <div class="bg-decoration">
+            <div class="orb"></div>
+            <div class="orb"></div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <img src="/assets/azr-brand-logo.png" alt="AZR" class="header-logo">
+            <a href="/" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"/>
+                    <polyline points="12 19 5 12 12 5"/>
+                </svg>
+                عودة للموقع
+            </a>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <h1>مشاريعنا</h1>
+            <p>أعمال أزر الإبداعية</p>
+            <div class="divider"></div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-section">
+            <div class="projects-grid">
+
+                <!-- Project 1: Amana Riyadh -->
+                <a href="/projects/amana-riyadh.html" class="project-card">
+                    <div class="card-thumbnail">
+                        <div class="gradient-bg gradient-green">
+                            <span class="icon">&#127795;</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>تفعيل حدائق الرياض</h3>
+                        <p>رؤية ابتكارية لتفعيل حدائق مدينة الرياض وتحويلها لمنصات مجتمعية حية</p>
+                    </div>
+                    <div class="card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </a>
+
+                <!-- Project 2: Jabra -->
+                <a href="/projects/jabra.html" class="project-card">
+                    <div class="card-thumbnail">
+                        <div class="gradient-bg gradient-teal">
+                            <span class="icon">&#127960;</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3>نموذج منتجع الجبرة</h3>
+                        <p>تصور إبداعي شامل لمنتجع الجبرة السياحي</p>
+                    </div>
+                    <div class="card-arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            AZR Innovation Studio &copy; 2024
+        </footer>
+    </div>
+
+    <script>
+        const CORRECT_PASSWORD = 'azr2024';
+        const AUTH_KEY = 'azr_projects_auth';
+
+        // Check session on load
+        (function() {
+            if (sessionStorage.getItem(AUTH_KEY) === 'true') {
+                showProjects();
+            }
+        })();
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const input = document.getElementById('passwordInput');
+            const errorEl = document.getElementById('loginError');
+
+            if (input.value === CORRECT_PASSWORD) {
+                sessionStorage.setItem(AUTH_KEY, 'true');
+                showProjects();
+            } else {
+                errorEl.classList.add('show');
+                input.value = '';
+                input.focus();
+                setTimeout(function() {
+                    errorEl.classList.remove('show');
+                }, 2500);
+            }
+            return false;
+        }
+
+        function showProjects() {
+            var login = document.getElementById('loginScreen');
+            var main = document.getElementById('mainContent');
+
+            login.classList.add('hidden');
+            main.style.display = 'block';
+
+            // Trigger reflow then animate opacity
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    main.classList.add('visible');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

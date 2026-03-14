@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none">
+  <defs>
+    <linearGradient id="mojGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B6B3A"/>
+      <stop offset="100%" style="stop-color:#2E8B57"/>
+    </linearGradient>
+  </defs>
+  <!-- Scales of Justice Icon -->
+  <g transform="translate(20, 8)">
+    <line x1="25" y1="10" x2="25" y2="55" stroke="url(#mojGrad)" stroke-width="3" stroke-linecap="round"/>
+    <line x1="8" y1="18" x2="42" y2="18" stroke="url(#mojGrad)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="25" cy="10" r="5" fill="url(#mojGrad)"/>
+    <!-- Left pan -->
+    <path d="M8,18 L2,38 Q8,44 14,38 Z" fill="url(#mojGrad)" opacity="0.7"/>
+    <!-- Right pan -->
+    <path d="M42,18 L36,38 Q42,44 48,38 Z" fill="url(#mojGrad)" opacity="0.7"/>
+    <!-- Base -->
+    <line x1="15" y1="55" x2="35" y2="55" stroke="url(#mojGrad)" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- Text -->
+  <text x="75" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1B6B3A" text-anchor="start">وزارة العدل</text>
+  <text x="75" y="55" font-family="Arial, sans-serif" font-size="10" fill="#2E8B57" text-anchor="start">Ministry of Justice</text>
+</svg>

@@ -1,0 +1,59 @@
+backend:
+  name: test-repo
+
+media_folder: "public/assets"
+public_folder: "/assets"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "public/blog"
+    create: true
+    extension: "html"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string", default: "AZR Team" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - "Innovation"
+          - "Technology"
+          - "Business Strategy"
+          - "Customer Experience"
+          - "Digital Transformation"
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "public/projects"
+    create: true
+    extension: "html"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured Image", name: "image", widget: "image", required: false }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "public/admin/settings.json"
+        fields:
+          - label: "Company Info"
+            name: "company"
+            widget: "object"
+            fields:
+              - { label: "Company Name", name: "name", widget: "string", default: "AZR Innovation Studio" }
+              - { label: "Tagline", name: "tagline", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Contact Details"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string", required: false }
+              - { label: "Address", name: "address", widget: "text", required: false }

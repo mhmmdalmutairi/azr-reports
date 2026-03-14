@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZR Admin Panel — Preview</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Tajawal', system-ui, sans-serif; background: #0a0a1a; color: #e0e0e0; min-height: 100vh; display: flex; }
+
+    /* === Sidebar === */
+    .sidebar {
+      width: 260px;
+      background: #0f0f25;
+      border-left: 1px solid rgba(255,255,255,0.06);
+      padding: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .sidebar-logo {
+      padding: 24px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar-logo span { color: #d4a017; }
+    .sidebar-section {
+      padding: 16px 0 8px;
+    }
+    .sidebar-section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.3);
+      padding: 0 20px;
+      margin-bottom: 8px;
+    }
+    .sidebar-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      color: rgba(255,255,255,0.6);
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 14px;
+      border-right: 3px solid transparent;
+    }
+    .sidebar-item:hover { background: rgba(255,255,255,0.04); color: #fff; }
+    .sidebar-item.active {
+      background: rgba(212,160,23,0.08);
+      color: #d4a017;
+      border-right-color: #d4a017;
+    }
+    .sidebar-item .icon { font-size: 18px; width: 24px; text-align: center; }
+    .sidebar-item .badge {
+      margin-right: auto;
+      margin-left: 0;
+      background: rgba(212,160,23,0.2);
+      color: #d4a017;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* === Main Content === */
+    .main { margin-right: 260px; flex: 1; min-height: 100vh; }
+
+    /* === Top Bar === */
+    .topbar {
+      height: 64px;
+      background: rgba(15,15,37,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .topbar-title { font-size: 20px; font-weight: 700; }
+    .topbar-actions { display: flex; gap: 12px; align-items: center; }
+    .btn {
+      padding: 8px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .btn-gold { background: #d4a017; color: #0a0a1a; }
+    .btn-gold:hover { background: #e8b82a; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.1); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+    .user-avatar {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #d4a017, #b8860b);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700; color: #0a0a1a;
+    }
+
+    /* === Dashboard Content === */
+    .content { padding: 32px; }
+
+    /* Stats Row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .stat-box-label { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 8px; }
+    .stat-box-value { font-size: 28px; font-weight: 800; color: #fff; }
+    .stat-box-change { font-size: 12px; color: #2ecc71; margin-top: 4px; }
+    .stat-box-change.negative { color: #e74c3c; }
+
+    /* Section Card */
+    .section-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .section-card-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .section-card-title { font-size: 16px; font-weight: 700; }
+    .section-card-body { padding: 24px; }
+
+    /* === Editable Fields === */
+    .field-group { margin-bottom: 20px; }
+    .field-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .field-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 15px;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .field-input:focus {
+      outline: none;
+      border-color: #d4a017;
+      background: rgba(212,160,23,0.05);
+    }
+    .field-textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    /* === Table === */
+    .data-table { width: 100%; border-collapse: collapse; }
+    .data-table th {
+      text-align: right;
+      padding: 12px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .data-table td {
+      padding: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 14px;
+    }
+    .data-table tr:hover { background: rgba(255,255,255,0.02); }
+    .table-status {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .status-published { background: rgba(46,204,113,0.15); color: #2ecc71; }
+    .status-draft { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+    .table-actions { display: flex; gap: 8px; }
+    .table-action {
+      width: 32px; height: 32px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .table-action:hover { border-color: #d4a017; color: #d4a017; }
+
+    /* === Testimonial Cards === */
+    .testimonial-edit-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .testimonial-edit-card .drag-handle {
+      color: rgba(255,255,255,0.2);
+      cursor: grab;
+      font-size: 18px;
+      padding-top: 4px;
+    }
+    .testimonial-edit-card .content { flex: 1; }
+    .testimonial-edit-card .quote {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+    .testimonial-edit-card .author {
+      font-size: 13px;
+      color: #d4a017;
+    }
+
+    /* === Color Picker Row === */
+    .color-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .color-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .color-swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+    }
+    .color-item label { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+    /* === Preview Banner === */
+    .preview-banner {
+      background: linear-gradient(135deg, rgba(212,160,23,0.15), rgba(212,160,23,0.05));
+      border: 1px solid rgba(212,160,23,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .preview-banner-text { font-size: 14px; color: rgba(255,255,255,0.7); }
+    .preview-banner-text strong { color: #d4a017; }
+
+    /* === Tabs === */
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 24px;
+    }
+    .tab {
+      padding: 12px 24px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .tab:hover { color: rgba(255,255,255,0.7); }
+    .tab.active { color: #d4a017; border-bottom-color: #d4a017; }
+
+    /* === View Toggle === */
+    .view-pages { display: none; }
+    .view-pages.active { display: block; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-right: 0; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .content { padding: 16px; }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <span>AZR</span> Admin
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-title">الرئيسية</div>
+    <div class="sidebar-item active" onclick="showPage('dashboard')">
+      <span class="icon">📊</span> لوحة التحكم
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-title">المحتوى</div>
+    <div class="sidebar-item" onclick="showPage('hero')">
+      <span class="icon">🏠</span> الصفحة الرئيسية
+    </div>
+    <div class="sidebar-item" onclick="showPage('services')">
+      <span class="icon">⚙️</span> الخدمات
+      <span class="badge">3</span>
+    </div>
+    <div class="sidebar-item" onclick="showPage('projects')">
+      <span class="icon">📁</span> المشاريع
+      <span class="badge">11</span>
+    </div>
+    <div class="sidebar-item" onclick="showPage('testimonials')">
+      <span class="icon">💬</span> شهادات العملاء
+      <span class="badge">5</span>
+    </div>
+    <div class="sidebar-item" onclick="showPage('blog')">
+      <span class="icon">📝</span> المدونة
+      <span class="badge">3</span>
+    </div>
+    <div class="sidebar-item" onclick="showPage('team')">
+      <span class="icon">👥</span> الفريق
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-title">الإعدادات</div>
+    <div class="sidebar-item" onclick="showPage('contact')">
+      <span class="icon">📞</span> بيانات التواصل
+    </div>
+    <div class="sidebar-item" onclick="showPage('theme')">
+      <span class="icon">🎨</span> الألوان والثيم
+    </div>
+    <div class="sidebar-item" onclick="showPage('settings')">
+      <span class="icon">⚡</span> إعدادات عامة
+    </div>
+  </div>
+
+  <div style="padding: 20px; margin-top: auto; border-top: 1px solid rgba(255,255,255,0.06);">
+    <a href="../index.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 13px;">← العودة للموقع</a>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main">
+  <!-- Top Bar -->
+  <div class="topbar">
+    <div class="topbar-title" id="pageTitle">لوحة التحكم</div>
+    <div class="topbar-actions">
+      <button class="btn btn-ghost">معاينة الموقع</button>
+      <button class="btn btn-gold">نشر التغييرات</button>
+      <div class="user-avatar">م</div>
+    </div>
+  </div>
+
+  <!-- ==================== Dashboard ==================== -->
+  <div class="content view-pages active" id="page-dashboard">
+    <div class="preview-banner">
+      <div class="preview-banner-text">
+        هذا <strong>نموذج تصوّري</strong> للوحة التحكم — وش رايك في التصميم والأقسام؟
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-box-label">زوار اليوم</div>
+        <div class="stat-box-value">1,247</div>
+        <div class="stat-box-change">↑ 12% من أمس</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-label">المشاريع المنشورة</div>
+        <div class="stat-box-value">11</div>
+        <div class="stat-box-change">↑ 2 هذا الشهر</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-label">مقالات المدونة</div>
+        <div class="stat-box-value">3</div>
+        <div class="stat-box-change">↑ 1 هذا الأسبوع</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-box-label">رسائل التواصل</div>
+        <div class="stat-box-value">8</div>
+        <div class="stat-box-change negative">3 بانتظار الرد</div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">آخر التحديثات</div>
+      </div>
+      <div class="section-card-body">
+        <table class="data-table">
+          <tr>
+            <td style="color:#d4a017;">تعديل الشهادات</td>
+            <td style="color:rgba(255,255,255,0.4);">قبل 5 دقائق</td>
+            <td><span class="table-status status-published">منشور</span></td>
+          </tr>
+          <tr>
+            <td style="color:#d4a017;">إضافة مشروع جديد</td>
+            <td style="color:rgba(255,255,255,0.4);">قبل ساعتين</td>
+            <td><span class="table-status status-published">منشور</span></td>
+          </tr>
+          <tr>
+            <td style="color:#d4a017;">مقال: مستقبل الابتكار</td>
+            <td style="color:rgba(255,255,255,0.4);">أمس</td>
+            <td><span class="table-status status-draft">مسودة</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Hero Editor ==================== -->
+  <div class="content view-pages" id="page-hero">
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">قسم البطل (Hero)</div>
+        <button class="btn btn-gold">حفظ</button>
+      </div>
+      <div class="section-card-body">
+        <div class="field-group">
+          <label class="field-label">الشعار الفرعي</label>
+          <input class="field-input" value="Innovate to Grow | نبتكر.. لننمو">
+        </div>
+        <div class="field-group">
+          <label class="field-label">العنوان الرئيسي</label>
+          <input class="field-input" value="نحوّل التحديات إلى فرص نمو استثنائية" style="font-size: 18px; font-weight: 700;">
+        </div>
+        <div class="field-group">
+          <label class="field-label">الوصف</label>
+          <textarea class="field-input field-textarea">منظومة تشغيل نمو متكاملة — نبدأ بالاكتشاف العميق، نصمّم حلولاً مبتكرة، وننفّذ بدقة لتحقيق نمو مستدام وأثر ملموس.</textarea>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="field-group">
+            <label class="field-label">نص الزر الأول</label>
+            <input class="field-input" value="ابدأ رحلتك">
+          </div>
+          <div class="field-group">
+            <label class="field-label">رابط الزر الأول</label>
+            <input class="field-input" value="contact.html">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">الأرقام</div>
+      </div>
+      <div class="section-card-body">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+          <div class="field-group">
+            <label class="field-label">سنوات الخبرة</label>
+            <input class="field-input" value="8" type="number">
+          </div>
+          <div class="field-group">
+            <label class="field-label">المشاريع المنجزة</label>
+            <input class="field-input" value="35" type="number">
+          </div>
+          <div class="field-group">
+            <label class="field-label">العملاء والشركاء</label>
+            <input class="field-input" value="50" type="number">
+          </div>
+          <div class="field-group">
+            <label class="field-label">القطاعات الرئيسية</label>
+            <input class="field-input" value="6" type="number">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Testimonials Editor ==================== -->
+  <div class="content view-pages" id="page-testimonials">
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">شهادات العملاء</div>
+        <button class="btn btn-gold">+ إضافة شهادة</button>
+      </div>
+      <div class="section-card-body">
+        <div class="testimonial-edit-card">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="content">
+            <div class="quote">"أزر قدّموا لنا حملة يوم التأسيس بإبل موسومة بشعارنا — فكرة ما توقعنا إنها ممكنة. حققت أكثر من 10 مليون مشاهدة وصارت ترند رقم 1."</div>
+            <div class="author">فريق التسويق — stc • حملة يوم التأسيس السعودي</div>
+          </div>
+          <div class="table-actions">
+            <button class="table-action">✏️</button>
+            <button class="table-action">🗑️</button>
+          </div>
+        </div>
+        <div class="testimonial-edit-card">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="content">
+            <div class="quote">"منظومة زاد غيّرت قواعد اللعبة للقطاع غير الربحي. من فكرة إلى منظومة تخدم أكثر من 10 مليون مشترك."</div>
+            <div class="author">إدارة منظومة زاد • الاستدامة المالية</div>
+          </div>
+          <div class="table-actions">
+            <button class="table-action">✏️</button>
+            <button class="table-action">🗑️</button>
+          </div>
+        </div>
+        <div class="testimonial-edit-card">
+          <div class="drag-handle">⋮⋮</div>
+          <div class="content">
+            <div class="quote">"طلبنا تصور استراتيجي لمدة 30 يوم — وسلّمونا وثيقة استراتيجية لـ 3 سنوات مع 8 مبادرات."</div>
+            <div class="author">الغرفة التجارية بالرياض • المسؤولية الاجتماعية</div>
+          </div>
+          <div class="table-actions">
+            <button class="table-action">✏️</button>
+            <button class="table-action">🗑️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Blog Editor ==================== -->
+  <div class="content view-pages" id="page-blog">
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">المقالات</div>
+        <button class="btn btn-gold">+ مقال جديد</button>
+      </div>
+      <div class="section-card-body" style="padding: 0;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>العنوان</th>
+              <th>التصنيف</th>
+              <th>الكاتب</th>
+              <th>التاريخ</th>
+              <th>الحالة</th>
+              <th>إجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600;">نموذج 4D — من الفكرة للتنفيذ</td>
+              <td>استراتيجية</td>
+              <td>أحمد الحربي</td>
+              <td style="color:rgba(255,255,255,0.4);">10 مارس 2026</td>
+              <td><span class="table-status status-published">منشور</span></td>
+              <td>
+                <div class="table-actions">
+                  <button class="table-action">✏️</button>
+                  <button class="table-action">🗑️</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">الابتكار في القطاع غير الربحي</td>
+              <td>ابتكار</td>
+              <td>أحمد الحربي</td>
+              <td style="color:rgba(255,255,255,0.4);">5 مارس 2026</td>
+              <td><span class="table-status status-published">منشور</span></td>
+              <td>
+                <div class="table-actions">
+                  <button class="table-action">✏️</button>
+                  <button class="table-action">🗑️</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;">تصميم التجارب — ولاء مستدام</td>
+              <td>تصميم خدمات</td>
+              <td>محمد المطيري</td>
+              <td style="color:rgba(255,255,255,0.4);">28 فبراير 2026</td>
+              <td><span class="table-status status-published">منشور</span></td>
+              <td>
+                <div class="table-actions">
+                  <button class="table-action">✏️</button>
+                  <button class="table-action">🗑️</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-weight:600; color:rgba(255,255,255,0.4);">مستقبل الابتكار في 2030</td>
+              <td>رؤى</td>
+              <td>—</td>
+              <td style="color:rgba(255,255,255,0.4);">—</td>
+              <td><span class="table-status status-draft">مسودة</span></td>
+              <td>
+                <div class="table-actions">
+                  <button class="table-action">✏️</button>
+                  <button class="table-action">🗑️</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Theme Editor ==================== -->
+  <div class="content view-pages" id="page-theme">
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">الألوان والثيم</div>
+        <button class="btn btn-gold">حفظ</button>
+      </div>
+      <div class="section-card-body">
+        <div class="color-row">
+          <div class="color-item">
+            <div class="color-swatch" style="background: #d4a017;"></div>
+            <div>
+              <label>اللون الذهبي</label>
+              <input class="field-input" value="#d4a017" style="width: 120px; margin-top: 4px;">
+            </div>
+          </div>
+          <div class="color-item">
+            <div class="color-swatch" style="background: #148F77;"></div>
+            <div>
+              <label>اللون الأخضر</label>
+              <input class="field-input" value="#148F77" style="width: 120px; margin-top: 4px;">
+            </div>
+          </div>
+          <div class="color-item">
+            <div class="color-swatch" style="background: #0a0a1a;"></div>
+            <div>
+              <label>لون الخلفية</label>
+              <input class="field-input" value="#0a0a1a" style="width: 120px; margin-top: 4px;">
+            </div>
+          </div>
+          <div class="color-item">
+            <div class="color-swatch" style="background: #e8e8e8;"></div>
+            <div>
+              <label>لون النص</label>
+              <input class="field-input" value="#e8e8e8" style="width: 120px; margin-top: 4px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== Contact Editor ==================== -->
+  <div class="content view-pages" id="page-contact">
+    <div class="section-card">
+      <div class="section-card-header">
+        <div class="section-card-title">بيانات التواصل</div>
+        <button class="btn btn-gold">حفظ</button>
+      </div>
+      <div class="section-card-body">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="field-group">
+            <label class="field-label">البريد الإلكتروني</label>
+            <input class="field-input" value="HALA@Aazr.info">
+          </div>
+          <div class="field-group">
+            <label class="field-label">رقم الجوال</label>
+            <input class="field-input" value="+966 54 117 0272">
+          </div>
+          <div class="field-group">
+            <label class="field-label">رقم إضافي</label>
+            <input class="field-input" value="+966 55 006 6918">
+          </div>
+          <div class="field-group">
+            <label class="field-label">العنوان</label>
+            <input class="field-input" value="الرياض، المملكة العربية السعودية">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Placeholder pages -->
+  <div class="content view-pages" id="page-services">
+    <div class="section-card"><div class="section-card-header"><div class="section-card-title">الخدمات — قريباً في النسخة النهائية</div></div></div>
+  </div>
+  <div class="content view-pages" id="page-projects">
+    <div class="section-card"><div class="section-card-header"><div class="section-card-title">المشاريع — قريباً في النسخة النهائية</div></div></div>
+  </div>
+  <div class="content view-pages" id="page-team">
+    <div class="section-card"><div class="section-card-header"><div class="section-card-title">الفريق — قريباً في النسخة النهائية</div></div></div>
+  </div>
+  <div class="content view-pages" id="page-settings">
+    <div class="section-card"><div class="section-card-header"><div class="section-card-title">إعدادات عامة — قريباً في النسخة النهائية</div></div></div>
+  </div>
+</div>
+
+<script>
+function showPage(name) {
+  // Hide all pages
+  document.querySelectorAll('.view-pages').forEach(function(p) { p.classList.remove('active'); });
+  // Show selected
+  var page = document.getElementById('page-' + name);
+  if (page) page.classList.add('active');
+  // Update sidebar
+  document.querySelectorAll('.sidebar-item').forEach(function(i) { i.classList.remove('active'); });
+  event.currentTarget.classList.add('active');
+  // Update title
+  var titles = {
+    dashboard: 'لوحة التحكم',
+    hero: 'الصفحة الرئيسية',
+    services: 'الخدمات',
+    projects: 'المشاريع',
+    testimonials: 'شهادات العملاء',
+    blog: 'المدونة',
+    team: 'الفريق',
+    contact: 'بيانات التواصل',
+    theme: 'الألوان والثيم',
+    settings: 'إعدادات عامة'
+  };
+  document.getElementById('pageTitle').textContent = titles[name] || name;
+}
+</script>
+
+</body>
+</html>

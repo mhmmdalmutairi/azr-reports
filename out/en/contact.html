@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact AZR Innovation Studio — Riyadh, Saudi Arabia">
+  <title>Contact Us — AZR Innovation Studio</title>
+  <link rel="stylesheet" href="../css/variables.css?v=8">
+  <link rel="stylesheet" href="../css/base.css?v=8">
+  <link rel="stylesheet" href="../css/components.css?v=8">
+  <link rel="stylesheet" href="../css/animations.css?v=8">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar scrolled" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo nav-logo-svg"><img src="../assets/azr-brand-logo.png" alt="AZR Innovation Studio" width="120" height="40"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="methodology.html">Methodology</a></li>
+      <li><a href="blog.html">Insights</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
+      <li><a href="../contact.html" class="nav-lang">عربي</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Page Hero -->
+<section class="section" style="padding-top: 160px; padding-bottom: 40px; text-align: center;">
+  <div class="glow-orb glow-orb-1"></div>
+  <div class="container" style="position: relative; z-index: 1;">
+    <span class="section-badge anim-hidden">CONTACT US</span>
+    <h1 class="anim-hidden" style="margin-top: 16px;">Let's Build Something <span class="highlight">Extraordinary</span> Together</h1>
+    <p class="section-desc anim-hidden" style="margin-top: 16px;">We'd love to hear about your ideas and projects</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
+
+      <!-- Contact Form -->
+      <div class="card anim-hidden" style="padding: 40px;">
+        <h3 style="margin-bottom: 32px;">Send Us a Message</h3>
+        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="return handleSubmit(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" name="name" required placeholder="John Smith">
+            </div>
+            <div class="form-group">
+              <label>Organization / Company</label>
+              <input type="text" name="company" placeholder="Company name">
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" name="email" required placeholder="email@company.com">
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="+966 5X XXX XXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Service Required</label>
+            <select name="service">
+              <option value="">Select a service...</option>
+              <option value="build">Project Building</option>
+              <option value="design">Service Design</option>
+              <option value="growth">Growth Consulting</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Your Message</label>
+            <textarea name="message" required placeholder="Tell us about your project or idea..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <div class="card anim-hidden" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4E7;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">Email</div>
+              <a href="mailto:HALA@Aazr.info" style="font-size: 18px; font-weight: 700; color: var(--azr-white);">HALA@Aazr.info</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-1" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4F1;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">Phone</div>
+              <div>
+                <a href="tel:+966541170272" style="font-size: 16px; font-weight: 700; color: var(--azr-white);">+966 54 117 0272</a>
+                <br>
+                <a href="tel:+966550066918" style="font-size: 16px; font-weight: 700; color: var(--azr-white);">+966 55 006 6918</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-2" style="padding: 32px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F4CD;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">Location</div>
+              <div style="font-size: 18px; font-weight: 700;">Riyadh, Saudi Arabia</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card anim-hidden anim-delay-3" style="padding: 32px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="width: 50px; height: 50px; background: var(--glass-bg); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px;">&#x1F310;</div>
+            <div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.5);">Website</div>
+              <span style="font-size: 18px; font-weight: 700; color: var(--azr-teal-light);">azr-reports.pages.dev</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo footer-logo-svg"><img src="../assets/azr-brand-logo.png" alt="AZR Innovation Studio" loading="lazy" width="120" height="40"></a>
+        <p>A growth operating system that elevates companies and organizations through innovation and strategic partnership</p>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Project Building</a></li><li><a href="services.html">Service Design</a></li><li><a href="services.html">Growth Consulting</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="methodology.html">Methodology</a></li><li><a href="blog.html">Insights</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:HALA@Aazr.info">HALA@Aazr.info</a></li><li><a href="tel:+966541170272">+966 54 117 0272</a></li><li><a href="tel:+966550066918">+966 55 006 6918</a></li><li>Riyadh, Saudi Arabia</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 AZR Innovation Studio. All rights reserved.</span>
+      
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=8"></script>
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const data = new FormData(form);
+
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      btn.textContent = 'Message Sent Successfully!';
+      btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
+      form.reset();
+    } else {
+      btn.textContent = 'Error occurred, please try again';
+      btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
+    }
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }).catch(() => {
+    btn.textContent = 'Connection error';
+    btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  });
+
+  return false;
+}
+</script>
+<style>
+  .nav-lang { font-weight: 700; color: var(--azr-gold) !important; font-size: 14px; letter-spacing: 1px; }
+</style>
+</body>
+</html>
