@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
+import { Tajawal, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import NoiseOverlay from "@/components/ui/NoiseOverlay";
 
-const ibmPlexArabic = IBM_Plex_Sans_Arabic({
+const tajawal = Tajawal({
   subsets: ["arabic"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-ibm-plex-arabic",
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-tajawal",
   display: "swap",
 });
 
@@ -37,7 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={`${ibmPlexArabic.variable} ${inter.variable} font-arabic bg-[#001F3F] text-white`}>
+      <body className={`${tajawal.variable} ${inter.variable} font-arabic bg-[var(--ink)] text-white`}>
         <NoiseOverlay />
         <Header locale="ar" />
         <main className="relative z-10">{children}</main>

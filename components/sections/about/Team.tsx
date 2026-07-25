@@ -22,13 +22,13 @@ export default function Team({ locale = "ar" }: TeamProps) {
           {team.map((member, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
               <div className="p-8 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center">
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#FF8C00]/20 to-[#81286e]/20 mx-auto mb-4 flex items-center justify-center">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[var(--azr)]/20 to-[var(--azr-deep)]/20 mx-auto mb-4 flex items-center justify-center">
                   <span className="text-2xl font-bold text-white/30">
                     {member.name[locale].charAt(0)}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold text-white">{member.name[locale]}</h3>
-                <p className="text-[#FF8C00] text-sm mb-4">{member.role[locale]}</p>
+                <p className="text-[var(--azr)] text-sm mb-4">{member.role[locale]}</p>
                 <p className="text-white/50 text-sm leading-relaxed">{member.bio[locale]}</p>
               </div>
             </ScrollReveal>

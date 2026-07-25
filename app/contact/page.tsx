@@ -28,21 +28,21 @@ export default function ContactPage() {
                     <h3 className="text-white font-semibold mb-4">معلومات التواصل</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center gap-3 text-white/60">
-                        <Mail size={18} className="text-[#FF8C00] flex-shrink-0" />
-                        <a href={`mailto:${siteConfig.email}`} className="hover:text-[#FF8C00] transition-colors">
+                        <Mail size={18} className="text-[color:var(--azr)] flex-shrink-0" />
+                        <a href={`mailto:${siteConfig.email}`} className="hover:text-[color:var(--azr)] transition-colors">
                           {siteConfig.email}
                         </a>
                       </li>
                       {siteConfig.phones.map((phone) => (
                         <li key={phone} className="flex items-center gap-3 text-white/60">
-                          <Phone size={18} className="text-[#FF8C00] flex-shrink-0" />
-                          <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-[#FF8C00] transition-colors" dir="ltr">
+                          <Phone size={18} className="text-[color:var(--azr)] flex-shrink-0" />
+                          <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-[color:var(--azr)] transition-colors" dir="ltr">
                             {phone}
                           </a>
                         </li>
                       ))}
                       <li className="flex items-center gap-3 text-white/60">
-                        <MapPin size={18} className="text-[#FF8C00] flex-shrink-0" />
+                        <MapPin size={18} className="text-[color:var(--azr)] flex-shrink-0" />
                         <span>{siteConfig.location.ar}</span>
                       </li>
                     </ul>

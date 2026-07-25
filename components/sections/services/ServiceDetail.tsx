@@ -26,7 +26,7 @@ export default function ServiceDetail({ service, locale = "ar", index = 0, rever
       >
         {/* Icon side */}
         <div className="flex-shrink-0">
-          <div className="w-24 h-24 rounded-2xl bg-[#FF8C00]/10 flex items-center justify-center text-[#FF8C00]">
+          <div className="w-24 h-24 rounded-2xl bg-[var(--azr)]/10 flex items-center justify-center text-[var(--azr)]">
             {iconMap[service.icon]}
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function ServiceDetail({ service, locale = "ar", index = 0, rever
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
             {service.title[locale]}
           </h2>
-          <p className="text-[#FF8C00] font-medium mb-4">
+          <p className="text-[var(--azr)] font-medium mb-4">
             {service.outcome[locale]}
           </p>
           <p className="text-white/60 leading-relaxed mb-6">
@@ -45,7 +45,7 @@ export default function ServiceDetail({ service, locale = "ar", index = 0, rever
           <ul className="space-y-3">
             {service.features[locale].map((feature, i) => (
               <li key={i} className="flex items-start gap-3 text-white/70 text-sm">
-                <Check size={16} className="text-[#FF8C00] mt-0.5 flex-shrink-0" />
+                <Check size={16} className="text-[var(--azr)] mt-0.5 flex-shrink-0" />
                 {feature}
               </li>
             ))}

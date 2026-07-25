@@ -21,17 +21,17 @@ export default function ContactPageEN() {
                     <h3 className="text-white font-semibold mb-4">Contact Information</h3>
                     <ul className="space-y-4">
                       <li className="flex items-center gap-3 text-white/60">
-                        <Mail size={18} className="text-[#FF8C00] flex-shrink-0" />
-                        <a href={`mailto:${siteConfig.email}`} className="hover:text-[#FF8C00] transition-colors">{siteConfig.email}</a>
+                        <Mail size={18} className="text-[#967BB6] flex-shrink-0" />
+                        <a href={`mailto:${siteConfig.email}`} className="hover:text-[#967BB6] transition-colors">{siteConfig.email}</a>
                       </li>
                       {siteConfig.phones.map((phone) => (
                         <li key={phone} className="flex items-center gap-3 text-white/60">
-                          <Phone size={18} className="text-[#FF8C00] flex-shrink-0" />
-                          <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-[#FF8C00] transition-colors" dir="ltr">{phone}</a>
+                          <Phone size={18} className="text-[#967BB6] flex-shrink-0" />
+                          <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-[#967BB6] transition-colors" dir="ltr">{phone}</a>
                         </li>
                       ))}
                       <li className="flex items-center gap-3 text-white/60">
-                        <MapPin size={18} className="text-[#FF8C00] flex-shrink-0" />
+                        <MapPin size={18} className="text-[#967BB6] flex-shrink-0" />
                         <span>{siteConfig.location.en}</span>
                       </li>
                     </ul>

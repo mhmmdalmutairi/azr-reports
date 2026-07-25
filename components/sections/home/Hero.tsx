@@ -58,7 +58,7 @@ export default function Hero({ locale = "ar" }: HeroProps) {
                 delay: 0.15 + i * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className={orangeWords.includes(word) ? "text-[#FF8C00]" : ""}
+              className={orangeWords.includes(word) ? "text-[#967BB6]" : ""}
             >
               {word}
             </motion.span>
@@ -85,7 +85,7 @@ export default function Hero({ locale = "ar" }: HeroProps) {
         >
           <Link
             href={isRTL ? "/contact" : "/en/contact"}
-            className="cta-breath px-10 py-4 bg-[#FF8C00] hover:bg-[#E67E00] text-white font-semibold rounded-lg transition-colors text-lg"
+            className="cta-breath px-10 py-4 bg-[#967BB6] hover:bg-[#7C6199] text-white font-semibold rounded-lg transition-colors text-lg"
           >
             {isRTL ? "ابدأ مشروعك" : "Start Your Project"}
           </Link>

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "role": "consumer",
+  "canonical_repository": "mhmmdalmutairi/azr-design-system",
+  "source_ref": "agent/azr-output-engine",
+  "source_commit": "68f24d2c0bddbbae40c1278cf957341225bc7b7d",
+  "source_version": "v.03.2",
+  "generated": [
+    "app/brand.generated.css",
+    "public/assets/azr-wordmark-cream.png"
+  ],
+  "policy": "no_local_brand_system_or_output_templates"
+}

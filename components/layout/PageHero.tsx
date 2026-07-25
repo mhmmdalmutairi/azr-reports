@@ -12,7 +12,7 @@ export default function PageHero({ badge, title, description }: PageHeroProps) {
       <div className="absolute inset-0 bg-hero-glow" />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <ScrollReveal>
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#FF8C00]/10 text-[#FF8C00] border border-[#FF8C00]/20 mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[var(--azr)]/10 text-[var(--azr)] border border-[var(--azr)]/20 mb-6">
             {badge}
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">

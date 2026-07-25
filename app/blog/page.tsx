@@ -16,14 +16,14 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {posts.map((post, i) => (
               <ScrollReveal key={post.slug} delay={i * 0.05}>
-                <article className="group p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-[#FF8C00]/20 transition-all duration-300 card-hover h-full flex flex-col">
+                <article className="group p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] hover:border-[color:var(--azr)] transition-all duration-300 card-hover h-full flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#FF8C00]/10 text-[#FF8C00] border border-[#FF8C00]/20">
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-[color:var(--azr-soft)] text-[color:var(--azr-deep)] border border-[color:var(--azr)]">
                       {post.category.ar}
                     </span>
                     <span className="text-white/30 text-xs">{post.date}</span>
                   </div>
-                  <h2 className="text-lg font-bold text-white mb-3 group-hover:text-[#FF8C00] transition-colors">
+                  <h2 className="text-lg font-bold text-white mb-3 group-hover:text-[color:var(--azr)] transition-colors">
                     {post.title.ar}
                   </h2>
                   <p className="text-white/50 text-sm leading-relaxed mb-6 flex-grow">

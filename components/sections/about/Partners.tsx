@@ -10,7 +10,7 @@ export default function Partners({ locale = "ar" }: PartnersProps) {
   const isRTL = locale === "ar";
 
   return (
-    <section className="section-padding bg-[#001229]">
+    <section className="section-padding bg-[var(--ink)]">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           badge={isRTL ? "شركاؤنا" : "Our Partners"}

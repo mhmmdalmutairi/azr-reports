@@ -44,7 +44,7 @@ export default function Methodology({ locale = "ar" }: MethodologyProps) {
                 <div className="relative text-center pt-4">
                   {/* Timeline dot */}
                   <div className="relative mx-auto mb-8">
-                    <div className={`w-5 h-5 rounded-full bg-[#FF8C00] mx-auto ${timelineInView ? 'timeline-dot-active' : 'timeline-dot'} transition-all duration-500`}
+                    <div className={`w-5 h-5 rounded-full bg-[var(--azr)] mx-auto ${timelineInView ? 'timeline-dot-active' : 'timeline-dot'} transition-all duration-500`}
                       style={{ transitionDelay: `${i * 0.3 + 0.5}s` }}
                     />
                   </div>
@@ -59,7 +59,7 @@ export default function Methodology({ locale = "ar" }: MethodologyProps) {
                     <h3 className="text-xl font-bold text-white mb-2">
                       {phase.title[locale]}
                     </h3>
-                    <p className="text-[#FF8C00] text-sm mb-4">
+                    <p className="text-[var(--azr)] text-sm mb-4">
                       {phase.subtitle[locale]}
                     </p>
                     <p className="text-white/50 text-sm leading-relaxed">
@@ -88,7 +88,7 @@ export default function Methodology({ locale = "ar" }: MethodologyProps) {
                 <div className="relative flex gap-6">
                   {/* Dot */}
                   <div className="relative flex-shrink-0 mt-1">
-                    <div className="w-4 h-4 rounded-full bg-[#FF8C00] timeline-dot ml-0.5" />
+                    <div className="w-4 h-4 rounded-full bg-[var(--azr)] timeline-dot ml-0.5" />
                   </div>
 
                   {/* Content */}
@@ -100,7 +100,7 @@ export default function Methodology({ locale = "ar" }: MethodologyProps) {
                       <h3 className="text-lg font-bold text-white mb-1">
                         {phase.title[locale]}
                       </h3>
-                      <p className="text-[#FF8C00] text-sm mb-3">
+                      <p className="text-[var(--azr)] text-sm mb-3">
                         {phase.subtitle[locale]}
                       </p>
                       <p className="text-white/50 text-sm leading-relaxed">
@@ -117,7 +117,7 @@ export default function Methodology({ locale = "ar" }: MethodologyProps) {
         <ScrollReveal delay={0.4} className="text-center mt-12">
           <Link
             href={isRTL ? "/methodology" : "/en/methodology"}
-            className="text-[#FF8C00] text-sm font-medium hover:underline"
+            className="text-[var(--azr)] text-sm font-medium hover:underline"
           >
             {isRTL ? "اكتشف المنهجية كاملة ←" : "Explore the full methodology →"}
           </Link>

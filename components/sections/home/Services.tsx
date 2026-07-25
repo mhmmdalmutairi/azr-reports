@@ -12,8 +12,8 @@ const iconMap: Record<string, React.ReactNode> = {
 };
 
 const accentColors = [
-  { bg: "rgba(255,140,0,0.08)", border: "rgba(255,140,0,0.15)", glow: "rgba(255,140,0,0.1)", text: "#FF8C00" },
-  { bg: "rgba(129,40,110,0.08)", border: "rgba(129,40,110,0.15)", glow: "rgba(129,40,110,0.1)", text: "#81286e" },
+  { bg: "rgba(150,123,182,0.08)", border: "rgba(150,123,182,0.15)", glow: "rgba(150,123,182,0.1)", text: "#967BB6" },
+  { bg: "rgba(97,74,120,0.08)", border: "rgba(97,74,120,0.15)", glow: "rgba(97,74,120,0.1)", text: "#614A78" },
   { bg: "rgba(59,130,246,0.08)", border: "rgba(59,130,246,0.15)", glow: "rgba(59,130,246,0.1)", text: "#3B82F6" },
 ];
 

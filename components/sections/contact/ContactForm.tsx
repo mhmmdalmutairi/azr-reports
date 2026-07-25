@@ -15,8 +15,8 @@ export default function ContactForm({ locale = "ar" }: ContactFormProps) {
     <ScrollReveal>
       {submitted ? (
         <div className="text-center py-16">
-          <div className="w-16 h-16 rounded-full bg-[#FF8C00]/10 flex items-center justify-center mx-auto mb-6">
-            <span className="text-[#FF8C00] text-3xl">✓</span>
+          <div className="w-16 h-16 rounded-full bg-[var(--azr)]/10 flex items-center justify-center mx-auto mb-6">
+            <span className="text-[var(--azr)] text-3xl">✓</span>
           </div>
           <h3 className="text-2xl font-bold text-white mb-4">
             {isRTL ? "شكراً لتواصلك!" : "Thank you!"}
@@ -37,7 +37,7 @@ export default function ContactForm({ locale = "ar" }: ContactFormProps) {
             <input
               type="text"
               required
-              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-white/30 focus:border-[#FF8C00]/40 focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-white/30 focus:border-[var(--azr)]/40 focus:outline-none transition-colors"
               placeholder={isRTL ? "اسمك الكامل" : "Your full name"}
             />
           </div>
@@ -48,7 +48,7 @@ export default function ContactForm({ locale = "ar" }: ContactFormProps) {
             <input
               type="email"
               required
-              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-white/30 focus:border-[#FF8C00]/40 focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-white/30 focus:border-[var(--azr)]/40 focus:outline-none transition-colors"
               placeholder={isRTL ? "example@email.com" : "example@email.com"}
             />
           </div>
@@ -58,13 +58,13 @@ export default function ContactForm({ locale = "ar" }: ContactFormProps) {
             </label>
             <select
               required
-              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white focus:border-[#FF8C00]/40 focus:outline-none transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white focus:border-[var(--azr)]/40 focus:outline-none transition-colors"
             >
-              <option value="" className="bg-[#001F3F]">{isRTL ? "اختر نوع المشروع" : "Select project type"}</option>
-              <option value="build" className="bg-[#001F3F]">{isRTL ? "بناء مشروع" : "Build a project"}</option>
-              <option value="design" className="bg-[#001F3F]">{isRTL ? "تصميم خدمة" : "Service design"}</option>
-              <option value="growth" className="bg-[#001F3F]">{isRTL ? "استشارات نمو" : "Growth consulting"}</option>
-              <option value="other" className="bg-[#001F3F]">{isRTL ? "أخرى" : "Other"}</option>
+              <option value="" className="bg-[var(--ink)]">{isRTL ? "اختر نوع المشروع" : "Select project type"}</option>
+              <option value="build" className="bg-[var(--ink)]">{isRTL ? "بناء مشروع" : "Build a project"}</option>
+              <option value="design" className="bg-[var(--ink)]">{isRTL ? "تصميم خدمة" : "Service design"}</option>
+              <option value="growth" className="bg-[var(--ink)]">{isRTL ? "استشارات نمو" : "Growth consulting"}</option>
+              <option value="other" className="bg-[var(--ink)]">{isRTL ? "أخرى" : "Other"}</option>
             </select>
           </div>
           <div>
@@ -74,13 +74,13 @@ export default function ContactForm({ locale = "ar" }: ContactFormProps) {
             <textarea
               rows={4}
               required
-              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-white/30 focus:border-[#FF8C00]/40 focus:outline-none transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-white/30 focus:border-[var(--azr)]/40 focus:outline-none transition-colors resize-none"
               placeholder={isRTL ? "أخبرنا عن مشروعك أو فكرتك..." : "Tell us about your project or idea..."}
             />
           </div>
           <button
             type="submit"
-            className="w-full px-8 py-4 bg-[#FF8C00] hover:bg-[#E67E00] text-white font-semibold rounded-xl transition-colors text-base"
+            className="w-full px-8 py-4 bg-[var(--azr)] hover:bg-[var(--azr-deep)] text-white font-semibold rounded-xl transition-colors text-base"
           >
             {isRTL ? "أرسل رسالتك" : "Send Your Message"}
           </button>

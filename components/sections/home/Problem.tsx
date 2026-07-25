@@ -8,7 +8,7 @@ export default function Problem({ locale = "ar" }: ProblemProps) {
   const isRTL = locale === "ar";
 
   return (
-    <section className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-[#001229] overflow-hidden">
+    <section className="relative py-32 md:py-40 px-6 md:px-12 lg:px-24 bg-[#050B14] overflow-hidden">
       {/* Section divider top */}
       <div className="absolute top-0 left-0 right-0 section-divider" />
 
@@ -25,7 +25,7 @@ export default function Problem({ locale = "ar" }: ProblemProps) {
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <ScrollReveal>
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#81286e]/10 text-[#81286e] border border-[#81286e]/20 mb-8">
+          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-[#614A78]/10 text-[#614A78] border border-[#614A78]/20 mb-8">
             {isRTL ? "التحدي" : "The Challenge"}
           </span>
         </ScrollReveal>
@@ -33,9 +33,9 @@ export default function Problem({ locale = "ar" }: ProblemProps) {
         <ScrollReveal delay={0.1}>
           <h2 className="text-headline font-bold text-white mb-10 leading-tight">
             {isRTL ? (
-              <>في عالم يغرق في <span className="text-[#81286e]">طوفان التقليد</span><br />والحلول المعلّبة</>
+              <>في عالم يغرق في <span className="text-[#614A78]">طوفان التقليد</span><br />والحلول المعلّبة</>
             ) : (
-              <>In a world drowning in <span className="text-[#81286e]">conventional thinking</span><br />and cookie-cutter solutions</>
+              <>In a world drowning in <span className="text-[#614A78]">conventional thinking</span><br />and cookie-cutter solutions</>
             )}
           </h2>
         </ScrollReveal>
@@ -50,9 +50,9 @@ export default function Problem({ locale = "ar" }: ProblemProps) {
         </ScrollReveal>
 
         <ScrollReveal delay={0.3}>
-          <p className="text-[#FF8C00] text-xl font-semibold relative inline-block">
+          <p className="text-[#967BB6] text-xl font-semibold relative inline-block">
             {isRTL ? "هنا يبدأ دور أزر." : "This is where AZR comes in."}
-            <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#FF8C00]/60 to-transparent" />
+            <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#967BB6]/60 to-transparent" />
           </p>
         </ScrollReveal>
       </div>
