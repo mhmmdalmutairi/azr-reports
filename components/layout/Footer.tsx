@@ -39,7 +39,7 @@ export default function Footer({ locale = "ar" }: FooterProps) {
       };
 
   return (
-    <footer className="bg-[#001229] border-t border-white/5">
+    <footer className="bg-[#050B14] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -62,7 +62,7 @@ export default function Footer({ locale = "ar" }: FooterProps) {
             <ul className="space-y-3">
               {sections.links.items.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-white/50 hover:text-[#FF8C00] transition-colors text-sm">
+                  <Link href={item.href} className="text-white/50 hover:text-[#967BB6] transition-colors text-sm">
                     {item.label}
                   </Link>
                 </li>
@@ -76,7 +76,7 @@ export default function Footer({ locale = "ar" }: FooterProps) {
             <ul className="space-y-3">
               {sections.services.items.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="text-white/50 hover:text-[#FF8C00] transition-colors text-sm">
+                  <Link href={item.href} className="text-white/50 hover:text-[#967BB6] transition-colors text-sm">
                     {item.label}
                   </Link>
                 </li>
@@ -91,21 +91,21 @@ export default function Footer({ locale = "ar" }: FooterProps) {
             </h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-white/50 text-sm">
-                <Mail size={16} className="text-[#FF8C00] flex-shrink-0" />
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-[#FF8C00] transition-colors">
+                <Mail size={16} className="text-[#967BB6] flex-shrink-0" />
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-[#967BB6] transition-colors">
                   {siteConfig.email}
                 </a>
               </li>
               {siteConfig.phones.map((phone) => (
                 <li key={phone} className="flex items-center gap-3 text-white/50 text-sm">
-                  <Phone size={16} className="text-[#FF8C00] flex-shrink-0" />
-                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-[#FF8C00] transition-colors" dir="ltr">
+                  <Phone size={16} className="text-[#967BB6] flex-shrink-0" />
+                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="hover:text-[#967BB6] transition-colors" dir="ltr">
                     {phone}
                   </a>
                 </li>
               ))}
               <li className="flex items-center gap-3 text-white/50 text-sm">
-                <MapPin size={16} className="text-[#FF8C00] flex-shrink-0" />
+                <MapPin size={16} className="text-[#967BB6] flex-shrink-0" />
                 <span>{siteConfig.location[locale]}</span>
               </li>
             </ul>
