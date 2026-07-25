@@ -47,7 +47,7 @@ export default function Header({ locale = "ar" }: HeaderProps) {
         {/* Logo */}
         <Link href={isRTL ? "/" : "/en"} className="flex items-center gap-3">
           <Image
-            src="/assets/azr-logo-ar.svg"
+            src="/assets/azr-wordmark-cream.png"
             alt="azr"
             width={40}
             height={40}
