@@ -8,7 +8,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        arabic: ["var(--font-ibm-plex-arabic)", "sans-serif"],
+        arabic: ["var(--font-tajawal)", "sans-serif"],
         inter: ["var(--font-inter)", "sans-serif"],
       },
       fontSize: {
@@ -17,20 +17,20 @@ const config: Config = {
       },
       colors: {
         azr: {
-          navy: "#001F3F",
-          "navy-deep": "#001229",
-          orange: "#FF8C00",
-          "orange-hover": "#E67E00",
-          purple: "#81286e",
+          navy: "var(--ink)",
+          "navy-deep": "var(--ink-deep)",
+          orange: "var(--p500)",
+          "orange-hover": "var(--p600)",
+          purple: "var(--p700)",
           card: "rgba(255,255,255,0.04)",
           border: "rgba(255,255,255,0.08)",
         },
       },
       backgroundImage: {
-        "hero-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255,140,0,0.12), transparent)",
-        "section-glow": "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(255,140,0,0.06), transparent)",
-        "section-glow-purple": "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(129,40,110,0.08), transparent)",
-        "section-glow-orange": "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255,140,0,0.06), transparent)",
+        "hero-glow": "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(150,123,182,0.12), transparent)",
+        "section-glow": "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(150,123,182,0.06), transparent)",
+        "section-glow-purple": "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(97,74,120,0.08), transparent)",
+        "section-glow-orange": "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(150,123,182,0.06), transparent)",
       },
       animation: {
         "fade-up": "fadeUp 0.6s ease-out forwards",
@@ -69,8 +69,8 @@ const config: Config = {
           "100%": { backgroundPosition: "200% center" },
         },
         ctaBreath: {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(255,140,0,0)" },
-          "50%": { boxShadow: "0 0 30px 8px rgba(255,140,0,0.25)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(150,123,182,0)" },
+          "50%": { boxShadow: "0 0 30px 8px rgba(150,123,182,0.25)" },
         },
         scrollHint: {
           "0%, 100%": { transform: "translateY(0)", opacity: "0.6" },
@@ -80,8 +80,8 @@ const config: Config = {
       boxShadow: {
         card: "0 4px 24px rgba(0,0,0,0.3)",
         "card-hover": "0 8px 40px rgba(0,0,0,0.5)",
-        "glow-orange": "0 0 40px rgba(255,140,0,0.15)",
-        "glow-purple": "0 0 40px rgba(129,40,110,0.15)",
+        "glow-orange": "0 0 40px rgba(150,123,182,0.15)",
+        "glow-purple": "0 0 40px rgba(97,74,120,0.15)",
       },
     },
   },
