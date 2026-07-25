@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "brand:check": "node scripts/check-canonical-brand.mjs",
+    "brand:sync": "node scripts/sync-canonical-brand.mjs",
+    "prebuild": "npm run brand:check"
   },
   "dependencies": {
     "clsx": "^2.1.1",
