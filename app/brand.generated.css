@@ -1,0 +1,77 @@
+/* @generated — DO NOT EDIT
+source: mhmmdalmutairi/azr-design-system/tokens.css
+source-ref: agent/azr-output-engine
+source-commit: 68f24d2c0bddbbae40c1278cf957341225bc7b7d
+source-version: v.03.2
+*/
+/* AZR Design Tokens v.03.2 — canonical source */
+:root {
+  --cream:#F2EDE3;
+  --paper:#FBF7EE;
+  --paper-2:#F4EFE5;
+  --ink:#0A1628;
+  --ink-deep:#050B14;
+  --ink-warm:#1B1815;
+  --mut:#6B5E47;
+  --mut-2:#7A7268;
+  --rule:#D8CFB8;
+  --p50:#F3EFF7;
+  --p100:#E6DEEE;
+  --p200:#D3C6E0;
+  --p300:#BEAACF;
+  --p400:#AB93C2;
+  --p500:#967BB6;
+  --p600:#7C6199;
+  --p700:#614A78;
+  --p800:#473658;
+  --p900:#2D2238;
+  --azr:var(--p500);
+  --azr-deep:var(--p700);
+  --azr-soft:var(--p200);
+  --accent:var(--p500);
+  --concept:var(--p500);
+  --concept-deep:var(--p700);
+  --concept-soft:var(--p200);
+  --alert:#BE2C2C;
+  --success:#1A8C5C;
+  --ar:'Tajawal',sans-serif;
+  --en:'Inter',sans-serif;
+  --serif:'Instrument Serif',serif;
+  --mono:'JetBrains Mono',monospace;
+  --d1:clamp(64px,9vw,128px);
+  --d2:clamp(56px,7.5vw,108px);
+  --h1:clamp(44px,5vw,72px);
+  --h2:clamp(34px,3.4vw,48px);
+  --h3:clamp(28px,2.6vw,36px);
+  --h4:24px;
+  --lede:22px;
+  --body:18px;
+  --small:14px;
+  --label:13px;
+  --space-0:0;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:20px;
+  --space-5:32px;
+  --space-6:48px;
+  --space-7:72px;
+  --space-8:104px;
+  --space-9:144px;
+  --container:1240px;
+  --gutter:clamp(24px,6vw,100px);
+  --radius-sm:6px;
+  --radius-md:12px;
+  --radius-lg:20px;
+  --radius-pill:999px;
+  --stroke-hair:1px;
+  --stroke-icon:1.5px;
+  --shadow-sm:0 1px 2px rgba(10,22,40,.04);
+  --shadow-md:0 4px 16px rgba(10,22,40,.06);
+  --shadow-lg:0 18px 48px rgba(10,22,40,.10);
+  --dur-1:140ms;
+  --dur-2:260ms;
+  --dur-3:480ms;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
