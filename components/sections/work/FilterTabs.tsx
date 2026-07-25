@@ -19,7 +19,7 @@ export default function FilterTabs({ active, onChange, locale = "ar" }: FilterTa
           className={cn(
             "px-5 py-2 rounded-full text-sm font-medium transition-all",
             active === cat.slug
-              ? "bg-[#FF8C00] text-white"
+              ? "bg-[var(--azr)] text-white"
               : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"
           )}
         >

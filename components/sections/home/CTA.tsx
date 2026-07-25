@@ -10,7 +10,7 @@ export default function CTA({ locale = "ar" }: CTAProps) {
   const isRTL = locale === "ar";
 
   return (
-    <section className="relative py-40 md:py-48 px-6 md:px-12 lg:px-24 bg-[#001229] overflow-hidden">
+    <section className="relative py-40 md:py-48 px-6 md:px-12 lg:px-24 bg-[var(--ink)] overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
 
       {/* Strong glow orbs */}
@@ -42,7 +42,7 @@ export default function CTA({ locale = "ar" }: CTAProps) {
         <ScrollReveal delay={0.2}>
           <Link
             href={isRTL ? "/contact" : "/en/contact"}
-            className="cta-breath inline-flex px-12 py-5 bg-[#FF8C00] hover:bg-[#E67E00] text-white font-semibold rounded-xl transition-colors text-xl"
+            className="cta-breath inline-flex px-12 py-5 bg-[var(--azr)] hover:bg-[var(--azr-deep)] text-white font-semibold rounded-xl transition-colors text-xl"
           >
             {isRTL ? "ابدأ مشروعك الآن" : "Start Your Project Now"}
           </Link>

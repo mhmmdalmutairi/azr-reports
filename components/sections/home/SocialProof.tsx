@@ -28,7 +28,7 @@ export default function SocialProof({ locale = "ar" }: SocialProofProps) {
   const t = testimonials[current];
 
   return (
-    <section className="relative section-padding bg-[#001229] overflow-hidden">
+    <section className="relative section-padding bg-[var(--ink)] overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
       <GlowOrbs variant="section" />
 
@@ -43,7 +43,7 @@ export default function SocialProof({ locale = "ar" }: SocialProofProps) {
           <div className="relative text-center px-4 md:px-16 py-12">
             {/* Large quote mark */}
             <div
-              className="absolute top-0 left-1/2 -translate-x-1/2 text-[120px] font-serif text-[#FF8C00]/[0.08] leading-none select-none pointer-events-none"
+              className="absolute top-0 left-1/2 -translate-x-1/2 text-[120px] font-serif text-[var(--azr)]/[0.08] leading-none select-none pointer-events-none"
               aria-hidden="true"
             >
               &ldquo;
@@ -64,7 +64,7 @@ export default function SocialProof({ locale = "ar" }: SocialProofProps) {
                 <div>
                   <p className="text-white font-semibold text-lg">{t.author[locale]}</p>
                   <p className="text-white/40 text-sm mt-1">{t.role[locale]}</p>
-                  <p className="text-[#FF8C00] text-sm mt-2 font-medium">{t.project[locale]}</p>
+                  <p className="text-[var(--azr)] text-sm mt-2 font-medium">{t.project[locale]}</p>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -77,7 +77,7 @@ export default function SocialProof({ locale = "ar" }: SocialProofProps) {
                   onClick={() => setCurrent(i)}
                   className={`dot-pill h-2 rounded-full transition-all duration-300 ${
                     i === current
-                      ? "w-6 bg-[#FF8C00]"
+                      ? "w-6 bg-[var(--azr)]"
                       : "w-2 bg-white/20 hover:bg-white/40"
                   }`}
                   aria-label={`Testimonial ${i + 1}`}

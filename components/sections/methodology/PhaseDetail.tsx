@@ -23,14 +23,14 @@ export default function PhaseDetail({ phase, locale = "ar", index = 0 }: PhaseDe
           className="w-full flex items-center justify-between p-6 md:p-8 text-start hover:bg-white/[0.02] transition-colors"
         >
           <div className="flex items-center gap-4 md:gap-6">
-            <span className="text-3xl md:text-4xl font-bold text-[#FF8C00]/30">
+            <span className="text-3xl md:text-4xl font-bold text-[var(--azr)]/30">
               {phase.number}
             </span>
             <div>
               <h3 className="text-xl md:text-2xl font-bold text-white">
                 {phase.title[locale]}
               </h3>
-              <p className="text-[#FF8C00] text-sm mt-1">
+              <p className="text-[var(--azr)] text-sm mt-1">
                 {phase.subtitle[locale]}
               </p>
             </div>
@@ -63,7 +63,7 @@ export default function PhaseDetail({ phase, locale = "ar", index = 0 }: PhaseDe
                     <ul className="space-y-3">
                       {phase.activities[locale].map((a, i) => (
                         <li key={i} className="flex items-start gap-3 text-white/70 text-sm">
-                          <Check size={14} className="text-[#FF8C00] mt-0.5 flex-shrink-0" />
+                          <Check size={14} className="text-[var(--azr)] mt-0.5 flex-shrink-0" />
                           {a}
                         </li>
                       ))}

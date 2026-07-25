@@ -38,7 +38,7 @@ export default function Values({ locale = "ar" }: ValuesProps) {
   const isRTL = locale === "ar";
 
   return (
-    <section className="section-padding bg-[#001229]">
+    <section className="section-padding bg-[var(--ink)]">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           badge={isRTL ? "قيمنا" : "Our Values"}
@@ -48,7 +48,7 @@ export default function Values({ locale = "ar" }: ValuesProps) {
           {values.map((v, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
               <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.06] text-center h-full">
-                <div className="w-12 h-12 rounded-xl bg-[#FF8C00]/10 flex items-center justify-center text-[#FF8C00] mx-auto mb-4">
+                <div className="w-12 h-12 rounded-xl bg-[var(--azr)]/10 flex items-center justify-center text-[var(--azr)] mx-auto mb-4">
                   {v.icon}
                 </div>
                 <h3 className="text-white font-bold mb-2">{v.title[locale]}</h3>
