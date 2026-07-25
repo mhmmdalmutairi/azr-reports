@@ -1,19 +1,8 @@
+@import "./brand.generated.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --navy: #001F3F;
-  --navy-deep: #001229;
-  --orange: #FF8C00;
-  --purple: #81286e;
-  --text: #FFFFFF;
-  --text-muted: rgba(255, 255, 255, 0.75);
-  --text-subtle: rgba(255, 255, 255, 0.5);
-  --card-bg: rgba(255, 255, 255, 0.04);
-  --card-border: rgba(255, 255, 255, 0.08);
-  scroll-behavior: smooth;
-}
 
 * {
   box-sizing: border-box;
@@ -26,7 +15,7 @@ html {
 }
 
 body {
-  background-color: var(--navy);
+  background-color: var(--ink);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,12 +23,12 @@ body {
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-track { background: var(--ink); }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+::-webkit-scrollbar-thumb:hover { background: var(--p500); }
 
 ::selection {
-  background: rgba(255, 140, 0, 0.25);
+  background: rgba(150, 123, 182, 0.25);
   color: #fff;
 }
 
@@ -48,7 +37,7 @@ body {
   background: rgba(0, 31, 63, 0.8);
   backdrop-filter: blur(24px) saturate(1.5);
   -webkit-backdrop-filter: blur(24px) saturate(1.5);
-  border-bottom: 1px solid rgba(255, 140, 0, 0.08);
+  border-bottom: 1px solid rgba(150, 123, 182, 0.08);
 }
 
 /* Grid background with radial mask */
@@ -71,7 +60,7 @@ body {
 }
 .card-hover:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(255,140,0,0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(150,123,182,0.08);
 }
 
 /* CTA breathing button */
@@ -83,9 +72,9 @@ body {
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    #FF8C00 0%,
+    #967BB6 0%,
     #FFB347 40%,
-    #FF8C00 60%,
+    #967BB6 60%,
     #FFB347 100%
   );
   background-size: 200% auto;
@@ -98,7 +87,7 @@ body {
 /* Section divider */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,140,0,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(150,123,182,0.3), transparent);
   margin: 0 auto;
   width: 60%;
 }
@@ -107,7 +96,7 @@ body {
 .rotating-ring {
   position: absolute;
   border-radius: 50%;
-  border: 1px solid rgba(255,140,0,0.06);
+  border: 1px solid rgba(150,123,182,0.06);
   top: 50%;
   left: 50%;
 }
@@ -125,15 +114,15 @@ body {
 
 /* Timeline connector */
 .timeline-line {
-  background: linear-gradient(90deg, rgba(255,140,0,0.1), rgba(255,140,0,0.4), rgba(255,140,0,0.1));
+  background: linear-gradient(90deg, rgba(150,123,182,0.1), rgba(150,123,182,0.4), rgba(150,123,182,0.1));
 }
 
 .timeline-dot {
-  box-shadow: 0 0 0 4px rgba(255,140,0,0.2);
+  box-shadow: 0 0 0 4px rgba(150,123,182,0.2);
 }
 
 .timeline-dot-active {
-  box-shadow: 0 0 0 4px rgba(255,140,0,0.2), 0 0 12px rgba(255,140,0,0.3);
+  box-shadow: 0 0 0 4px rgba(150,123,182,0.2), 0 0 12px rgba(150,123,182,0.3);
 }
 
 /* Pill dot for carousel */
@@ -154,7 +143,7 @@ body {
   .shimmer-text {
     animation: none;
     background: none;
-    -webkit-text-fill-color: #FF8C00;
+    -webkit-text-fill-color: #967BB6;
   }
 }
 
