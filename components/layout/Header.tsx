@@ -81,7 +81,7 @@ export default function Header({ locale = "ar" }: HeaderProps) {
           </Link>
           <Link
             href={isRTL ? "/contact" : "/en/contact"}
-            className="hidden md:inline-flex px-5 py-2 bg-[#FF8C00] hover:bg-[#E67E00] text-white text-sm font-medium rounded-lg transition-colors"
+            className="hidden md:inline-flex px-5 py-2 bg-[#967BB6] hover:bg-[#7C6199] text-white text-sm font-medium rounded-lg transition-colors"
           >
             {isRTL ? "ابدأ مشروعك" : "Start Your Project"}
           </Link>
@@ -119,7 +119,7 @@ export default function Header({ locale = "ar" }: HeaderProps) {
               <Link
                 href={isRTL ? "/contact" : "/en/contact"}
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 px-5 py-3 bg-[#FF8C00] hover:bg-[#E67E00] text-white text-center font-medium rounded-lg transition-colors"
+                className="mt-2 px-5 py-3 bg-[#967BB6] hover:bg-[#7C6199] text-white text-center font-medium rounded-lg transition-colors"
               >
                 {isRTL ? "ابدأ مشروعك" : "Start Your Project"}
               </Link>
