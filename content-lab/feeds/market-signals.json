@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "task": {
+    "id": "market-signals",
+    "name": "رادار الإشارات",
+    "short_name": "الإشارات",
+    "description": "يلتقط التحولات والأخبار والقرارات التي تستحق أن تبني آزر حولها محتوى أصيلًا.",
+    "color": "#6F4BF2"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "retention_runs": 60
+  },
+  "runs": []
+}
