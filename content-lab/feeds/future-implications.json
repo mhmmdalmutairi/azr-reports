@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "task": {
+    "id": "future-implications",
+    "name": "مترجم التحولات",
+    "short_name": "التحولات",
+    "description": "يترجم التحولات التقنية والتنظيمية والاجتماعية إلى آثار عملية وأسئلة وفرص تخص عملاء آزر.",
+    "color": "#2B8F83"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "retention_runs": 60
+  },
+  "runs": []
+}
