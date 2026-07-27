@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "task": {
+    "id": "leadership-language",
+    "name": "خريطة لغة القيادات",
+    "short_name": "لغة القيادات",
+    "description": "يحلل خطاب القيادات والجهات ويستخرج الموضوعات الصاعدة والتوترات والأسئلة الغائبة.",
+    "color": "#D45B89"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "retention_runs": 60
+  },
+  "runs": []
+}
