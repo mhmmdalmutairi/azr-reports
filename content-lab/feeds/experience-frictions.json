@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "task": {
+    "id": "experience-frictions",
+    "name": "أطلس الاحتكاكات",
+    "short_name": "الاحتكاكات",
+    "description": "يرصد فجوات التجربة العامة ويحوّلها إلى قراءة قطاعية وفرص ابتكار قابلة للنشر.",
+    "color": "#E58E35"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "retention_runs": 60
+  },
+  "runs": []
+}
