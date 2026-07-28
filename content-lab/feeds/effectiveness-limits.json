@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "task": {
+    "id": "effectiveness-limits",
+    "name": "مختبر حدود الفاعلية",
+    "short_name": "حدود الفاعلية",
+    "description": "يتعلم من نتائج مختلطة أو متعثرة دون محاكمة الجهات أو اختراع أسباب لا تثبتها الأدلة.",
+    "color": "#B7614B"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
+    "retention_runs": 60
+  },
+  "runs": []
+}
