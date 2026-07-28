@@ -1,16 +1,21 @@
 {
-  "version": 1,
+  "version": 2,
   "task": {
     "id": "leadership-language",
-    "name": "خريطة لغة القيادات",
-    "short_name": "لغة القيادات",
-    "description": "يحلل خطاب القيادات والجهات ويستخرج الموضوعات الصاعدة والتوترات والأسئلة الغائبة.",
+    "name": "مرصد الخطاب المؤسسي",
+    "short_name": "الخطاب",
+    "description": "يرصد تحولًا متكررًا في تعريف المؤسسة للمشكلة أو الجمهور أو معيار النجاح دون نسبة نيات للأشخاص.",
     "color": "#D45B89"
   },
   "calibration": {
     "phase": "intensive-pilot",
     "started_at": "2026-07-28",
     "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
     "retention_runs": 60
   },
   "runs": []
