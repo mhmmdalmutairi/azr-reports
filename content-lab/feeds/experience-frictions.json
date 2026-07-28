@@ -1,16 +1,21 @@
 {
-  "version": 1,
+  "version": 2,
   "task": {
     "id": "experience-frictions",
-    "name": "أطلس الاحتكاكات",
+    "name": "مرصد الاحتكاكات",
     "short_name": "الاحتكاكات",
-    "description": "يرصد فجوات التجربة العامة ويحوّلها إلى قراءة قطاعية وفرص ابتكار قابلة للنشر.",
+    "description": "يجمع أنماطًا موثقة في التجربة المعيشة تمهيدًا لقراءة قطاعية آمنة، لا شكاوى فردية.",
     "color": "#E58E35"
   },
   "calibration": {
     "phase": "intensive-pilot",
     "started_at": "2026-07-28",
     "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
     "retention_runs": 60
   },
   "runs": []
