@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "task": {
+    "id": "assumption-test",
+    "name": "اختبار المسلمات",
+    "short_name": "المسلمات",
+    "description": "يختبر الاعتقاد المهني بأفضل أدلة التأييد والاعتراض وقد ينتهي بتأييده أو تقييده أو رفضه.",
+    "color": "#9D7A21"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
+    "retention_runs": 60
+  },
+  "runs": []
+}
