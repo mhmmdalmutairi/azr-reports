@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "task": {
+    "id": "decision-data",
+    "name": "قصص البيانات القرارّية",
+    "short_name": "البيانات",
+    "description": "يبدأ بسؤال قرار قبل رؤية القيم ويحوّل بيانات سليمة إلى ملاحظة منضبطة ورسم واحد.",
+    "color": "#16808A"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
+    "retention_runs": 60
+  },
+  "runs": []
+}
