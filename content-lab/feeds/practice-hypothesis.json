@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "task": {
+    "id": "practice-hypothesis",
+    "name": "من الممارسة إلى فرضية",
+    "short_name": "ممارسة آزر",
+    "description": "يستخرج تعلمًا موثقًا من ملفات آزر المصرح بها مع بوابات صارمة للحقوق والسرية وإعادة التعرف.",
+    "color": "#5032A0"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
+    "retention_runs": 60
+  },
+  "runs": []
+}
