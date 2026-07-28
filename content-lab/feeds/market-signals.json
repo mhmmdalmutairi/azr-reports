@@ -1,16 +1,21 @@
 {
-  "version": 1,
+  "version": 2,
   "task": {
     "id": "market-signals",
-    "name": "رادار الإشارات",
-    "short_name": "الإشارات",
-    "description": "يلتقط التحولات والأخبار والقرارات التي تستحق أن تبني آزر حولها محتوى أصيلًا.",
+    "name": "إنذار التحولات",
+    "short_name": "التحولات",
+    "description": "يرصد تغيرًا حقيقيًا موثقًا يخلق قرارًا أو احتياجًا جديدًا، ويقبل الصمت عند غياب إشارة مؤهلة.",
     "color": "#6F4BF2"
   },
   "calibration": {
     "phase": "intensive-pilot",
     "started_at": "2026-07-28",
     "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
     "retention_runs": 60
   },
   "runs": []
