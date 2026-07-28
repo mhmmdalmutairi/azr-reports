@@ -1,16 +1,21 @@
 {
-  "version": 1,
+  "version": 2,
   "task": {
     "id": "future-implications",
-    "name": "مترجم التحولات",
-    "short_name": "التحولات",
-    "description": "يترجم التحولات التقنية والتنظيمية والاجتماعية إلى آثار عملية وأسئلة وفرص تخص عملاء آزر.",
+    "name": "مرصد الاستعداد",
+    "short_name": "الاستعداد",
+    "description": "يجمع إشارات مستقلة حول قرار محدد، ولا يبني سيناريو إلا بعد تحقق عتبة قابلة للإبطال.",
     "color": "#2B8F83"
   },
   "calibration": {
     "phase": "intensive-pilot",
     "started_at": "2026-07-28",
     "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
     "retention_runs": 60
   },
   "runs": []
