@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "task": {
+    "id": "mandate-to-experience",
+    "name": "من التكليف إلى التجربة",
+    "short_name": "التكليف",
+    "description": "يفصل النص الرسمي عن أثره التشغيلي المحتمل ويكشف نقطة ترجمة بشرية أو سوقية تستحق الفحص.",
+    "color": "#3178C6"
+  },
+  "calibration": {
+    "phase": "intensive-pilot",
+    "started_at": "2026-07-28",
+    "review_after_days": 14,
+    "schedule_timezone": "Asia/Riyadh",
+    "schedule_times": [
+      "07:00",
+      "12:00"
+    ],
+    "retention_runs": 60
+  },
+  "runs": []
+}
