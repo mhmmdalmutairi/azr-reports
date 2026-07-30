@@ -20,6 +20,63 @@
   },
   "runs": [
     {
+      "id": "market-signals-20260730T070155+0300",
+      "executed_at": "2026-07-30T07:01:55+03:00",
+      "window": "07:00",
+      "outcome": "no_candidate",
+      "title": "لا إشارة مؤهلة: إعلانات حديثة بلا تبعة تشغيلية جديدة قابلة للإثبات",
+      "thesis": "لم يظهر خلال نافذة الفحص إعلان أصلي حديث يجمع بين قرار أو استثمار متحقق، ومتأثر واضح، وتبعة جديدة قابلة للتسمية، وصلة غير مصطنعة بخدمات آزر. أبرز المواد كانت تحديثات نتائج أو مبادرات وبرامج معلنة؛ وهي لا تكفي وحدها لإثبات نشوء احتياج جديد أو انتقال جهة من التخطيط إلى التنفيذ.",
+      "summary": "الحقيقة الموثقة: نُشرت نتائج مالية مؤقتة، ومادة تفسيرية عن سوق الكربون، وصفحة لبرنامج بحثي مرتبط بتجربة الحجاج. التفسير: يمكن أن تكون لها آثار لاحقة، لكن المصادر المتاحة لا تثبت قرارًا تنفيذيًا جديدًا يغيّر رحلة أو منتجًا أو نموذج تشغيل. الفرضية غير المؤهلة: قد تنشأ فرص في تصميم التجربة أو الابتكار عند ظهور تكليف أو تمويل أو بدء تنفيذ موثق. ما لا نعرفه: نطاقات العمل والميزانيات والمالكون التنفيذيون ومواعيد التنفيذ.",
+      "azr_relevance": "لا توجد صلة عملية كافية في هذه الجولة؛ تحويل الأخبار إلى فرصة تصميم أو ابتكار سيكون استباقًا للدليل.",
+      "audience": "قيادة آزر وفريق تطوير الأعمال والمحتوى",
+      "recommended_format": "لا مادة للنشر؛ سجل رقابي داخلي فقط",
+      "sources": [
+        {
+          "title": "stc Announces First Half of 2026 Financial Results",
+          "url": "https://www.spa.gov.sa/en/N2644104",
+          "date": "2026-07-29",
+          "type": "مصدر رسمي — نتائج مالية؛ مرفوض لغياب تبعة تشغيلية جديدة محددة"
+        },
+        {
+          "title": "Saudi Arabia's Voluntary Carbon Market Fuels the Shift to a Low-Carbon Economy",
+          "url": "https://www.spa.gov.sa/en/N2642816",
+          "date": "2026-07-28",
+          "type": "مصدر رسمي — مادة تفسيرية؛ مرفوض لعدم كونه قرارًا أو إطلاقًا جديدًا"
+        },
+        {
+          "title": "Hajj and Umrah and Education Launch National Research Award to Enhance Pilgrims’ Experience",
+          "url": "https://haj.gov.sa/en/Media-Center/Ministry-News/2026/Hajj-and-Umrah-and-Education-Launch-National-Research-Award-to-Enhance-Pilgrims-Experience",
+          "date": "2026-07-29",
+          "type": "مصدر رسمي — مبادرة/جائزة؛ مرفوض لعدم ثبوت أثر متحقق أو احتياج تنفيذي جديد"
+        }
+      ],
+      "scores": {
+        "freshness": 83,
+        "distinctiveness": 18,
+        "strategic_fit": 24,
+        "evidence_strength": 38,
+        "publishability": 12,
+        "total": 35
+      },
+      "flags": {
+        "duplicate_risk": false,
+        "source_gap": true,
+        "sensitive": false
+      },
+      "rejection_reasons": [
+        "لا يوجد مرشح يجمع مصدرًا أصليًا حديثًا مع متأثر واضح وتبعة تشغيلية جديدة مثبتة.",
+        "المواد الأقرب كانت نتائج أو مواد تفسيرية أو مبادرات؛ لا يجوز معاملتها كأثر متحقق.",
+        "أي صلة بخدمات آزر ستعتمد على افتراض نطاق عمل أو صاحب قرار غير منشور."
+      ],
+      "content_package": {
+        "report_outline": [],
+        "linkedin_draft": "",
+        "x_thread": [],
+        "visual_direction": "",
+        "call_to_action": null
+      }
+    },
+    {
       "id": "market-signals-20260728T075206+0300",
       "executed_at": "2026-07-28T07:52:06+03:00",
       "window": "07:00",
