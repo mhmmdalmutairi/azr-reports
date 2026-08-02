@@ -1,10 +1,10 @@
 /* @generated — DO NOT EDIT
 source: mhmmdalmutairi/azr-design-system/tokens.css
-source-ref: agent/azr-output-engine
-source-commit: 68f24d2c0bddbbae40c1278cf957341225bc7b7d
-source-version: v.03.2
+source-ref: master
+source-commit: c5d99926a819900377cc88e2b13ce42423b31b42
+source-version: v.04.1
 */
-/* AZR Design Tokens v.03.2 — canonical source */
+/* AZR Design Tokens v.04.1 — canonical source */
 :root {
   --cream:#F2EDE3;
   --paper:#FBF7EE;
@@ -34,9 +34,9 @@ source-version: v.03.2
   --concept-soft:var(--p200);
   --alert:#BE2C2C;
   --success:#1A8C5C;
-  --ar:'Tajawal',sans-serif;
+  --ar:'Tajawal','Noto Sans Arabic',sans-serif;
   --en:'Inter',sans-serif;
-  --serif:'Instrument Serif',serif;
+  --serif:'Instrument Serif','Noto Kufi Arabic',serif;
   --mono:'JetBrains Mono',monospace;
   --d1:clamp(64px,9vw,128px);
   --d2:clamp(56px,7.5vw,108px);

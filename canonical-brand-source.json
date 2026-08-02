@@ -2,9 +2,9 @@
   "schema_version": 1,
   "role": "consumer",
   "canonical_repository": "mhmmdalmutairi/azr-design-system",
-  "source_ref": "agent/azr-output-engine",
-  "source_commit": "68f24d2c0bddbbae40c1278cf957341225bc7b7d",
-  "source_version": "v.03.2",
+  "source_ref": "master",
+  "source_commit": "c5d99926a819900377cc88e2b13ce42423b31b42",
+  "source_version": "v.04.1",
   "generated": [
     "app/brand.generated.css",
     "public/assets/azr-wordmark-cream.png"
