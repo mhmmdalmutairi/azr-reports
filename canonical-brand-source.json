@@ -3,8 +3,8 @@
   "role": "consumer",
   "canonical_repository": "mhmmdalmutairi/azr-design-system",
   "source_ref": "master",
-  "source_commit": "1c6cdadcee9e13072e8fc2071c9d49f78b43c337",
-  "source_version": "v.04.0",
+  "source_commit": "c5d99926a819900377cc88e2b13ce42423b31b42",
+  "source_version": "v.04.1",
   "generated": [
     "app/brand.generated.css",
     "public/assets/azr-wordmark-cream.png"
